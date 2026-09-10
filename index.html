@@ -284,16 +284,16 @@
 
 <header class="nav" id="navbar">
   <div class="nav-inner">
-    <a href__="#/" class="brand">Auréa</a>
+    <a href="#/" class="brand">Auréa</a>
     <nav class="nav-links" id="navLinks">
-      <a href__="#/" data-route="/">Início</a>
-      <a href__="#/salao" data-route="/salao">O Salão</a>
-      <a href__="#/procedimentos" data-route="/procedimentos">Procedimentos</a>
-      <a href__="#/loja" data-route="/loja">Loja</a>
-      <a href__="#/contato" data-route="/contato">Contato</a>
+      <a href="#/" data-route="/">Início</a>
+      <a href="#/salao" data-route="/salao">O Salão</a>
+      <a href="#/procedimentos" data-route="/procedimentos">Procedimentos</a>
+      <a href="#/loja" data-route="/loja">Loja</a>
+      <a href="#/contato" data-route="/contato">Contato</a>
     </nav>
     <div class="nav-right">
-      <a href__="#/carrinho" class="cart-link" aria-label="Carrinho">
+      <a href="#/carrinho" class="cart-link" aria-label="Carrinho">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         <span class="cart-count hidden" id="cartCount">0</span>
       </a>
@@ -304,11 +304,11 @@
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <div class="mm-inner">
-      <a href__="#/" data-route="/">Início</a>
-      <a href__="#/salao" data-route="/salao">O Salão</a>
-      <a href__="#/procedimentos" data-route="/procedimentos">Procedimentos</a>
-      <a href__="#/loja" data-route="/loja">Loja</a>
-      <a href__="#/contato" data-route="/contato">Contato</a>
+      <a href="#/" data-route="/">Início</a>
+      <a href="#/salao" data-route="/salao">O Salão</a>
+      <a href="#/procedimentos" data-route="/procedimentos">Procedimentos</a>
+      <a href="#/loja" data-route="/loja">Loja</a>
+      <a href="#/contato" data-route="/contato">Contato</a>
     </div>
   </div>
 </header>
@@ -353,7 +353,7 @@ const SERVICES = [
 ];
 
 const PRODUCTS = [
-  {id:"p1",name:"Shampoo Reconstrutor",brand:"Auréa Pro",category:"Shampoos",price:89.90,description:"Shampoo de reconstrção com queratina e óleos nobres. Limpa suavemente sem ressecar, devolvendo massa aos fios danificados.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/4eda256ed_generated_98681078.jpg"},
+  {id:"p1",name:"Shampoo Reconstrutor",brand:"Auréa Pro",category:"Shampoos",price:89.90,description:"Shampoo de reconstrução com queratina e óleos nobres. Limpa suavemente sem ressecar, devolvendo massa aos fios danificados.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/4eda256ed_generated_98681078.jpg"},
   {id:"p2",name:"Condicionador Hidratante",brand:"Auréa Pro",category:"Condicionadores",price:92.90,description:"Condicionador com manteiga de karité e pantenol. Desembaraça, hidrata e sela as cutículas para brilho intenso.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/bfebf7ba6_generated_e5594907.jpg"},
   {id:"p3",name:"Máscara de Tratamento Intensivo",brand:"Auréa Pro",category:"Máscaras",price:149.90,description:"Máscara de uso semanal com alta concentração de ativos reconstrutores. Devolve massa, maciez e brilho em uma única aplicação.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/e27dd4604_generated_f7bbbf87.jpg"},
   {id:"p4",name:"Óleo Finalizador Nobre",brand:"Auréa Pro",category:"Óleos",price:119.90,description:"Óleo multifuncional com argan e camélia. Controla o frizz, sela as pontas e proporciona brilho espelhado sem pesar.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/938b1ef89_generated_5a4ef479.jpg"},
@@ -412,8 +412,10 @@ function clearCartAll(){ cart = []; saveCart(); updateCartBadge(); if(currentRou
 function updateCartBadge(){
   const el = document.getElementById('cartCount');
   const c = cartCount();
-  el.textContent = c;
-  el.classList.toggle('hidden', c===0);
+  if(el) {
+    el.textContent = c;
+    el.classList.toggle('hidden', c===0);
+  }
 }
 
 /* ============ TOAST ============ */
@@ -454,7 +456,10 @@ function renderNavActive(){
 }
 
 /* ============ NAVBAR ============ */
-function onScroll(){ document.getElementById('navbar').classList.toggle('scrolled', window.scrollY>20); }
+function onScroll(){ 
+  const nav = document.getElementById('navbar');
+  if(nav) nav.classList.toggle('scrolled', window.scrollY>20); 
+}
 function toggleMobile(){ document.getElementById('mobileMenu').classList.toggle('open'); }
 function closeMobile(){ document.getElementById('mobileMenu').classList.remove('open'); }
 
@@ -467,7 +472,7 @@ function pageHome(){
   const featured = SERVICES.filter(s=>s.featured).slice(0,3);
   const display = featured.length ? featured : SERVICES.slice(0,3);
   const svcCards = display.map(s=>`
-    <a class="svc-card" href__="#/procedimentos">
+    <a class="svc-card" href="#/procedimentos">
       <div class="img-wrap"><img src="${s.image_after||MACRO_IMG}" alt="${esc(s.name)}" class="scale-hover"></div>
       <p class="label-caps" style="margin-bottom:8px">${esc(s.category)}</p>
       <h3 style="font-size:1.25rem;margin-bottom:8px">${esc(s.name)}</h3>
@@ -493,8 +498,8 @@ function pageHome(){
         <p class="label-caps" style="color:rgba(255,255,255,.8);margin-bottom:16px">${esc(SALON.tagline)}</p>
         <h1>A arte de<br>cuidar do<br>cabelo</h1>
         <div class="btn-row" style="margin-top:32px">
-          <a href__="#/procedimentos" class="btn-bronze">Agendar Procedimento</a>
-          <a href__="#/loja" class="btn-outline btn-outline-white">Ver Loja</a>
+          <a href="#/procedimentos" class="btn-bronze">Agendar Procedimento</a>
+          <a href="#/loja" class="btn-outline btn-outline-white">Ver Loja</a>
         </div>
       </div>
       <div class="hero-bounce">
@@ -509,7 +514,7 @@ function pageHome(){
           <h2 style="font-size:clamp(1.875rem,3vw,2.25rem);line-height:1.2;margin-bottom:24px">Onde cada fio é tratado como obra de arte</h2>
           <p class="text-muted" style="margin-bottom:20px;line-height:1.6">Há mais de uma década, o ${esc(SALON.name)} une técnica, sensibilidade e produtos premium para revelar a melhor versão do seu cabelo. Nosso atendimento personalizado começa na escuta e termina no espelho — com resultados que respeitam a saúde capilar.</p>
           <p class="text-muted" style="margin-bottom:32px;line-height:1.6">Trabalhamos com marcas profissionais selecionadas e técnicas exclusivas, em um ambiente pensado para o seu bem-estar.</p>
-          <a href__="#/salao" class="link-arrow">Conheça o salão <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#/salao" class="link-arrow">Conheça o salão <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
         <div class="order-1 md-order-1">
           <div class="aspect-45 overflow-hidden"><img src="${ABOUT_IMG}" alt="Espaço do salão" class="obj-cover scale-hover"></div>
@@ -523,7 +528,7 @@ function pageHome(){
       <div class="wrap">
         ${secHead('Procedimentos em destaque','Serviços que revelam a sua beleza','Uma curadoria dos nossos procedimentos mais procurados. Veja a lista completa na página de procedimentos.')}
         <div class="grid-3">${svcCards}</div>
-        <div class="text-center" style="margin-top:48px"><a href__="#/procedimentos" class="btn-outline">Ver todos os procedimentos</a></div>
+        <div class="text-center" style="margin-top:48px"><a href="#/procedimentos" class="btn-outline">Ver todos os procedimentos</a></div>
       </div>
     </section>
 
@@ -548,8 +553,8 @@ function pageHome(){
         <h2>Pronta para se transformar?</h2>
         <p>Agende seu procedimento ou explore nossa loja de produtos profissionais.</p>
         <div class="btn-row" style="justify-content:center">
-          <a href__="#/procedimentos" class="btn-bronze">Agendar Procedimento</a>
-          <a href__="#/loja" class="btn-outline btn-outline-white">Ver Loja</a>
+          <a href="#/procedimentos" class="btn-bronze">Agendar Procedimento</a>
+          <a href="#/loja" class="btn-outline btn-outline-white">Ver Loja</a>
         </div>
       </div>
     </section>
@@ -730,8 +735,8 @@ function pageCart(){
         <h1 style="font-size:1.875rem;margin-bottom:16px">Seu carrinho está vazio</h1>
         <p class="text-muted" style="margin-bottom:32px">Adicione procedimentos e produtos para montar seu pedido.</p>
         <div class="btn-row" style="justify-content:center;display:flex;flex-wrap:wrap;gap:16px">
-          <a href__="#/procedimentos" class="btn-bronze">Agendar Procedimento</a>
-          <a href__="#/loja" class="btn-outline">Ver Loja</a>
+          <a href="#/procedimentos" class="btn-bronze">Agendar Procedimento</a>
+          <a href="#/loja" class="btn-outline">Ver Loja</a>
         </div>
       </div>
     </div>`;
@@ -866,8 +871,8 @@ function pageContact(){
               <div class="ci-info"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><div><p class="label-caps ci-label">Horário de funcionamento</p><p class="text-muted">${esc(SALON.hours)}</p></div></div>
             </div>
             <div class="social-row">
-              <a href__="${SALON.instagram}" target="_blank" rel="noreferrer" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
-              <a href__="${SALON.facebook}" target="_blank" rel="noreferrer" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+              <a href="${SALON.instagram}" target="_blank" rel="noreferrer" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+              <a href="${SALON.facebook}" target="_blank" rel="noreferrer" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
             </div>
             <div class="map-box"><iframe src="${SALON.mapsEmbedUrl}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
           </div>
@@ -901,11 +906,11 @@ function pageFooter(){
           <div>
             <p class="label-caps" style="margin-bottom:20px">Navegação</p>
             <ul>
-              <li><a href__="#/">Início</a></li>
-              <li><a href__="#/salao">O Salão</a></li>
-              <li><a href__="#/procedimentos">Procedimentos</a></li>
-              <li><a href__="#/loja">Loja</a></li>
-              <li><a href__="#/contato">Contato</a></li>
+              <li><a href="#/">Início</a></li>
+              <li><a href="#/salao">O Salão</a></li>
+              <li><a href="#/procedimentos">Procedimentos</a></li>
+              <li><a href="#/loja">Loja</a></li>
+              <li><a href="#/contato">Contato</a></li>
             </ul>
           </div>
           <div>
@@ -920,8 +925,8 @@ function pageFooter(){
             <p class="label-caps" style="margin-bottom:20px">Horário</p>
             <p class="text-muted" style="display:flex;gap:12px;font-size:.875rem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>${esc(SALON.hours)}</span></p>
             <div style="display:flex;gap:16px;margin-top:24px">
-              <a href__="${SALON.instagram}" target="_blank" rel="noreferrer" aria-label="Instagram" style="color:color-mix(in srgb,var(--foreground) 60%,transparent);transition:color .3s" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='color-mix(in srgb,var(--foreground) 60%,transparent)'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
-              <a href__="${SALON.facebook}" target="_blank" rel="noreferrer" aria-label="Facebook" style="color:color-mix(in srgb,var(--foreground) 60%,transparent);transition:color .3s" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='color-mix(in srgb,var(--foreground) 60%,transparent)'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+              <a href="${SALON.instagram}" target="_blank" rel="noreferrer" aria-label="Instagram" style="color:color-mix(in srgb,var(--foreground) 60%,transparent);transition:color .3s" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='color-mix(in srgb,var(--foreground) 60%,transparent)'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+              <a href="${SALON.facebook}" target="_blank" rel="noreferrer" aria-label="Facebook" style="color:color-mix(in srgb,var(--foreground) 60%,transparent);transition:color .3s" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='color-mix(in srgb,var(--foreground) 60%,transparent)'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
             </div>
           </div>
         </div>

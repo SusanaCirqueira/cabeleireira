@@ -53,14 +53,14 @@ input,textarea,select{font-family:inherit}
 /* NAVBAR */
 header.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:all .5s}
 header.nav.scrolled{background:color-mix(in srgb, var(--background) 95%, transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--border)}
-header.nav .nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:150px !important;display:flex;align-items:center;justify-content:space-between}
+header.nav .nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:120px !important;display:flex;align-items:center;justify-content:space-between}
 @media(min-width:1024px){header.nav .nav-inner{padding:0 40px}}
 
 /* LOGO / BRAND */
 .brand{display:flex;align-items:center;text-decoration:none}
 .brand-logo{height:110px !important;max-height:none !important;width:auto !important;display:block !important;object-fit:contain !important}
 @media(max-width:768px){
-  header.nav .nav-inner{height:100px !important}
+  header.nav .nav-inner{height:85px !important}
   .brand-logo{height:75px !important}
 }
 

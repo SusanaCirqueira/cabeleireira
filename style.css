@@ -275,3 +275,23 @@ footer ul li a:hover{color:var(--primary)}
 .order-1{order:1}
 .order-2{order:2}
 @media(min-width:768px){.md-order-1{order:1}.md-order-2{order:2}}
+
+/* COLE ESTE BLOCO NO FINAL DO SEU STYLE.CSS */
+
+header.nav .nav-inner {
+  height: 140px !important; /* Aumenta a altura da barra do topo */
+}
+
+.brand-logo {
+  height: 100px !important; /* Força a logo a ficar bem grande */
+  max-height: none !important;
+}
+
+@media(max-width: 768px) {
+  header.nav .nav-inner {
+    height: 90px !important;
+  }
+  .brand-logo {
+    height: 65px !important;
+  }
+}

@@ -81,7 +81,7 @@ header.nav .nav-inner {
 }
 
 .brand-logo {
-  height: 84px !important; /* Ajustado para caber no cabeçalho menor */
+  height: 88px !important; /* Ajustado para caber no cabeçalho menor */
   width: auto !important;
   display: block !important;
   object-fit: contain !important;

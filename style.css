@@ -56,16 +56,18 @@ header.nav {
   background-color: #3a2215 !important;
   border-bottom: 1px solid var(--border);
   transition: all .3s;
+  overflow: visible !important; /* Garante que a logo maior possa se estender */
 }
 
 header.nav .nav-inner {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 24px;
-  height: 60px !important;
+  height: 60px !important; /* MANTÉM O CABEÇALHO COM 60PX */
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow: visible !important;
 }
 
 @media(min-width: 1024px) {
@@ -78,10 +80,13 @@ header.nav .nav-inner {
   display: flex;
   align-items: center;
   text-decoration: none;
+  overflow: visible !important;
+  z-index: 10;
 }
 
 .brand-logo {
-  height: 92px !important;
+  height: 92px !important; /* TAMANHO SOLICITADO */
+  max-height: none !important;
   width: auto !important;
   display: block !important;
   object-fit: contain !important;

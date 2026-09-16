@@ -8,7 +8,6 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600&display=swap');
 
-  
   :root{
     --background: hsl(25 38% 9%);
     --foreground: hsl(36 32% 93%);
@@ -70,9 +69,6 @@
   .nav-links a:hover,.nav-links a.active{color:var(--foreground)}
   .nav-links a.active{color:var(--primary)}
   .nav-right{display:flex;align-items:center;gap:16px}
-  .cart-link{position:relative;padding:8px;color:var(--foreground);transition:color .3s}
-  .cart-link:hover{color:var(--primary)}
-  .cart-count{position:absolute;top:-2px;right:-2px;background:var(--primary);color:var(--primary-foreground);font-size:10px;font-weight:600;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center}
   .burger{display:flex;background:none;border:0;color:var(--foreground);padding:8px}
   .mobile-menu{display:none;background:var(--background);border-top:1px solid var(--border)}
   .mobile-menu.open{display:block}
@@ -87,7 +83,6 @@
   .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.2), transparent, rgba(0,0,0,.4))}
   .hero-content{position:relative;z-index:10;width:100%;padding-bottom:80px}
   .hero h1{color:#fff;font-size:clamp(3rem,7vw,4.5rem);line-height:1.05;max-width:36rem}
-  .hero .btn-row{display:flex;flex-wrap:wrap;gap:16px}
   .hero-bounce{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:10;color:rgba(255,255,255,.7);animation:bounce 2s infinite}
   @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
@@ -122,14 +117,6 @@
   .svc-card{display:block}
   .svc-card .img-wrap{aspect-ratio:3/4;overflow:hidden;margin-bottom:20px;background:var(--secondary)}
   .svc-card .img-wrap img{width:100%;height:100%;object-fit:cover}
-
-  /* BEFORE AFTER */
-  .ba{position:relative;overflow:hidden}
-  .ba .ba-frame{aspect-ratio:3/4;position:relative}
-  .ba .ba-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .7s}
-  .ba .ba-bar{position:absolute;bottom:0;left:0;right:0;padding:16px;display:flex;justify-content:center;background:linear-gradient(to top, rgba(0,0,0,.4), transparent)}
-  .ba .ba-btn{font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:#fff;background:rgba(0,0,0,.3);backdrop-filter:blur(4px);padding:8px 20px;border:0;transition:background .3s}
-  .ba .ba-btn:hover{background:rgba(0,0,0,.5)}
 
   /* TESTIMONIAL */
   .tst{border:1px solid var(--border);padding:32px}
@@ -238,16 +225,16 @@
   .map-box{aspect-ratio:4/3;overflow:hidden;border:1px solid var(--border)}
   .map-box iframe{width:100%;height:100%;border:0;filter:grayscale(.3)}
 
-  /* FOOTER */
-  footer{background:color-mix(in srgb,var(--secondary) 60%,transparent);border-top:1px solid var(--border);margin-top:96px}
-  .foot-grid{display:grid;gap:48px;grid-template-columns:1fr}
-  @media(min-width:768px){.foot-grid{grid-template-columns:1fr 1fr 1fr 1fr}}
-  footer h3{font-size:1.5rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
+  /* FOOTER - COMPACTO */
+  footer{background:color-mix(in srgb,var(--secondary) 60%,transparent);border-top:1px solid var(--border);margin-top:64px}
+  .foot-grid{display:grid;gap:32px;grid-template-columns:1fr}
+  @media(min-width:768px){.foot-grid{grid-template-columns:1fr 1fr 1fr}}
+  footer h3{font-size:1.25rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px}
   footer ul{list-style:none}
-  footer ul li{margin-bottom:12px;font-size:.875rem}
+  footer ul li{margin-bottom:8px;font-size:.875rem}
   footer ul li a{transition:color .3s}
   footer ul li a:hover{color:var(--primary)}
-  .foot-bottom{text-align:center;margin-top:40px;font-size:.75rem;color:var(--muted-foreground);letter-spacing:.05em}
+  .foot-bottom{text-align:center;margin-top:24px;font-size:.75rem;color:var(--muted-foreground);letter-spacing:.05em}
 
   /* BOOKING MODAL */
   .modal-overlay{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
@@ -285,19 +272,15 @@
 
 <header class="nav" id="navbar">
   <div class="nav-inner">
-    <a href__="#/" class="brand">Auréa</a>
+    <a href="#/" class="brand">Auréa</a>
     <nav class="nav-links" id="navLinks">
-      <a href__="#/" data-route="/">Início</a>
-      <a href__="#/salao" data-route="/salao">O Salão</a>
-      <a href__="#/procedimentos" data-route="/procedimentos">Procedimentos</a>
-      <a href__="#/loja" data-route="/loja">Loja</a>
-      <a href__="#/contato" data-route="/contato">Contato</a>
+      <a href="#/" data-route="/">Início</a>
+      <a href="#/salao" data-route="/salao">O Salão</a>
+      <a href="#/procedimentos" data-route="/procedimentos">Procedimentos</a>
+      <a href="#/loja" data-route="/loja">Loja</a>
+      <a href="#/contato" data-route="/contato">Contato</a>
     </nav>
     <div class="nav-right">
-      <a href__="#/carrinho" class="cart-link" aria-label="Carrinho">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        <span class="cart-count hidden" id="cartCount">0</span>
-      </a>
       <button class="burger" id="burger" aria-label="Menu">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
       </button>
@@ -305,11 +288,11 @@
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <div class="mm-inner">
-      <a href__="#/" data-route="/">Início</a>
-      <a href__="#/salao" data-route="/salao">O Salão</a>
-      <a href__="#/procedimentos" data-route="/procedimentos">Procedimentos</a>
-      <a href__="#/loja" data-route="/loja">Loja</a>
-      <a href__="#/contato" data-route="/contato">Contato</a>
+      <a href="#/" data-route="/">Início</a>
+      <a href="#/salao" data-route="/salao">O Salão</a>
+      <a href="#/procedimentos" data-route="/procedimentos">Procedimentos</a>
+      <a href="#/loja" data-route="/loja">Loja</a>
+      <a href="#/contato" data-route="/contato">Contato</a>
     </div>
   </div>
 </header>
@@ -395,27 +378,20 @@ function addServiceToCart(service, booking){
     type:'service', id:service.id, name:service.name, price:service.price,
     professional: booking.professional||'', date: booking.date||'', time: booking.time||'', notes: booking.notes||''
   });
-  saveCart(); updateCartBadge();
+  saveCart();
 }
 function addProductToCart(product){
   const ex = cart.find(i=>i.type==='product'&&i.id===product.id);
   if(ex){ ex.quantity++; } else {
     cart.push({cartId:'prd_'+Date.now()+'_'+Math.random().toString(36).slice(2,7),type:'product',id:product.id,name:product.name,brand:product.brand,price:product.price,image:product.image,quantity:1});
   }
-  saveCart(); updateCartBadge(); toast('Adicionado ao carrinho');
+  saveCart(); toast('Adicionado ao carrinho');
 }
 function updateProductQty(cartId, qty){
   const it = cart.find(i=>i.cartId===cartId); if(it){ it.quantity = Math.max(1, qty); saveCart(); if(currentRoute==='/carrinho') render(); }
 }
-function removeCartItem(cartId){ cart = cart.filter(i=>i.cartId!==cartId); saveCart(); updateCartBadge(); if(currentRoute==='/carrinho') render(); }
-function clearCartAll(){ cart = []; saveCart(); updateCartBadge(); if(currentRoute==='/carrinho') render(); }
-
-function updateCartBadge(){
-  const el = document.getElementById('cartCount');
-  const c = cartCount();
-  el.textContent = c;
-  el.classList.toggle('hidden', c===0);
-}
+function removeCartItem(cartId){ cart = cart.filter(i=>i.cartId!==cartId); saveCart(); if(currentRoute==='/carrinho') render(); }
+function clearCartAll(){ cart = []; saveCart(); if(currentRoute==='/carrinho') render(); }
 
 /* ============ TOAST ============ */
 let toastTimer;
@@ -442,7 +418,6 @@ function render(){
   else if(currentRoute === '/carrinho'){ app.innerHTML = pageCart(); footer.innerHTML = pageFooter(); }
   else if(currentRoute === '/contato'){ app.innerHTML = pageContact(); footer.innerHTML = pageFooter(); }
   else { app.innerHTML = pageHome(); footer.innerHTML = pageFooter(); }
-  updateCartBadge();
   if(currentRoute === '/procedimentos') initProcedures();
   if(currentRoute === '/loja') initShop();
   if(currentRoute === '/carrinho') initCart();
@@ -465,19 +440,6 @@ function secHead(label, title, subtitle){
 }
 
 function pageHome(){
-  const featured = SERVICES.filter(s=>s.featured).slice(0,3);
-  const display = featured.length ? featured : SERVICES.slice(0,3);
-  const svcCards = display.map(s=>`
-    <a class="svc-card" href__="#/procedimentos">
-      <div class="img-wrap"><img src="${s.image_after||MACRO_IMG}" alt="${esc(s.name)}" class="scale-hover"></div>
-      <p class="label-caps" style="margin-bottom:8px">${esc(s.category)}</p>
-      <h3 style="font-size:1.25rem;margin-bottom:8px">${esc(s.name)}</h3>
-      <p class="line-clamp-2 text-muted" style="font-size:.875rem;margin-bottom:12px">${esc(s.description)}</p>
-      <span class="text-primary" style="font-size:.875rem">${esc(s.price)}</span>
-    </a>`).join('');
-
-  const galItems = [0,1,2,3].map(i=> beforeAfterHtml(i%2===0?MACRO_IMG:TRANSFORM_IMG, i%2===0?TRANSFORM_IMG:MACRO_IMG, 'transformação capilar')).join('');
-
   const tstCards = TESTIMONIALS.slice(0,3).map(t=>`
     <article class="tst">
       <div class="stars">${stars(t.rating)}</div>
@@ -493,10 +455,6 @@ function pageHome(){
       <div class="hero-content wrap">
         <p class="label-caps" style="color:rgba(255,255,255,.8);margin-bottom:16px">${esc(SALON.tagline)}</p>
         <h1>A arte de<br>cuidar do<br>cabelo</h1>
-        <div class="btn-row" style="margin-top:32px">
-          <a href__="#/procedimentos" class="btn-bronze">Agendar Procedimento</a>
-          <a href__="#/loja" class="btn-outline btn-outline-white">Ver Loja</a>
-        </div>
       </div>
       <div class="hero-bounce">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
@@ -510,28 +468,11 @@ function pageHome(){
           <h2 style="font-size:clamp(1.875rem,3vw,2.25rem);line-height:1.2;margin-bottom:24px">Onde cada fio é tratado como obra de arte</h2>
           <p class="text-muted" style="margin-bottom:20px;line-height:1.6">Há mais de uma década, o ${esc(SALON.name)} une técnica, sensibilidade e produtos premium para revelar a melhor versão do seu cabelo. Nosso atendimento personalizado começa na escuta e termina no espelho — com resultados que respeitam a saúde capilar.</p>
           <p class="text-muted" style="margin-bottom:32px;line-height:1.6">Trabalhamos com marcas profissionais selecionadas e técnicas exclusivas, em um ambiente pensado para o seu bem-estar.</p>
-          <a href__="#/salao" class="link-arrow">Conheça o salão <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#/salao" class="link-arrow">Conheça o salão <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
         <div class="order-1 md-order-1">
           <div class="aspect-45 overflow-hidden"><img src="${ABOUT_IMG}" alt="Espaço do salão" class="obj-cover scale-hover"></div>
         </div>
-      </div>
-    </section>
-
-    <div class="wrap"><div class="horizon-rule"></div></div>
-
-    <section class="sec">
-      <div class="wrap">
-        ${secHead('Procedimentos em destaque','Serviços que revelam a sua beleza','Uma curadoria dos nossos procedimentos mais procurados. Veja a lista completa na página de procedimentos.')}
-        <div class="grid-3">${svcCards}</div>
-        <div class="text-center" style="margin-top:48px"><a href__="#/procedimentos" class="btn-outline">Ver todos os procedimentos</a></div>
-      </div>
-    </section>
-
-    <section class="sec" style="background:color-mix(in srgb,var(--secondary) 50%,transparent)">
-      <div class="wrap">
-        ${secHead('Galeria de resultados','Antes e depois','Transformações reais realizadas por nossa equipe. Passe o mouse ou toque para alternar.')}
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px" class="ba-grid">${galItems}</div>
       </div>
     </section>
 
@@ -548,31 +489,9 @@ function pageHome(){
       <div class="cta-content">
         <h2>Pronta para se transformar?</h2>
         <p>Agende seu procedimento ou explore nossa loja de produtos profissionais.</p>
-        <div class="btn-row" style="justify-content:center">
-          <a href__="#/procedimentos" class="btn-bronze">Agendar Procedimento</a>
-          <a href__="#/loja" class="btn-outline btn-outline-white">Ver Loja</a>
-        </div>
       </div>
     </section>
   `;
-}
-
-function beforeAfterHtml(before, after, alt){
-  return `<div class="ba">
-    <div class="ba-frame">
-      <img src="${before}" alt="Antes — ${esc(alt)}" data-state="before" style="opacity:1">
-      <img src="${after}" alt="Depois — ${esc(alt)}" data-state="after" style="opacity:0">
-    </div>
-    <div class="ba-bar"><button class="ba-btn" onclick="toggleBA(this)">Ver Depois</button></div>
-  </div>`;
-}
-function toggleBA(btn){
-  const frame = btn.closest('.ba').querySelector('.ba-frame');
-  const before = frame.querySelector('[data-state="before"]');
-  const after = frame.querySelector('[data-state="after"]');
-  const showingAfter = after.style.opacity==='1';
-  if(showingAfter){ after.style.opacity='0'; before.style.opacity='1'; btn.textContent='Ver Depois'; }
-  else { after.style.opacity='1'; before.style.opacity='0'; btn.textContent='Ver Antes'; }
 }
 
 function pageAbout(){
@@ -631,9 +550,7 @@ function pageProcedures(){
     const catServices = SERVICES.filter(s=>s.category===cat);
     const isOpen = openCategory===cat;
     const body = catServices.map(s=>{
-      const hasBA = s.image_before && s.image_after;
-      const img = hasBA ? beforeAfterHtml(s.image_before, s.image_after, s.name)
-        : `<div class="svc-imgbox"><img src="${s.image_after||MACRO_IMG}" alt="${esc(s.name)}" class="obj-cover scale-hover"></div>`;
+      const img = `<div class="svc-imgbox"><img src="${s.image_after||MACRO_IMG}" alt="${esc(s.name)}" class="obj-cover scale-hover"></div>`;
       return `<article class="svc-detail">
         ${img}
         <div>
@@ -731,8 +648,8 @@ function pageCart(){
         <h1 style="font-size:1.875rem;margin-bottom:16px">Seu carrinho está vazio</h1>
         <p class="text-muted" style="margin-bottom:32px">Adicione procedimentos e produtos para montar seu pedido.</p>
         <div class="btn-row" style="justify-content:center;display:flex;flex-wrap:wrap;gap:16px">
-          <a href__="#/procedimentos" class="btn-bronze">Agendar Procedimento</a>
-          <a href__="#/loja" class="btn-outline">Ver Loja</a>
+          <a href="#/procedimentos" class="btn-bronze">Agendar Procedimento</a>
+          <a href="#/loja" class="btn-outline">Ver Loja</a>
         </div>
       </div>
     </div>`;
@@ -867,8 +784,8 @@ function pageContact(){
               <div class="ci-info"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><div><p class="label-caps ci-label">Horário de funcionamento</p><p class="text-muted">${esc(SALON.hours)}</p></div></div>
             </div>
             <div class="social-row">
-              <a href__="${SALON.instagram}" target="_blank" rel="noreferrer" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
-              <a href__="${SALON.facebook}" target="_blank" rel="noreferrer" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+              <a href="${SALON.instagram}" target="_blank" rel="noreferrer" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+              <a href="${SALON.facebook}" target="_blank" rel="noreferrer" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
             </div>
             <div class="map-box"><iframe src="${SALON.mapsEmbedUrl}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
           </div>
@@ -893,40 +810,25 @@ function pageFooter(){
   const year = new Date().getFullYear();
   return `
     <footer>
-      <div class="wrap" style="padding:64px 24px 32px">
+      <div class="wrap" style="padding:32px 24px 20px">
         <div class="foot-grid">
           <div>
             <h3>${esc(SALON.name)}</h3>
             <p class="text-muted" style="font-size:.875rem;line-height:1.6">${esc(SALON.tagline)}. Cuidado capilar artesanal com produtos premium e atendimento personalizado.</p>
           </div>
           <div>
-            <p class="label-caps" style="margin-bottom:20px">Navegação</p>
-            <ul>
-              <li><a href__="#/">Início</a></li>
-              <li><a href__="#/salao">O Salão</a></li>
-              <li><a href__="#/procedimentos">Procedimentos</a></li>
-              <li><a href__="#/loja">Loja</a></li>
-              <li><a href__="#/contato">Contato</a></li>
-            </ul>
-          </div>
-          <div>
-            <p class="label-caps" style="margin-bottom:20px">Contato</p>
+            <p class="label-caps" style="margin-bottom:12px">Contato</p>
             <ul class="text-muted">
               <li style="display:flex;gap:12px;align-items:flex-start"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);flex-shrink:0;margin-top:2px"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>${esc(SALON.address)}</span></li>
               <li style="display:flex;gap:12px;align-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg><span>${esc(SALON.phone)}</span></li>
-              <li style="display:flex;gap:12px;align-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);flex-shrink:0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>${esc(SALON.email)}</span></li>
             </ul>
           </div>
           <div>
-            <p class="label-caps" style="margin-bottom:20px">Horário</p>
+            <p class="label-caps" style="margin-bottom:12px">Horário</p>
             <p class="text-muted" style="display:flex;gap:12px;font-size:.875rem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>${esc(SALON.hours)}</span></p>
-            <div style="display:flex;gap:16px;margin-top:24px">
-              <a href__="${SALON.instagram}" target="_blank" rel="noreferrer" aria-label="Instagram" style="color:color-mix(in srgb,var(--foreground) 60%,transparent);transition:color .3s" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='color-mix(in srgb,var(--foreground) 60%,transparent)'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
-              <a href__="${SALON.facebook}" target="_blank" rel="noreferrer" aria-label="Facebook" style="color:color-mix(in srgb,var(--foreground) 60%,transparent);transition:color .3s" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='color-mix(in srgb,var(--foreground) 60%,transparent)'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-            </div>
           </div>
         </div>
-        <div class="horizon-rule" style="margin:40px 0"></div>
+        <div class="horizon-rule" style="margin:24px 0 16px"></div>
         <p class="foot-bottom">© ${year} ${esc(SALON.name)} · Hair Atelier. Todos os direitos reservados.</p>
       </div>
     </footer>
@@ -1007,7 +909,6 @@ window.addEventListener('scroll', onScroll);
 window.addEventListener('hashchange', navigate);
 document.getElementById('burger').addEventListener('click', toggleMobile);
 onScroll();
-updateCartBadge();
 navigate();
 </script>
 </body>

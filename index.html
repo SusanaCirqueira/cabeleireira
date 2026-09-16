@@ -478,13 +478,6 @@ function pageHome(){
 }
 
 function pageAbout(){
-  const diffs = [
-    {ico:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>',title:'Produtos Premium',text:'Marcas profissionais selecionadas internacionalmente, livres de substâncias nocivas.'},
-    {ico:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg>',title:'Técnicas Exclusivas',text:'Métodos próprios de coloração e tratamento desenvolvidos pela nossa equipe.'},
-    {ico:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>',title:'Atendimento Personalizado',text:'Cada cliente recebe um diagnóstico capilar individual e um plano de cuidado sob medida.'},
-    {ico:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>',title:'Certificações',text:'Profissionais certificados nas principais academias de beleza do país.'}
-  ];
-  const diffHtml = diffs.map(d=>`<div class="diff"><div class="diff-ico">${d.ico}</div><h3>${esc(d.title)}</h3><p>${esc(d.text)}</p></div>`).join('');
   const teamHtml = PROFESSIONALS.map(p=>`
     <article>
       <div class="aspect-34 overflow-hidden" style="margin-bottom:20px;background:var(--secondary)">${p.photo?`<img src="${p.photo}" alt="${esc(p.name)}" class="obj-cover scale-hover">`:''}</div>
@@ -492,6 +485,7 @@ function pageAbout(){
       <h3 style="font-size:1.25rem;margin-bottom:12px">${esc(p.name)}</h3>
       <p class="text-muted" style="font-size:.875rem;line-height:1.6">${esc(p.bio)}</p>
     </article>`).join('');
+  
   const spaceHtml = SPACE_IMGS.map((img,i)=>`<div class="aspect-45 overflow-hidden"><img src="${img}" alt="Espaço do salão ${i+1}" class="obj-cover scale-hover"></div>`).join('');
 
   return `
@@ -503,19 +497,16 @@ function pageAbout(){
           <p class="text-muted" style="font-size:1.125rem;line-height:1.6">O ${esc(SALON.name)} nasceu do desejo de criar um espaço onde técnica e sensibilidade se encontrassem. Aqui, cada procedimento começa pela escuta — entendemos seu estilo de vida, seu cabelo e seus desejos antes de sugerir qualquer serviço. Trabalhamos com produtos premium e técnicas exclusivas, sempre respeitando a integridade da fibra capilar.</p>
         </div>
       </section>
+      
+      <!-- Equipe movida para o primeiro lugar -->
       <section class="sec" style="background:color-mix(in srgb,var(--secondary) 50%,transparent)">
-        <div class="wrap">
-          ${secHead('Nossos diferenciais','Por que escolher o Auréa')}
-          <div class="diff-grid">${diffHtml}</div>
-        </div>
-      </section>
-      <section class="sec">
         <div class="wrap">
           ${secHead('Nossa equipe','Profissionais que dominam a arte','Especialistas dedicados a transformar seu cabelo com técnica e cuidado.')}
           <div class="grid-3">${teamHtml}</div>
         </div>
       </section>
-      <section class="sec" style="background:color-mix(in srgb,var(--secondary) 50%,transparent)">
+
+      <section class="sec">
         <div class="wrap">
           ${secHead('O espaço','Nosso atelier','Um ambiente pensado para o seu conforto e bem-estar.')}
           <div class="grid-3">${spaceHtml}</div>

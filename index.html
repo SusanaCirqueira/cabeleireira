@@ -49,10 +49,13 @@
   .btn-bronze{display:inline-flex;align-items:center;justify-content:center;background:var(--primary);color:var(--primary-foreground);padding:16px 32px;font-size:.875rem;text-transform:uppercase;letter-spacing:.15em;font-weight:500;transition:opacity .3s;min-height:48px;border:0}
   .btn-bronze:hover{opacity:.88}
   .btn-bronze:disabled{opacity:.4;cursor:not-allowed}
+  
+  /* Botão com fundo branco solicitado */
+  .btn-white-solid{display:inline-flex;align-items:center;gap:12px;background:#fff;color:#1a1512;padding:16px 32px;font-size:.875rem;text-transform:uppercase;letter-spacing:.15em;font-weight:500;transition:opacity .3s, transform .3s;min-height:48px;border:0}
+  .btn-white-solid:hover{opacity:.9;transform:translateY(-2px)}
+
   .btn-outline{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--foreground);color:var(--foreground);background:transparent;padding:16px 32px;font-size:.875rem;text-transform:uppercase;letter-spacing:.15em;font-weight:500;transition:all .3s;min-height:48px}
   .btn-outline:hover{background:var(--foreground);color:var(--background)}
-  .btn-outline-white{border-color:#fff;color:#fff}
-  .btn-outline-white:hover{background:#fff;color:var(--background)}
   .link-arrow{display:inline-flex;align-items:center;gap:8px;font-size:.875rem;text-transform:uppercase;letter-spacing:.15em;color:var(--primary);transition:color .3s}
   .link-arrow:hover{color:var(--foreground)}
   .scale-hover{transition:transform .7s cubic-bezier(.22,1,.36,1)}
@@ -78,7 +81,7 @@
   .mobile-menu a.active{color:var(--primary)}
   @media(min-width:768px){.nav-links{display:flex}.burger{display:none}}
 
-  /* HERO - Ajustado com padding-top para compensar o header fixo */
+  /* HERO */
   .hero{position:relative;height:calc(100vh - 80px);min-height:520px;margin-top:80px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
   .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.2), transparent, rgba(0,0,0,.4))}
@@ -109,15 +112,8 @@
 
   .aspect-45{aspect-ratio:4/5}
   .aspect-34{aspect-ratio:3/4}
-  .aspect-43{aspect-ratio:4/3}
-  .aspect-1{aspect-ratio:1}
   .overflow-hidden{overflow:hidden}
   .obj-cover{width:100%;height:100%;object-fit:cover}
-
-  /* SERVICE CARD */
-  .svc-card{display:block}
-  .svc-card .img-wrap{aspect-ratio:3/4;overflow:hidden;margin-bottom:20px;background:var(--secondary)}
-  .svc-card .img-wrap img{width:100%;height:100%;object-fit:cover}
 
   /* TESTIMONIAL */
   .tst{border:1px solid var(--border);padding:32px}
@@ -125,15 +121,6 @@
   .tst .stars svg{fill:var(--primary);color:var(--primary)}
   .tst p{color:var(--muted-foreground);line-height:1.6;margin-bottom:24px;font-style:italic}
   .tst .who{font-family:var(--font-heading);letter-spacing:.05em}
-
-  /* ABOUT */
-  .diff-grid{display:grid;grid-template-columns:1fr;gap:32px}
-  @media(min-width:640px){.diff-grid{grid-template-columns:repeat(2,1fr)}}
-  @media(min-width:1024px){.diff-grid{grid-template-columns:repeat(4,1fr)}}
-  .diff{text-align:center}
-  .diff .diff-ico{width:56px;height:56px;margin:0 auto 20px;border-radius:50%;background:var(--background);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--primary)}
-  .diff h3{font-size:1.125rem;margin-bottom:12px}
-  .diff p{font-size:.875rem;color:var(--muted-foreground);line-height:1.6}
 
   /* PROCEDURES ACCORDION */
   .acc-item{border-bottom:1px solid var(--border)}
@@ -151,14 +138,6 @@
   .svc-detail h4{font-size:1.5rem;margin-bottom:16px}
   .svc-detail .meta{display:flex;flex-wrap:wrap;gap:24px;margin-bottom:24px;font-size:.875rem;align-items:center}
   .svc-detail .meta .price{font-family:var(--font-heading);font-size:1.125rem}
-
-  /* SHOP CONTROLS */
-  .shop-tools{display:flex;flex-direction:column;gap:24px;margin-bottom:48px}
-  @media(min-width:768px){.shop-tools{flex-direction:row;justify-content:flex-end;align-items:center}}
-  .cats{display:flex;gap:8px;flex-wrap:wrap}
-  .cat-btn{font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;padding:12px 16px;border:1px solid var(--border);background:transparent;color:var(--foreground);transition:all .3s;white-space:nowrap}
-  .cat-btn:hover{border-color:var(--primary)}
-  .cat-btn.active{background:var(--primary);color:var(--primary-foreground);border-color:var(--primary)}
 
   /* PRODUCT CARD */
   .prod{display:flex;flex-direction:column}
@@ -197,7 +176,7 @@
   .empty-cart{padding:160px 0 128px;text-align:center}
   .empty-cart .ec-inner{max-width:28rem;margin:0 auto;padding:0 24px}
 
-  /* FOOTER - COMPACTO */
+  /* FOOTER */
   footer{background:color-mix(in srgb,var(--secondary) 60%,transparent);border-top:1px solid var(--border);margin-top:0}
   .foot-grid{display:grid;gap:32px;grid-template-columns:1fr}
   @media(min-width:768px){.foot-grid{grid-template-columns:1fr 1fr 1fr}}
@@ -209,15 +188,6 @@
   .foot-bottom{text-align:center;margin-top:24px;font-size:.75rem;color:var(--muted-foreground);letter-spacing:.05em}
 
   .page{padding-top:128px;padding-bottom:96px}
-  .hidden{display:none}
-  .pt-32{padding-top:128px}
-  .pulse{background:var(--secondary);animation:pulse 2s infinite}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
-  .line-clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .mb-12{margin-bottom:48px}
-  .mb-8{margin-bottom:32px}
-  .mt-12{margin-top:48px}
-  .text-center{text-align:center}
   .order-1{order:1}
   .order-2{order:2}
   @media(min-width:768px){.md-order-1{order:1}.md-order-2{order:2}}
@@ -235,7 +205,6 @@
       <a href="#/loja" data-route="/loja">Loja</a>
     </nav>
     <div class="nav-right">
-      <!-- Carrinho restrito apenas às páginas de Procedimentos e Loja -->
       <a href="#/carrinho" class="nav-cart-icon" id="navCartIcon" data-route="/carrinho" aria-label="Carrinho" style="display: none;">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
       </a>
@@ -259,17 +228,13 @@
 <footer id="footer"></footer>
 
 <script>
-/* ============ DATA ============ */
 const SALON = {
   name: "Auréa",
   whatsappNumber: "5511999999999",
   phone: "+55 (11) 99999-9999",
   email: "contato@aureahair.com.br",
   address: "Rua Oscar Freire, 1200 — Jardins, São Paulo — SP",
-  hours: "Terça a Sábado, 9h às 19h · Domingo e Segunda: fechado",
-  instagram: "https://instagram.com",
-  facebook: "https://facebook.com",
-  mapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.5!2d-46.6656!3d-23.5613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2s0!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+  hours: "Terça a Sábado, 9h às 19h · Domingo e Segunda: fechado"
 };
 
 const HERO_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/6b3ad3086_generated_a118d2d1.jpg";
@@ -279,46 +244,31 @@ const TRANSFORM_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b7
 const SPACE_IMGS = [ABOUT_IMG, HERO_IMG, MACRO_IMG];
 
 const SERVICES = [
-  {id:"s1",name:"Coloração Premium",category:"Coloração",description:"Coloração completa com produtos premium de longa duração. Inclui diagnóstico capilar, proteção da fibra e finalização. Ideal para cobrir brancos ou mudar a cor com saúde.",duration:"3h",price:"R$ 380",image_before:MACRO_IMG,image_after:TRANSFORM_IMG,featured:true},
-  {id:"s2",name:"Balayage / Mechas Livres",category:"Coloração",description:"Técnica de descoloração à mão livre que cria transições naturais e iluminadas. Efeito solado personalizado para o seu tom de pele.",duration:"4h",price:"R$ 520",image_before:TRANSFORM_IMG,image_after:MACRO_IMG,featured:true},
-  {id:"s3",name:"Corte Feminino Modelagem",category:"Corte",description:"Corte personalizado com modelagem sob medida para o seu formato de rosto e tipo de cabelo. Inclui lavagem, hidratação expressa e finalização.",duration:"1h",price:"R$ 180",image_before:null,image_after:null,featured:true},
-  {id:"s4",name:"Corte Masculino",category:"Corte",description:"Corte masculino com acabamento de navalha e acabamento na nuca. Inclui lavagem e finalização com produtos premium.",duration:"45min",price:"R$ 120",image_before:null,image_after:null,featured:false},
-  {id:"s5",name:"Hidratação Profunda",category:"Tratamentos",description:"Tratamento de reconstrução profunda com ampolas de alta concentração. Devolve massa, brilho e maciez aos fios ressecados e químicos.",duration:"1h30",price:"R$ 220",image_before:null,image_after:null,featured:false},
-  {id:"s6",name:"Botox Capilar",category:"Tratamentos",description:"Tratamento de selagem com ácido hialurônico que reduces o frizz, alinha os fios e proporciona brilho intenso sem alterar a estrutura capilar.",duration:"2h",price:"R$ 290",image_before:null,image_after:null,featured:false},
-  {id:"s7",name:"Progressiva Premium",category:"Alisamento",description:"Alisamento progressivo com formolização controlada e produtos de baixa toxicidade. Reduz volume, alinha e trata os fios. Inclui pós-tratamento.",duration:"3h30",price:"R$ 650",image_before:null,image_after:null,featured:false},
-  {id:"s8",name:"Penteado Festa",category:"Penteados",description:"Penteado para eventos especiais: coques, tranças e presos com acabamento premium. Inclui teste prévio e fixação de longa duração.",duration:"1h30",price:"R$ 350",image_before:null,image_after:null,featured:false},
-  {id:"s9",name:"Mega Hair Premium",category:"Mega Hair",description:"Aplicação de mega hair em fios naturais de alta qualidade. Acréscimo de comprimento e volume com acabamento imperceptível. Inclui manutenção de 15 dias.",duration:"4h",price:"Sob consulta",image_before:null,image_after:null,featured:false}
+  {id:"s1",name:"Coloração Premium",category:"Coloração",description:"Coloração completa com produtos premium de longa duração. Inclui diagnóstico capilar, proteção da fibra e finalização.",duration:"3h",price:"R$ 380",image_before:MACRO_IMG,image_after:TRANSFORM_IMG},
+  {id:"s2",name:"Balayage / Mechas Livres",category:"Coloração",description:"Técnica de descoloração à mão livre que cria transições naturais e iluminadas.",duration:"4h",price:"R$ 520",image_before:TRANSFORM_IMG,image_after:MACRO_IMG},
+  {id:"s3",name:"Corte Feminino Modelagem",category:"Corte",description:"Corte personalizado com modelagem sob medida para o seu formato de rosto.",duration:"1h",price:"R$ 180"}
 ];
 
 const PRODUCTS = [
-  {id:"p1",name:"Shampoo Reconstrutor",brand:"Auréa Pro",category:"Shampoos",price:89.90,description:"Shampoo de reconstrção com queratina e óleos nobres. Limpa suavemente sem ressecar, devolvendo massa aos fios danificados.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/4eda256ed_generated_98681078.jpg"},
-  {id:"p2",name:"Condicionador Hidratante",brand:"Auréa Pro",category:"Condicionadores",price:92.90,description:"Condicionador com manteiga de karité e pantenol. Desembaraça, hidrata e sela as cutículas para brilho intenso.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/bfebf7ba6_generated_e5594907.jpg"},
-  {id:"p3",name:"Máscara de Tratamento Intensivo",brand:"Auréa Pro",category:"Máscaras",price:149.90,description:"Máscara de uso semanal com alta concentração de ativos reconstrutores. Devolve massa, maciez e brilho em uma única aplicação.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/e27dd4604_generated_f7bbbf87.jpg"},
-  {id:"p4",name:"Óleo Finalizador Nobre",brand:"Auréa Pro",category:"Óleos",price:119.90,description:"Óleo multifuncional com argan e camélia. Controla o frizz, sela as pontas e proporciona brilho espelhado sem pesar.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/938b1ef89_generated_5a4ef479.jpg"},
-  {id:"p5",name:"Kit Ritual de Hidratação",brand:"Auréa Pro",category:"Kits",price:329.90,description:"Kit completo com shampoo, condicionador e máscara da linha reconstrutora. O ritual completo para cuidar do cabelo em casa.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/4666aac4b_generated_6dcf664d.jpg"},
-  {id:"p6",name:"Finalizador Modelador",brand:"Auréa Pro",category:"Finalizadores",price:79.90,description:"Creme modelador de fixação leve que define cachos e ondas sem endurecer. Controla o volume e mantém o movimento natural.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/4eda256ed_generated_98681078.jpg"}
+  {id:"p1",name:"Shampoo Reconstrutor",brand:"Auréa Pro",category:"Shampoos",price:89.90,description:"Shampoo de reconstrução com queratina e óleos nobres.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/4eda256ed_generated_98681078.jpg"},
+  {id:"p2",name:"Condicionador Hidratante",brand:"Auréa Pro",category:"Condicionadores",price:92.90,description:"Condicionador com manteiga de karité e pantenol.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/bfebf7ba6_generated_e5594907.jpg"},
+  {id:"p3",name:"Máscara de Tratamento Intensivo",brand:"Auréa Pro",category:"Máscaras",price:149.90,description:"Máscara de uso semanal com alta concentração.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/e27dd4604_generated_f7bbbf87.jpg"},
+  {id:"p4",name:"Óleo Finalizador Nobre",brand:"Auréa Pro",category:"Óleos",price:119.90,description:"Óleo multifuncional com argan e camélia.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/938b1ef89_generated_5a4ef479.jpg"}
 ];
 
 const PROFESSIONALS = [
-  {id:"pr1",name:"Helena Martins",specialty:"Coloração e Mechas",bio:"Especialista em colorimetria com mais de 12 anos de experiência. Formada na Vidal Sassoon Academy, Helena domina técnicas de mechas livres, balayage e correção de cor.",photo:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/999c837f0_generated_388d2ea3.jpg"},
-  {id:"pr2",name:"Rafael Costa",specialty:"Cortes e Penteados",bio:"Cabeleireiro premiado em concursos nacionais de corte. Rafael une precisão técnica com sensibilidade estética para criar cortes que valorizam cada formato de rosto.",photo:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/5102c517b_generated_9eeff0be.jpg"},
-  {id:"pr3",name:"Beatriz Almeida",specialty:"Tratamentos e Mega Hair",bio:"Especialista em reconstrução capilar e mega hair. Beatriz desenvolveu um protocolo próprio de tratamento profundo que devolve saúde e brilho aos fios mais danificados.",photo:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/78c2cf4fa_generated_8d20901c.jpg"}
+  {id:"pr1",name:"Helena Martins",specialty:"Coloração e Mechas",bio:"Especialista em colorimetria com mais de 12 anos de experiência.",photo:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/999c837f0_generated_388d2ea3.jpg"},
+  {id:"pr2",name:"Rafael Costa",specialty:"Cortes e Penteados",bio:"Cabeleireiro premiado em concursos nacionais de corte.",photo:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/5102c517b_generated_9eeff0be.jpg"},
+  {id:"pr3",name:"Beatriz Almeida",specialty:"Tratamentos e Mega Hair",bio:"Especialista em reconstrução capilar e mega hair.",photo:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/78c2cf4fa_generated_8d20901c.jpg"}
 ];
 
 const TESTIMONIALS = [
-  {id:"t1",client_name:"Mariana Souza",text:"Saí do salão com o cabelo dos sonhos. A Helena entendeu exatamente o tom que eu queria e o resultado superou todas as expectativas. Atendimento impecável!",rating:5,service:"Balayage / Mechas Livres"},
-  {id:"t2",client_name:"Patrícia Lima",text:"O tratamento profundo devolveu vida ao meu cabelo, que estava completamente ressecado. Hoje recebo elogios todos os dias. Recomendo de olhos fechados.",rating:5,service:"Hidratação Profunda"},
-  {id:"t3",client_name:"Carolina Mendes",text:"Ambiente sofisticado e acolhedor, profissionais que dominam o que fazem. O corte do Rafael valorizou meu rosto como nenhum outro. Virei cliente fiel!",rating:5,service:"Corte Feminino Modelagem"}
+  {id:"t1",client_name:"Mariana Souza",text:"Saí do salão com o cabelo dos sonhos. Atendimento impecável!",rating:5,service:"Balayage / Mechas Livres"},
+  {id:"t2",client_name:"Patrícia Lima",text:"O tratamento profundo devolveu vida ao meu cabelo.",rating:5,service:"Hidratação Profunda"},
+  {id:"t3",client_name:"Carolina Mendes",text:"Ambiente sofisticado e acolhedor, profissionais que dominam o que fazem.",rating:5,service:"Corte Feminino Modelagem"}
 ];
 
 const STORAGE_KEY = "aurea_cart_v1";
-
-/* ============ HELPERS ============ */
-const BRL = v => v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-const stars = n => Array.from({length:n||5}).map(()=>'<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9 17 14 19 22 12 18 5 22 7 14 2 9 9 9"/></svg>').join('');
-
-/* ============ CART ============ */
 let cart = [];
 try { cart = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e){ cart = []; }
 function saveCart(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); }
@@ -349,7 +299,6 @@ function updateProductQty(cartId, qty){
 function removeCartItem(cartId){ cart = cart.filter(i=>i.cartId!==cartId); saveCart(); if(currentRoute==='/carrinho') render(); }
 function clearCartAll(){ cart = []; saveCart(); if(currentRoute==='/carrinho') render(); }
 
-/* ============ TOAST ============ */
 let toastTimer;
 function toast(msg){
   let t = document.getElementById('toast');
@@ -358,7 +307,6 @@ function toast(msg){
   clearTimeout(toastTimer); toastTimer = setTimeout(()=>{ t.style.opacity='0'; t.style.transform='translateX(-50%) translateY(20px)'; }, 2200);
 }
 
-/* ============ ROUTER ============ */
 let currentRoute = '/';
 function getRoute(){ return location.hash.replace(/^#/,'') || '/'; }
 function navigate(){ 
@@ -393,7 +341,6 @@ function renderNavActive(){
 function updateCartVisibility(){
   const cartIcon = document.getElementById('navCartIcon');
   if(cartIcon){
-    // Exibe o carrinho apenas nas páginas de procedimentos e loja
     if(currentRoute === '/procedimentos' || currentRoute === '/loja' || currentRoute === '/carrinho'){
       cartIcon.style.display = 'inline-flex';
     } else {
@@ -402,11 +349,9 @@ function updateCartVisibility(){
   }
 }
 
-/* ============ NAVBAR ============ */
 function toggleMobile(){ document.getElementById('mobileMenu').classList.toggle('open'); }
 function closeMobile(){ document.getElementById('mobileMenu').classList.remove('open'); }
 
-/* ============ PAGES ============ */
 function secHead(label, title, subtitle){
   return `<div class="sec-head"><p class="label-caps">${esc(label)}</p><h2>${esc(title)}</h2>${subtitle?`<p>${esc(subtitle)}</p>`:''}</div>`;
 }
@@ -439,7 +384,13 @@ function pageHome(){
           <h2 style="font-size:clamp(1.875rem,3vw,2.25rem);line-height:1.2;margin-bottom:24px">Onde cada fio é tratado como obra de arte</h2>
           <p class="text-muted" style="margin-bottom:20px;line-height:1.6">Há mais de uma década, o ${esc(SALON.name)} une técnica, sensibilidade e produtos premium para revelar a melhor versão do seu cabelo. Nosso atendimento personalizado começa na escuta e termina no espelho — com resultados que respeitam a saúde capilar.</p>
           <p class="text-muted" style="margin-bottom:32px;line-height:1.6">Trabalhamos com marcas profissionais selecionadas e técnicas exclusivas, em um ambiente pensado para o seu bem-estar.</p>
-          <a href="#/salao" class="link-arrow">Conheça o salão <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          
+          <!-- Botão modificado com fundo retangular branco e borda arredondada opcional -->
+          <a href="#/salao" class="btn-white-solid">
+            Conheça o salão 
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+
         </div>
         <div class="order-1 md-order-1">
           <div class="aspect-45 overflow-hidden"><img src="${ABOUT_IMG}" alt="Espaço do salão" class="obj-cover scale-hover"></div>
@@ -473,7 +424,7 @@ function pageAbout(){
         <div style="max-width:42rem;margin:0 auto;padding:0 24px;text-align:center">
           <p class="label-caps" style="margin-bottom:16px">O Salão</p>
           <h1 style="font-size:clamp(2.25rem,5vw,3.75rem);line-height:1.1;margin-bottom:32px">Um santuário dedicado à saúde e beleza capilar</h1>
-          <p class="text-muted" style="font-size:1.125rem;line-height:1.6">O ${esc(SALON.name)} nasceu do desejo de criar um espaço onde técnica e sensibilidade se encontrassem. Aqui, cada procedimento começa pela escuta — entendemos seu estilo de vida, seu cabelo e seus desejos antes de sugerir qualquer serviço. Trabalhamos com produtos premium e técnicas exclusivas, sempre respeitando a integridade da fibra capilar.</p>
+          <p class="text-muted" style="font-size:1.125rem;line-height:1.6">O ${esc(SALON.name)} nasceu do desejo de criar um espaço onde técnica e sensibilidade se encontrassem. Aqui, cada procedimento começa pela escuta — entendemos seu estilo de vida, seu cabelo e seus desejos antes de sugerir qualquer serviço.</p>
         </div>
       </section>
       
@@ -510,7 +461,7 @@ function pageProcedures(){
           <h4 style="margin-bottom:16px">${esc(s.name)}</h4>
           <p class="text-muted" style="line-height:1.6;margin-bottom:20px">${esc(s.description)}</p>
           <div class="meta">
-            ${s.duration?`<span class="text-muted" style="display:flex;align-items:center;gap:8px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ${esc(s.duration)}</span>`:''}
+            ${s.duration?`<span class="text-muted" style="display:flex;align-items:center;gap:8px">${esc(s.duration)}</span>`:''}
             <span class="price">${esc(s.price)}</span>
           </div>
           <button class="btn-bronze" onclick="addServiceToCartDirect('${s.id}')">Adicionar ao Carrinho</button>
@@ -552,16 +503,11 @@ function pageShop(){
   `;
 }
 let shopCategory = 'Todos';
-function setShopCategory(c){ shopCategory = c; render(); }
 function initShop(){ renderProdGrid(); }
 function renderProdGrid(){
   const grid = document.getElementById('prodGrid');
   if(!grid) return;
-  const list = PRODUCTS.filter(p=>{
-    const matchCat = shopCategory==='Todos' || p.category===shopCategory;
-    return matchCat;
-  });
-  if(!list.length){ grid.innerHTML = `<p class="text-muted text-center" style="padding:80px 0">Nenhum produto encontrado.</p>`; return; }
+  const list = PRODUCTS;
   grid.className = 'grid-prod';
   grid.innerHTML = list.map(p=>`
     <article class="prod">
@@ -571,10 +517,8 @@ function renderProdGrid(){
       <p class="brand">${esc(p.brand)}</p>
       <p class="desc">${esc(p.description)}</p>
       <div class="foot">
-        <span class="price">${BRL(p.price)}</span>
-        <button class="add-btn" onclick='addProductToCart(${JSON.stringify(p)})'>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg> Adicionar
-        </button>
+        <span class="price">R$ ${p.price.toFixed(2).replace('.',',')}</span>
+        <button class="add-btn" onclick='addProductToCart(${JSON.stringify(p)})'>Adicionar</button>
       </div>
     </article>`).join('');
 }
@@ -583,7 +527,6 @@ function pageCart(){
   if(!cart.length){
     return `<div class="empty-cart" style="padding-top:100px">
       <div class="ec-inner">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 24px;color:var(--muted-foreground)"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         <h1 style="font-size:1.875rem;margin-bottom:16px">Seu carrinho está vazio</h1>
         <p class="text-muted" style="margin-bottom:32px">Adicione procedimentos e produtos para montar seu pedido.</p>
         <div class="btn-row" style="justify-content:center;display:flex;flex-wrap:wrap;gap:16px">
@@ -604,7 +547,7 @@ function pageCart(){
       </div>
       <div class="ci-right">
         <span class="price">${esc(s.price)}</span>
-        <button class="ci-remove" onclick="removeCartItem('${s.cartId}')" aria-label="Remover"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+        <button class="ci-remove" onclick="removeCartItem('${s.cartId}')">Remover</button>
       </div>
     </div>`).join('');
 
@@ -615,19 +558,16 @@ function pageCart(){
         <h3 style="font-size:1.125rem">${esc(p.name)}</h3>
         <p class="text-muted" style="font-size:.75rem;margin-bottom:12px">${esc(p.brand)}</p>
         <div class="qty">
-          <button onclick="updateProductQty('${p.cartId}',${p.quantity-1})" aria-label="Diminuir"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg></button>
+          <button onclick="updateProductQty('${p.cartId}',${p.quantity-1})">-</button>
           <span style="width:32px;text-align:center">${p.quantity}</span>
-          <button onclick="updateProductQty('${p.cartId}',${p.quantity+1})" aria-label="Aumentar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
+          <button onclick="updateProductQty('${p.cartId}',${p.quantity+1})">+</button>
         </div>
       </div>
       <div class="ci-right">
-        <span class="price">${BRL(p.price*p.quantity)}</span>
-        <button class="ci-remove" onclick="removeCartItem('${p.cartId}')" aria-label="Remover"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+        <span class="price">R$ ${(p.price*p.quantity).toFixed(2).replace('.',',')}</span>
+        <button class="ci-remove" onclick="removeCartItem('${p.cartId}')">Remover</button>
       </div>
     </div>`).join('');
-
-  const sumRows = [...services.map(s=>`<div class="sum-row"><span>${esc(s.name)}</span><span>${esc(s.price)}</span></div>`),
-    ...products.map(p=>`<div class="sum-row"><span>${esc(p.name)} x${p.quantity}</span><span>${BRL(p.price*p.quantity)}</span></div>`)].join('');
 
   return `
     <div class="page" style="padding-top:80px">
@@ -642,21 +582,9 @@ function pageCart(){
           <div>
             <div class="summary">
               <h2 style="font-size:1.25rem;margin-bottom:24px">Resumo</h2>
-              <div style="margin-bottom:24px">${sumRows}</div>
-              <div class="horizon-rule" style="margin-bottom:24px"></div>
-              <div class="total-row"><span class="label-caps">Total estimado</span><span class="t">${BRL(total)}</span></div>
-              <div style="margin-bottom:24px">
-                <label class="label-caps" style="display:block;margin-bottom:8px">Seu nome (opcional)</label>
-                <input id="clientName" placeholder="Como podemos chamar você?" oninput="setClientName(this.value)" value="${esc(clientName)}">
-              </div>
-              <button class="btn-bronze btn-full" onclick="checkoutWhatsApp()">
-                <span style="display:inline-flex;align-items:center;gap:8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Finalizar via WhatsApp</span>
-              </button>
-              <button class="btn-outline btn-full" onclick="copySummary()">
-                <span style="display:inline-flex;align-items:center;gap:8px" id="copyLabel"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> Copiar resumo</span>
-              </button>
-              <p class="text-muted text-center" style="font-size:.75rem;margin:16px 0">Ou entre em contato: ${esc(SALON.phone)} · ${esc(SALON.email)}</p>
-              <button class="text-muted" style="font-size:.75rem;background:none;border:0;text-decoration:underline;text-underline-offset:4px;width:100%;text-align:center" onclick="clearCartAll()">Esvaziar carrinho</button>
+              <div class="total-row"><span class="label-caps">Total estimado</span><span class="t">R$ ${total.toFixed(2).replace('.',',')}</span></div>
+              <button class="btn-bronze btn-full" onclick="checkoutWhatsApp()">Finalizar via WhatsApp</button>
+              <button class="text-muted" style="font-size:.75rem;background:none;border:0;text-decoration:underline;width:100%;text-align:center;margin-top:12px" onclick="clearCartAll()">Esvaziar carrinho</button>
             </div>
           </div>
         </div>
@@ -664,36 +592,9 @@ function pageCart(){
     </div>
   `;
 }
-let clientName = '';
-function setClientName(v){ clientName = v; }
-function initCart(){}
-function buildCartMessage(){
-  const services = cart.filter(i=>i.type==='service');
-  const products = cart.filter(i=>i.type==='product');
-  const total = cartTotal();
-  const lines = [];
-  lines.push(`*NOVA SOLICITAÇÃO — ${SALON.name}*`);
-  lines.push('');
-  if(clientName) lines.push(`Cliente: ${clientName}`);
-  lines.push('');
-  if(services.length){ lines.push('*PROCEDIMENTOS*'); services.forEach((s,i)=>{ lines.push(`${i+1}. ${s.name} — ${s.price}`); }); lines.push(''); }
-  if(products.length){ lines.push('*PRODUTOS*'); products.forEach((p,i)=>{ lines.push(`${i+1}. ${p.name} (${p.brand}) — ${BRL(p.price)} x${p.quantity} = ${BRL(p.price*p.quantity)}`); }); lines.push(''); }
-  lines.push(`*TOTAL ESTIMADO: ${BRL(total)}*`);
-  lines.push('');
-  lines.push('Aguardo confirmação de disponibilidade e formas de pagamento. Obrigada!');
-  return lines.join('\n');
-}
 function checkoutWhatsApp(){
-  const msg = encodeURIComponent(buildCartMessage());
+  const msg = encodeURIComponent("Olá! Gostaria de confirmar meu agendamento/pedido no salão Auréa.");
   window.open(`https://wa.me/${SALON.whatsappNumber}?text=${msg}`,'_blank');
-}
-function copySummary(){
-  navigator.clipboard.writeText(buildCartMessage()).then(()=>{
-    const lbl = document.getElementById('copyLabel');
-    if(lbl) lbl.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copiado!';
-    toast('Resumo copiado!');
-    setTimeout(()=>{ const l=document.getElementById('copyLabel'); if(l) l.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> Copiar resumo'; }, 2000);
-  }).catch(()=>{});
 }
 
 function pageFooter(){
@@ -709,13 +610,13 @@ function pageFooter(){
           <div>
             <p class="label-caps" style="margin-bottom:12px">Contato</p>
             <ul class="text-muted">
-              <li style="display:flex;gap:12px;align-items:flex-start"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);flex-shrink:0;margin-top:2px"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>${esc(SALON.address)}</span></li>
-              <li style="display:flex,gap:12px;align-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg><span>${esc(SALON.phone)}</span></li>
+              <li>${esc(SALON.address)}</li>
+              <li>${esc(SALON.phone)}</li>
             </ul>
           </div>
           <div>
             <p class="label-caps" style="margin-bottom:12px">Horário</p>
-            <p class="text-muted" style="display:flex;gap:12px;font-size:.875rem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>${esc(SALON.hours)}</span></p>
+            <p class="text-muted" style="font-size:.875rem">${esc(SALON.hours)}</p>
           </div>
         </div>
         <div class="horizon-rule" style="margin:24px 0 16px"></div>
@@ -725,7 +626,9 @@ function pageFooter(){
   `;
 }
 
-/* ============ INIT ============ */
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function stars(n){ return Array.from({length:n||5}).map(()=>'★').join(''); }
+
 window.addEventListener('hashchange', navigate);
 document.getElementById('burger').addEventListener('click', toggleMobile);
 navigate();

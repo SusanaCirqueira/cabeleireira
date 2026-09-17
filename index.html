@@ -50,7 +50,6 @@
   .btn-bronze:hover{opacity:.88}
   .btn-bronze:disabled{opacity:.4;cursor:not-allowed}
   
-  /* Botão com fundo branco sólido */
   .btn-white-solid{display:inline-flex;align-items:center;gap:12px;background:#fff;color:#1a1512;padding:16px 32px;font-size:.875rem;text-transform:uppercase;letter-spacing:.15em;font-weight:500;transition:opacity .3s, transform .3s;min-height:48px;border:0}
   .btn-white-solid:hover{opacity:.9;transform:translateY(-2px)}
 
@@ -61,7 +60,13 @@
   .scale-hover{transition:transform .7s cubic-bezier(.22,1,.36,1)}
   .scale-hover:hover{transform:scale(1.03)}
 
-  /* NAVBAR - Sempre visível e fixa com fundo sólido/blur */
+  /* Botões grandes para substituir as imagens no O Salão */
+  .grid-2-buttons{display:grid;grid-template-columns:1fr;gap:32px}
+  @media(min-width:768px){.grid-2-buttons{grid-template-columns:repeat(2,1fr)}}
+  .big-nav-btn{aspect-ratio:4/5;background:var(--secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foreground);transition:all .3s ease;text-align:center;padding:24px}
+  .big-nav-btn:hover{background:var(--primary);color:var(--primary-foreground);border-color:var(--primary);transform:translateY(-4px)}
+
+  /* NAVBAR */
   header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:color-mix(in srgb, var(--background) 95%, transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);transition:all .5s}
   header.nav .nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:80px;display:flex;align-items:center;justify-content:space-between}
   @media(min-width:1024px){header.nav .nav-inner{padding:0 40px}}
@@ -90,7 +95,7 @@
   .hero-bounce{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:10;color:rgba(255,255,255,.7);animation:bounce 2s infinite}
   @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
-  /* SECTIONS (Espaçamento reduzido para diminuir o vão excessivo) */
+  /* SECTIONS */
   section{padding:0}
   .sec{padding:50px 0}
   @media(min-width:768px){.sec{padding:70px 0}}
@@ -241,7 +246,6 @@ const HERO_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f
 const ABOUT_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/1009892ae_generated_17cd54f2.jpg";
 const MACRO_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/f7c83c19d_generated_b0888844.jpg";
 const TRANSFORM_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/c44d11f14_generated_2ffc9168.jpg";
-const SPACE_IMGS = [ABOUT_IMG, HERO_IMG, MACRO_IMG];
 
 const SERVICES = [
   {id:"s1",name:"Coloração Premium",category:"Coloração",description:"Coloração completa com produtos premium de longa duração. Inclui diagnóstico capilar, proteção da fibra e finalização.",duration:"3h",price:"R$ 380",image_before:MACRO_IMG,image_after:TRANSFORM_IMG},
@@ -414,8 +418,6 @@ function pageAbout(){
       <h3 style="font-size:1.25rem;margin-bottom:12px">${esc(p.name)}</h3>
       <p class="text-muted" style="font-size:.875rem;line-height:1.6">${esc(p.bio)}</p>
     </article>`).join('');
-  
-  const spaceHtml = SPACE_IMGS.map((img,i)=>`<div class="aspect-45 overflow-hidden"><img src="${img}" alt="Espaço do salão ${i+1}" class="obj-cover scale-hover"></div>`).join('');
 
   return `
     <div style="padding-top:40px">
@@ -436,8 +438,11 @@ function pageAbout(){
 
       <section class="sec">
         <div class="wrap">
-          ${secHead('O espaço','Nosso atelier','Um ambiente pensado para o seu conforto e bem-estar.')}
-          <div class="grid-3">${spaceHtml}</div>
+          ${secHead('Explore','Conheça mais','Acesse nossos procedimentos ou compre produtos diretamente.')}
+          <div class="grid-2-buttons">
+            <a href="#/procedimentos" class="big-nav-btn">Procedimentos</a>
+            <a href="#/loja" class="big-nav-btn">Loja</a>
+          </div>
         </div>
       </section>
     </div>

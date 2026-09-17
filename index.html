@@ -58,9 +58,8 @@
   .scale-hover{transition:transform .7s cubic-bezier(.22,1,.36,1)}
   .scale-hover:hover{transform:scale(1.03)}
 
-  /* NAVBAR */
-  header.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:all .5s}
-  header.nav.scrolled{background:color-mix(in srgb, var(--background) 95%, transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--border)}
+  /* NAVBAR - Sempre visível e fixa com fundo sólido/blur */
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:color-mix(in srgb, var(--background) 95%, transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);transition:all .5s}
   header.nav .nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:80px;display:flex;align-items:center;justify-content:space-between}
   @media(min-width:1024px){header.nav .nav-inner{padding:0 40px}}
   .brand{font-family:var(--font-heading);font-size:1.5rem;letter-spacing:.2em;text-transform:uppercase}
@@ -79,8 +78,8 @@
   .mobile-menu a.active{color:var(--primary)}
   @media(min-width:768px){.nav-links{display:flex}.burger{display:none}}
 
-  /* HERO */
-  .hero{position:relative;height:100vh;min-height:600px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+  /* HERO - Ajustado com padding-top para compensar o header fixo */
+  .hero{position:relative;height:calc(100vh - 80px);min-height:520px;margin-top:80px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
   .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.2), transparent, rgba(0,0,0,.4))}
   .hero-content{position:relative;z-index:10;width:100%;padding-bottom:80px}
@@ -236,7 +235,8 @@
       <a href="#/loja" data-route="/loja">Loja</a>
     </nav>
     <div class="nav-right">
-      <a href="#/carrinho" class="nav-cart-icon" id="navCartIcon" data-route="/carrinho" aria-label="Carrinho">
+      <!-- Carrinho restrito apenas às páginas de Procedimentos e Loja -->
+      <a href="#/carrinho" class="nav-cart-icon" id="navCartIcon" data-route="/carrinho" aria-label="Carrinho" style="display: none;">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
       </a>
       <button class="burger" id="burger" aria-label="Menu">
@@ -321,10 +321,8 @@ const stars = n => Array.from({length:n||5}).map(()=>'<svg width="14" height="14
 /* ============ CART ============ */
 let cart = [];
 try { cart = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e){ cart = []; }
-function saveCart(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); updateCartBadge(); }
+function saveCart(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); }
 function cartTotal(){ return cart.filter(i=>i.type==='product').reduce((s,i)=>s+i.price*i.quantity,0); }
-
-function updateCartBadge(){}
 
 function addServiceToCartDirect(serviceId){
   const service = SERVICES.find(s => s.id === serviceId);
@@ -363,10 +361,16 @@ function toast(msg){
 /* ============ ROUTER ============ */
 let currentRoute = '/';
 function getRoute(){ return location.hash.replace(/^#/,'') || '/'; }
-function navigate(){ currentRoute = getRoute(); render(); window.scrollTo(0,0); closeMobile(); }
+function navigate(){ 
+  currentRoute = getRoute(); 
+  render(); 
+  window.scrollTo(0,0); 
+  closeMobile(); 
+}
 
 function render(){
   renderNavActive();
+  updateCartVisibility();
   const app = document.getElementById('app');
   const footer = document.getElementById('footer');
   if(currentRoute === '/'){ app.innerHTML = pageHome(); footer.innerHTML = pageFooter(); }
@@ -386,8 +390,19 @@ function renderNavActive(){
   });
 }
 
+function updateCartVisibility(){
+  const cartIcon = document.getElementById('navCartIcon');
+  if(cartIcon){
+    // Exibe o carrinho apenas nas páginas de procedimentos e loja
+    if(currentRoute === '/procedimentos' || currentRoute === '/loja' || currentRoute === '/carrinho'){
+      cartIcon.style.display = 'inline-flex';
+    } else {
+      cartIcon.style.display = 'none';
+    }
+  }
+}
+
 /* ============ NAVBAR ============ */
-function onScroll(){ document.getElementById('navbar').classList.toggle('scrolled', window.scrollY>20); }
 function toggleMobile(){ document.getElementById('mobileMenu').classList.toggle('open'); }
 function closeMobile(){ document.getElementById('mobileMenu').classList.remove('open'); }
 
@@ -453,7 +468,7 @@ function pageAbout(){
   const spaceHtml = SPACE_IMGS.map((img,i)=>`<div class="aspect-45 overflow-hidden"><img src="${img}" alt="Espaço do salão ${i+1}" class="obj-cover scale-hover"></div>`).join('');
 
   return `
-    <div style="padding-top:128px">
+    <div style="padding-top:40px">
       <section style="padding:64px 0 96px">
         <div style="max-width:42rem;margin:0 auto;padding:0 24px;text-align:center">
           <p class="label-caps" style="margin-bottom:16px">O Salão</p>
@@ -515,7 +530,7 @@ function pageProcedures(){
   }).join('');
 
   return `
-    <div class="page">
+    <div class="page" style="padding-top:80px">
       <div class="wrap">
         ${secHead('Procedimentos','Nossos serviços','Explore nossos procedimentos por categoria. Adicione diretamente ao carrinho.')}
         <div>${accHtml}</div>
@@ -528,7 +543,7 @@ function toggleCategory(cat){ openCategory = (openCategory===cat?null:cat); rend
 
 function pageShop(){
   return `
-    <div class="page">
+    <div class="page" style="padding-top:80px">
       <div class="wrap">
         ${secHead('Loja','Farmácia capilar','Produtos profissionais selecionados para manter a saúde e o brilho do seu cabelo em casa.')}
         <div id="prodGrid"></div>
@@ -566,7 +581,7 @@ function renderProdGrid(){
 
 function pageCart(){
   if(!cart.length){
-    return `<div class="empty-cart">
+    return `<div class="empty-cart" style="padding-top:100px">
       <div class="ec-inner">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 24px;color:var(--muted-foreground)"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         <h1 style="font-size:1.875rem;margin-bottom:16px">Seu carrinho está vazio</h1>
@@ -615,7 +630,7 @@ function pageCart(){
     ...products.map(p=>`<div class="sum-row"><span>${esc(p.name)} x${p.quantity}</span><span>${BRL(p.price*p.quantity)}</span></div>`)].join('');
 
   return `
-    <div class="page">
+    <div class="page" style="padding-top:80px">
       <div class="wrap">
         <p class="label-caps" style="margin-bottom:16px">Carrinho</p>
         <h1 style="font-size:clamp(2.25rem,4vw,3rem);margin-bottom:48px">Seu pedido</h1>
@@ -695,7 +710,7 @@ function pageFooter(){
             <p class="label-caps" style="margin-bottom:12px">Contato</p>
             <ul class="text-muted">
               <li style="display:flex;gap:12px;align-items:flex-start"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);flex-shrink:0;margin-top:2px"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>${esc(SALON.address)}</span></li>
-              <li style="display:flex;gap:12px;align-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg><span>${esc(SALON.phone)}</span></li>
+              <li style="display:flex,gap:12px;align-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg><span>${esc(SALON.phone)}</span></li>
             </ul>
           </div>
           <div>
@@ -711,10 +726,8 @@ function pageFooter(){
 }
 
 /* ============ INIT ============ */
-window.addEventListener('scroll', onScroll);
 window.addEventListener('hashchange', navigate);
 document.getElementById('burger').addEventListener('click', toggleMobile);
-onScroll();
 navigate();
 </script>
 </body>

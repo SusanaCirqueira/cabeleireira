@@ -69,6 +69,9 @@
   header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:color-mix(in srgb, var(--background) 95%, transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);transition:all .5s}
   header.nav .nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:80px;display:flex;align-items:center;justify-content:space-between}
   @media(min-width:1024px){header.nav .nav-inner{padding:0 40px}}
+  .nav-left{display:flex;align-items:center;gap:16px}
+  .back-btn{display:inline-flex;align-items:center;justify-content:center;background:none;border:0;color:color-mix(in srgb, var(--foreground) 70%, transparent);padding:8px;transition:color .3s}
+  .back-btn:hover{color:var(--primary)}
   .brand{font-family:var(--font-heading);font-size:1.5rem;letter-spacing:.2em;text-transform:uppercase}
   .nav-right{display:flex;align-items:center;gap:16px}
   .nav-cart-icon{display:inline-flex;align-items:center;justify-content:center;color:color-mix(in srgb, var(--foreground) 70%, transparent);transition:color .3s;padding:8px}
@@ -196,7 +199,12 @@
 
 <header class="nav" id="navbar">
   <div class="nav-inner">
-    <a href="#/" class="brand">Auréa</a>
+    <div class="nav-left">
+      <button class="back-btn" id="backBtn" onclick="goBack()" aria-label="Voltar" style="display: none;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </button>
+      <a href="#/" class="brand">Auréa</a>
+    </div>
     <div class="nav-right">
       <a href="#/carrinho" class="nav-cart-icon" id="navCartIcon" data-route="/carrinho" aria-label="Carrinho" style="display: none;">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -310,7 +318,7 @@ function navigate(){
 
 function render(){
   renderNavActive();
-  updateCartVisibility();
+  updateNavElements();
   const app = document.getElementById('app');
   const footer = document.getElementById('footer');
   if(currentRoute === '/'){ app.innerHTML = pageHome(); footer.innerHTML = pageFooter(); }
@@ -330,8 +338,10 @@ function renderNavActive(){
   });
 }
 
-function updateCartVisibility(){
+function updateNavElements(){
   const cartIcon = document.getElementById('navCartIcon');
+  const backBtn = document.getElementById('backBtn');
+
   if(cartIcon){
     if(currentRoute === '/procedimentos' || currentRoute === '/loja' || currentRoute === '/carrinho'){
       cartIcon.style.display = 'inline-flex';
@@ -339,6 +349,18 @@ function updateCartVisibility(){
       cartIcon.style.display = 'none';
     }
   }
+
+  if(backBtn){
+    if(currentRoute !== '/'){
+      backBtn.style.display = 'inline-flex';
+    } else {
+      backBtn.style.display = 'none';
+    }
+  }
+}
+
+function goBack(){
+  window.history.back();
 }
 
 function toggleMobile(){ document.getElementById('mobileMenu').classList.toggle('open'); }

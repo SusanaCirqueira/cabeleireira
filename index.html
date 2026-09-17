@@ -50,7 +50,7 @@
   .btn-bronze:hover{opacity:.88}
   .btn-bronze:disabled{opacity:.4;cursor:not-allowed}
   
-  /* Botão com fundo branco solicitado */
+  /* Botão com fundo branco sólido */
   .btn-white-solid{display:inline-flex;align-items:center;gap:12px;background:#fff;color:#1a1512;padding:16px 32px;font-size:.875rem;text-transform:uppercase;letter-spacing:.15em;font-weight:500;transition:opacity .3s, transform .3s;min-height:48px;border:0}
   .btn-white-solid:hover{opacity:.9;transform:translateY(-2px)}
 
@@ -90,13 +90,13 @@
   .hero-bounce{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:10;color:rgba(255,255,255,.7);animation:bounce 2s infinite}
   @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
-  /* SECTIONS */
+  /* SECTIONS (Espaçamento reduzido para diminuir o vão excessivo) */
   section{padding:0}
-  .sec{padding:96px 0}
-  @media(min-width:768px){.sec{padding:128px 0}}
-  .sec-head{max-width:42rem;margin:0 auto 56px;text-align:center}
-  .sec-head h2{font-size:clamp(1.875rem,4vw,3rem);letter-spacing:.05em;line-height:1.1;margin-top:16px}
-  .sec-head p{margin-top:20px;color:var(--muted-foreground);line-height:1.6}
+  .sec{padding:50px 0}
+  @media(min-width:768px){.sec{padding:70px 0}}
+  .sec-head{max-width:42rem;margin:0 auto 36px;text-align:center}
+  .sec-head h2{font-size:clamp(1.875rem,4vw,3rem);letter-spacing:.05em;line-height:1.1;margin-top:12px}
+  .sec-head p{margin-top:16px;color:var(--muted-foreground);line-height:1.6}
   .sec-head.left{text-align:left;margin-left:0}
 
   /* GRIDS */
@@ -385,7 +385,6 @@ function pageHome(){
           <p class="text-muted" style="margin-bottom:20px;line-height:1.6">Há mais de uma década, o ${esc(SALON.name)} une técnica, sensibilidade e produtos premium para revelar a melhor versão do seu cabelo. Nosso atendimento personalizado começa na escuta e termina no espelho — com resultados que respeitam a saúde capilar.</p>
           <p class="text-muted" style="margin-bottom:32px;line-height:1.6">Trabalhamos com marcas profissionais selecionadas e técnicas exclusivas, em um ambiente pensado para o seu bem-estar.</p>
           
-          <!-- Botão modificado com fundo retangular branco e borda arredondada opcional -->
           <a href="#/salao" class="btn-white-solid">
             Conheça o salão 
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>

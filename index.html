@@ -77,11 +77,15 @@
   .nav-cart-icon{display:inline-flex;align-items:center;justify-content:center;color:color-mix(in srgb, var(--foreground) 70%, transparent);transition:color .3s;padding:8px}
   .nav-cart-icon:hover,.nav-cart-icon.active{color:var(--primary)}
   .burger{display:flex;background:none;border:0;color:var(--foreground);padding:8px}
-  .mobile-menu{display:none;background:var(--background);border-top:1px solid var(--border)}
+
+  /* QUADRANTE SUPERIOR DIREITO - MENU SUSPENSO */
+  .mobile-menu{display:none;position:fixed;top:80px;right:0;width:100%;max-width:420px;background:var(--card);border-left:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,0.5);z-index:100;animation:fadeInDown .3s ease}
   .mobile-menu.open{display:block}
-  .mobile-menu .mm-inner{padding:24px;display:flex;flex-direction:column;gap:20px}
-  .mobile-menu a{font-size:.875rem;text-transform:uppercase;letter-spacing:.15em;color:color-mix(in srgb,var(--foreground) 80%,transparent)}
-  .mobile-menu a.active{color:var(--primary)}
+  .mobile-menu .mm-inner{padding:32px;display:flex;flex-direction:column;gap:24px}
+  .mobile-menu h3{font-size:1.25rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px}
+  .mobile-menu ul{list-style:none}
+  .mobile-menu ul li{margin-bottom:10px;font-size:.875rem}
+  @keyframes fadeInDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
 
   /* HERO */
   .hero{position:relative;height:calc(100vh - 80px);min-height:520px;margin-top:80px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
@@ -180,14 +184,7 @@
 
   /* FOOTER */
   footer{background:color-mix(in srgb,var(--secondary) 60%,transparent);border-top:1px solid var(--border);margin-top:0}
-  .foot-grid{display:grid;gap:32px;grid-template-columns:1fr}
-  @media(min-width:768px){.foot-grid{grid-template-columns:1fr 1fr 1fr}}
-  footer h3{font-size:1.25rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px}
-  footer ul{list-style:none}
-  footer ul li{margin-bottom:8px;font-size:.875rem}
-  footer ul li a{transition:color .3s}
-  footer ul li a:hover{color:var(--primary)}
-  .foot-bottom{text-align:center;margin-top:24px;font-size:.75rem;color:var(--muted-foreground);letter-spacing:.05em}
+  .foot-bottom{text-align:center;padding:24px;font-size:.75rem;color:var(--muted-foreground);letter-spacing:.05em}
 
   .page{padding-top:128px;padding-bottom:96px}
   .order-1{order:1}
@@ -214,12 +211,27 @@
       </button>
     </div>
   </div>
+
+  <!-- MENU SUSPENSO NO QUADRANTE SUPERIOR DIREITO -->
   <div class="mobile-menu" id="mobileMenu">
     <div class="mm-inner">
-      <a href="#/" data-route="/">Início</a>
-      <a href="#/salao" data-route="/salao">O Salão</a>
-      <a href="#/procedimentos" data-route="/procedimentos">Procedimentos</a>
-      <a href="#/loja" data-route="/loja">Loja</a>
+      <div>
+        <h3>Auréa</h3>
+        <p class="text-muted" style="font-size:.85rem;line-height:1.5;margin-top:8px">Hair Atelier. Cuidado capilar artesanal com produtos premium e atendimento personalizado.</p>
+      </div>
+      <div class="horizon-rule"></div>
+      <div>
+        <p class="label-caps" style="margin-bottom:8px">Contato</p>
+        <ul class="text-muted">
+          <li>Rua Oscar Freire, 1200 — Jardins, São Paulo — SP</li>
+          <li style="margin-top:6px">+55 (11) 99999-9999</li>
+        </ul>
+      </div>
+      <div class="horizon-rule"></div>
+      <div>
+        <p class="label-caps" style="margin-bottom:8px">Horário</p>
+        <p class="text-muted" style="font-size:.85rem">Terça a Sábado, 9h às 19h · Domingo e Segunda: fechado</p>
+      </div>
     </div>
   </div>
 </header>
@@ -317,7 +329,6 @@ function navigate(){
 }
 
 function render(){
-  renderNavActive();
   updateNavElements();
   const app = document.getElementById('app');
   const footer = document.getElementById('footer');
@@ -330,12 +341,6 @@ function render(){
   if(currentRoute === '/procedimentos') initProcedures();
   if(currentRoute === '/loja') initShop();
   if(currentRoute === '/carrinho') initCart();
-}
-
-function renderNavActive(){
-  document.querySelectorAll('[data-route]').forEach(a=>{
-    a.classList.toggle('active', a.getAttribute('data-route')===currentRoute);
-  });
 }
 
 function updateNavElements(){
@@ -615,25 +620,7 @@ function pageFooter(){
   const year = new Date().getFullYear();
   return `
     <footer>
-      <div class="wrap" style="padding:32px 24px 20px">
-        <div class="foot-grid">
-          <div>
-            <h3>${esc(SALON.name)}</h3>
-            <p class="text-muted" style="font-size:.875rem;line-height:1.6">Cuidado capilar artesanal com produtos premium e atendimento personalizado.</p>
-          </div>
-          <div>
-            <p class="label-caps" style="margin-bottom:12px">Contato</p>
-            <ul class="text-muted">
-              <li>${esc(SALON.address)}</li>
-              <li>${esc(SALON.phone)}</li>
-            </ul>
-          </div>
-          <div>
-            <p class="label-caps" style="margin-bottom:12px">Horário</p>
-            <p class="text-muted" style="font-size:.875rem">${esc(SALON.hours)}</p>
-          </div>
-        </div>
-        <div class="horizon-rule" style="margin:24px 0 16px"></div>
+      <div class="wrap">
         <p class="foot-bottom">© ${year} ${esc(SALON.name)}. Todos os direitos reservados.</p>
       </div>
     </footer>

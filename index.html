@@ -60,7 +60,6 @@
   .scale-hover{transition:transform .7s cubic-bezier(.22,1,.36,1)}
   .scale-hover:hover{transform:scale(1.03)}
 
-  /* Botões levemente menores (proporção 10/11) */
   .grid-2-buttons{display:grid;grid-template-columns:1fr;gap:32px;max-width:800px;margin:0 auto}
   @media(min-width:768px){.grid-2-buttons{grid-template-columns:repeat(2,1fr)}}
   .big-nav-btn{aspect-ratio:10/11;background:var(--secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.25rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foreground);transition:all .3s ease;text-align:center;padding:24px}
@@ -71,10 +70,6 @@
   header.nav .nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:80px;display:flex;align-items:center;justify-content:space-between}
   @media(min-width:1024px){header.nav .nav-inner{padding:0 40px}}
   .brand{font-family:var(--font-heading);font-size:1.5rem;letter-spacing:.2em;text-transform:uppercase}
-  .nav-links{display:none;align-items:center;gap:40px}
-  .nav-links a{font-size:.875rem;text-transform:uppercase;letter-spacing:.15em;color:color-mix(in srgb, var(--foreground) 70%, transparent);transition:color .3s}
-  .nav-links a:hover,.nav-links a.active{color:var(--foreground)}
-  .nav-links a.active{color:var(--primary)}
   .nav-right{display:flex;align-items:center;gap:16px}
   .nav-cart-icon{display:inline-flex;align-items:center;justify-content:center;color:color-mix(in srgb, var(--foreground) 70%, transparent);transition:color .3s;padding:8px}
   .nav-cart-icon:hover,.nav-cart-icon.active{color:var(--primary)}
@@ -84,7 +79,6 @@
   .mobile-menu .mm-inner{padding:24px;display:flex;flex-direction:column;gap:20px}
   .mobile-menu a{font-size:.875rem;text-transform:uppercase;letter-spacing:.15em;color:color-mix(in srgb,var(--foreground) 80%,transparent)}
   .mobile-menu a.active{color:var(--primary)}
-  @media(min-width:768px){.nav-links{display:flex}.burger{display:none}}
 
   /* HERO */
   .hero{position:relative;height:calc(100vh - 80px);min-height:520px;margin-top:80px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
@@ -203,12 +197,6 @@
 <header class="nav" id="navbar">
   <div class="nav-inner">
     <a href="#/" class="brand">Auréa</a>
-    <nav class="nav-links" id="navLinks">
-      <a href="#/" data-route="/">Início</a>
-      <a href="#/salao" data-route="/salao">O Salão</a>
-      <a href="#/procedimentos" data-route="/procedimentos">Procedimentos</a>
-      <a href="#/loja" data-route="/loja">Loja</a>
-    </nav>
     <div class="nav-right">
       <a href="#/carrinho" class="nav-cart-icon" id="navCartIcon" data-route="/carrinho" aria-label="Carrinho" style="display: none;">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>

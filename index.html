@@ -63,19 +63,19 @@
   .big-nav-btn{aspect-ratio:10/11;background:var(--secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.25rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foreground);transition:all .3s ease;text-align:center;padding:24px}
   .big-nav-btn:hover{background:var(--primary);color:var(--primary-foreground);border-color:var(--primary);transform:translateY(-4px)}
 
-  /* NAVBAR - COR IGUAL AO RODAPÉ E ITENS MAIS PARA A ESQUERDA */
-  header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:color-mix(in srgb, var(--secondary) 60%, transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);transition:all .5s}
-  header.nav .nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:80px;display:flex;align-items:center;justify-content:space-between}
+  /* NAVBAR - COR EXATA DO MARROM E ALINHADA À ESQUERDA */
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--secondary);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);transition:all .5s}
+  header.nav .nav-inner{max-width:100%;margin:0;padding:0 12px;height:80px;display:flex;align-items:center;justify-content:space-between}
   @media(min-width:1024px){header.nav .nav-inner{padding:0 16px}}
   
-  .nav-left{display:flex;align-items:center;gap:16px}
+  .nav-left{display:flex;align-items:center;gap:12px}
   .back-btn{display:inline-flex;align-items:center;justify-content:center;background:none;border:0;color:color-mix(in srgb, var(--foreground) 70%, transparent);padding:8px;transition:color .3s}
   .back-btn:hover{color:var(--primary)}
   
   /* LOGO TAMANHO FIXO DE 264PX */
   .brand-logo{width:264px;height:auto;display:block;object-fit:contain;}
 
-  .nav-right{display:flex;align-items:center;gap:16px}
+  .nav-right{display:flex;align-items:center;gap:12px;padding-right:8px}
   .nav-cart-icon{display:inline-flex;align-items:center;justify-content:center;color:color-mix(in srgb, var(--foreground) 70%, transparent);transition:color .3s;padding:8px}
   .nav-cart-icon:hover,.nav-cart-icon.active{color:var(--primary)}
   .burger{display:flex;background:none;border:0;color:var(--foreground);padding:8px}

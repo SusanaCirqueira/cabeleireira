@@ -63,7 +63,7 @@
   .big-nav-btn{aspect-ratio:10/11;background:var(--secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.25rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foreground);transition:all .3s ease;text-align:center;padding:24px}
   .big-nav-btn:hover{background:var(--primary);color:var(--primary-foreground);border-color:var(--primary);transform:translateY(-4px)}
 
-  /* NAVBAR - COR EXATA DO MARROM E ALINHADA À ESQUERDA */
+  /* NAVBAR */
   header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--secondary);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);transition:all .5s}
   header.nav .nav-inner{max-width:100%;margin:0;padding:0 12px;height:80px;display:flex;align-items:center;justify-content:space-between}
   @media(min-width:1024px){header.nav .nav-inner{padding:0 16px}}
@@ -72,7 +72,6 @@
   .back-btn{display:inline-flex;align-items:center;justify-content:center;background:none;border:0;color:color-mix(in srgb, var(--foreground) 70%, transparent);padding:8px;transition:color .3s}
   .back-btn:hover{color:var(--primary)}
   
-  /* LOGO TAMANHO FIXO DE 264PX */
   .brand-logo{width:264px;height:auto;display:block;object-fit:contain;}
 
   .nav-right{display:flex;align-items:center;gap:12px;padding-right:8px}
@@ -80,7 +79,6 @@
   .nav-cart-icon:hover,.nav-cart-icon.active{color:var(--primary)}
   .burger{display:flex;background:none;border:0;color:var(--foreground);padding:8px}
 
-  /* MENU SUSPENSO NO QUADRANTE SUPERIOR DIREITO */
   .mobile-menu{display:none;position:fixed;top:80px;right:0;width:100%;max-width:420px;background:var(--card);border-left:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,0.5);z-index:100;animation:fadeInDown .3s ease}
   .mobile-menu.open{display:block}
   .mobile-menu .mm-inner{padding:32px;display:flex;flex-direction:column;gap:24px}
@@ -195,7 +193,6 @@
       <button class="back-btn" id="backBtn" onclick="goBack()" aria-label="Voltar" style="display: none;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
       </button>
-      <!-- LOGO CORRETA COM LARGURA DE 264PX -->
       <a href="#/" class="brand-link">
         <img src="JM..png" alt="Jéssica Martins Logo" class="brand-logo">
       </a>
@@ -210,7 +207,6 @@
     </div>
   </div>
 
-  <!-- MENU SUSPENSO NO QUADRANTE SUPERIOR DIREITO -->
   <div class="mobile-menu" id="mobileMenu">
     <div class="mm-inner">
       <div>
@@ -248,7 +244,8 @@ const SALON = {
   hours: "Terça a Sábado, 9h às 19h · Domingo e Segunda: fechado"
 };
 
-const HERO_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/6b3ad3086_generated_a118d2d1.jpg";
+// HERO_IMG ATUALIZADA COM A SUA NOVA FOTO
+const HERO_IMG = "s_2.png";
 const ABOUT_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/1009892ae_generated_17cd54f2.jpg";
 const MACRO_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/f7c83c19d_generated_b0888844.jpg";
 const TRANSFORM_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/c44d11f14_generated_2ffc9168.jpg";

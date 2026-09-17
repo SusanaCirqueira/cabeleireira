@@ -69,6 +69,8 @@
   .nav-links a:hover,.nav-links a.active{color:var(--foreground)}
   .nav-links a.active{color:var(--primary)}
   .nav-right{display:flex;align-items:center;gap:16px}
+  .nav-cart-icon{display:inline-flex;align-items:center;justify-content:center;color:color-mix(in srgb, var(--foreground) 70%, transparent);transition:color .3s;padding:8px}
+  .nav-cart-icon:hover,.nav-cart-icon.active{color:var(--primary)}
   .burger{display:flex;background:none;border:0;color:var(--foreground);padding:8px}
   .mobile-menu{display:none;background:var(--background);border-top:1px solid var(--border)}
   .mobile-menu.open{display:block}
@@ -232,9 +234,11 @@
       <a href="#/salao" data-route="/salao">O Salão</a>
       <a href="#/procedimentos" data-route="/procedimentos">Procedimentos</a>
       <a href="#/loja" data-route="/loja">Loja</a>
-      <a href="#/carrinho" data-route="/carrinho">Carrinho</a>
     </nav>
     <div class="nav-right">
+      <a href="#/carrinho" class="nav-cart-icon" id="navCartIcon" data-route="/carrinho" aria-label="Carrinho">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      </a>
       <button class="burger" id="burger" aria-label="Menu">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
       </button>
@@ -246,7 +250,6 @@
       <a href="#/salao" data-route="/salao">O Salão</a>
       <a href="#/procedimentos" data-route="/procedimentos">Procedimentos</a>
       <a href="#/loja" data-route="/loja">Loja</a>
-      <a href="#/carrinho" data-route="/carrinho">Carrinho</a>
     </div>
   </div>
 </header>
@@ -259,7 +262,6 @@
 /* ============ DATA ============ */
 const SALON = {
   name: "Auréa",
-  tagline: "Hair Atelier",
   whatsappNumber: "5511999999999",
   phone: "+55 (11) 99999-9999",
   email: "contato@aureahair.com.br",
@@ -408,7 +410,6 @@ function pageHome(){
       <img class="hero-img" src="${HERO_IMG}" alt="Interior do salão Auréa">
       <div class="hero-overlay"></div>
       <div class="hero-content wrap">
-        <p class="label-caps" style="color:rgba(255,255,255,.8);margin-bottom:16px">${esc(SALON.tagline)}</p>
         <h1>A arte de<br>cuidar do<br>cabelo</h1>
       </div>
       <div class="hero-bounce">
@@ -526,15 +527,10 @@ function initProcedures(){}
 function toggleCategory(cat){ openCategory = (openCategory===cat?null:cat); render(); }
 
 function pageShop(){
-  const cats = ['Todos', ...new Set(PRODUCTS.map(p=>p.category))];
-  const catsHtml = cats.map(c=>`<button class="cat-btn ${shopCategory===c?'active':''}" onclick="setShopCategory('${esc(c)}')">${esc(c)}</button>`).join('');
   return `
     <div class="page">
       <div class="wrap">
         ${secHead('Loja','Farmácia capilar','Produtos profissionais selecionados para manter a saúde e o brilho do seu cabelo em casa.')}
-        <div class="shop-tools">
-          <div class="cats">${catsHtml}</div>
-        </div>
         <div id="prodGrid"></div>
       </div>
     </div>

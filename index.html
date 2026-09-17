@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Auréa · Hair Atelier — salão especializado em cuidados capilares. Coloração, cortes, tratamentos, alisamento, penteados e mega hair com atendimento personalizado." />
-<title>Auréa · Hair Atelier</title>
+<meta name="description" content="Auréa — salão especializado em cuidados capilares. Coloração, cortes, tratamentos, alisamento, penteados e mega hair com atendimento personalizado." />
+<title>Auréa</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600&display=swap');
 
@@ -153,11 +153,7 @@
 
   /* SHOP CONTROLS */
   .shop-tools{display:flex;flex-direction:column;gap:24px;margin-bottom:48px}
-  @media(min-width:768px){.shop-tools{flex-direction:row;justify-content:space-between;align-items:center}}
-  .search-wrap{position:relative;flex:1}
-  .search-wrap svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--muted-foreground)}
-  .search-wrap input{width:100%;background:var(--secondary);border:1px solid var(--border);padding:12px 16px 12px 44px;font-size:.875rem;color:var(--foreground);outline:none}
-  .search-wrap input:focus{border-color:var(--primary)}
+  @media(min-width:768px){.shop-tools{flex-direction:row;justify-content:flex-end;align-items:center}}
   .cats{display:flex;gap:8px;flex-wrap:wrap}
   .cat-btn{font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;padding:12px 16px;border:1px solid var(--border);background:transparent;color:var(--foreground);transition:all .3s;white-space:nowrap}
   .cat-btn:hover{border-color:var(--primary)}
@@ -200,23 +196,6 @@
   .empty-cart{padding:160px 0 128px;text-align:center}
   .empty-cart .ec-inner{max-width:28rem;margin:0 auto;padding:0 24px}
 
-  /* CONTACT */
-  .contact-grid{display:grid;grid-template-columns:1fr;gap:64px}
-  @media(min-width:768px){.contact-grid{grid-template-columns:1fr 1fr}}
-  .form-field{margin-bottom:24px}
-  .form-field label{display:block;margin-bottom:8px}
-  .form-field input,.form-field textarea{width:100%;background:var(--secondary);border:1px solid var(--border);padding:12px 16px;font-size:.875rem;color:var(--foreground);outline:none}
-  .form-field input:focus,.form-field textarea:focus{border-color:var(--primary)}
-  .form-field textarea{resize:none}
-  .ci-info{display:flex;gap:16px;margin-bottom:24px}
-  .ci-info .ico{color:var(--primary);flex-shrink:0;margin-top:4px}
-  .ci-info .ci-label{margin-bottom:4px}
-  .social-row{display:flex;gap:16px;margin-bottom:40px}
-  .social-row a{border:1px solid var(--border);padding:16px;transition:border-color .3s;color:var(--foreground)}
-  .social-row a:hover{border-color:var(--primary)}
-  .map-box{aspect-ratio:4/3;overflow:hidden;border:1px solid var(--border)}
-  .map-box iframe{width:100%;height:100%;border:0;filter:grayscale(.3)}
-
   /* FOOTER - COMPACTO */
   footer{background:color-mix(in srgb,var(--secondary) 60%,transparent);border-top:1px solid var(--border);margin-top:0}
   .foot-grid{display:grid;gap:32px;grid-template-columns:1fr}
@@ -227,23 +206,6 @@
   footer ul li a{transition:color .3s}
   footer ul li a:hover{color:var(--primary)}
   .foot-bottom{text-align:center;margin-top:24px;font-size:.75rem;color:var(--muted-foreground);letter-spacing:.05em}
-
-  /* BOOKING MODAL */
-  .modal-overlay{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
-  .modal-box{background:var(--background);width:100%;max-width:32rem;max-height:90vh;overflow-y:auto;padding:40px;position:relative}
-  @media(min-width:768px){.modal-box{padding:40px}}
-  .modal-close{position:absolute;top:20px;right:20px;padding:8px;background:none;border:0;color:var(--foreground);transition:color .3s}
-  .modal-close:hover{color:var(--primary)}
-  .modal-box .mlabel{display:flex;align-items:center;gap:8px;margin-bottom:12px}
-  .modal-box select,.modal-box input[type=date],.modal-box textarea{width:100%;background:var(--secondary);border:1px solid var(--border);padding:12px 16px;font-size:.875rem;color:var(--foreground);outline:none}
-  .modal-box select:focus,.modal-box input:focus,.modal-box textarea:focus{border-color:var(--primary)}
-  .modal-box textarea{resize:none}
-  .slots{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-  .slot{font-size:.75rem;padding:10px 0;border:1px solid var(--border);background:transparent;color:var(--foreground);transition:all .3s}
-  .slot:hover{border-color:var(--primary)}
-  .slot.active{background:var(--primary);color:var(--primary-foreground);border-color:var(--primary)}
-  .confirm-check{text-align:center;padding:64px 0}
-  .confirm-check .cc-ico{width:64px;height:64px;margin:0 auto 24px;border-radius:50%;background:color-mix(in srgb,var(--primary) 10%,transparent);display:flex;align-items:center;justify-content:center;color:var(--primary)}
 
   .page{padding-top:128px;padding-bottom:96px}
   .hidden{display:none}
@@ -270,7 +232,7 @@
       <a href="#/salao" data-route="/salao">O Salão</a>
       <a href="#/procedimentos" data-route="/procedimentos">Procedimentos</a>
       <a href="#/loja" data-route="/loja">Loja</a>
-      <a href="#/contato" data-route="/contato">Contato</a>
+      <a href="#/carrinho" data-route="/carrinho">Carrinho</a>
     </nav>
     <div class="nav-right">
       <button class="burger" id="burger" aria-label="Menu">
@@ -284,7 +246,7 @@
       <a href="#/salao" data-route="/salao">O Salão</a>
       <a href="#/procedimentos" data-route="/procedimentos">Procedimentos</a>
       <a href="#/loja" data-route="/loja">Loja</a>
-      <a href="#/contato" data-route="/contato">Contato</a>
+      <a href="#/carrinho" data-route="/carrinho">Carrinho</a>
     </div>
   </div>
 </header>
@@ -292,8 +254,6 @@
 <main id="app"></main>
 
 <footer id="footer"></footer>
-
-<div id="modal-root"></div>
 
 <script>
 /* ============ DATA ============ */
@@ -322,7 +282,7 @@ const SERVICES = [
   {id:"s3",name:"Corte Feminino Modelagem",category:"Corte",description:"Corte personalizado com modelagem sob medida para o seu formato de rosto e tipo de cabelo. Inclui lavagem, hidratação expressa e finalização.",duration:"1h",price:"R$ 180",image_before:null,image_after:null,featured:true},
   {id:"s4",name:"Corte Masculino",category:"Corte",description:"Corte masculino com acabamento de navalha e acabamento na nuca. Inclui lavagem e finalização com produtos premium.",duration:"45min",price:"R$ 120",image_before:null,image_after:null,featured:false},
   {id:"s5",name:"Hidratação Profunda",category:"Tratamentos",description:"Tratamento de reconstrução profunda com ampolas de alta concentração. Devolve massa, brilho e maciez aos fios ressecados e químicos.",duration:"1h30",price:"R$ 220",image_before:null,image_after:null,featured:false},
-  {id:"s6",name:"Botox Capilar",category:"Tratamentos",description:"Tratamento de selagem com ácido hialurônico que reduz o frizz, alinha os fios e proporciona brilho intenso sem alterar a estrutura capilar.",duration:"2h",price:"R$ 290",image_before:null,image_after:null,featured:false},
+  {id:"s6",name:"Botox Capilar",category:"Tratamentos",description:"Tratamento de selagem com ácido hialurônico que reduces o frizz, alinha os fios e proporciona brilho intenso sem alterar a estrutura capilar.",duration:"2h",price:"R$ 290",image_before:null,image_after:null,featured:false},
   {id:"s7",name:"Progressiva Premium",category:"Alisamento",description:"Alisamento progressivo com formolização controlada e produtos de baixa toxicidade. Reduz volume, alinha e trata os fios. Inclui pós-tratamento.",duration:"3h30",price:"R$ 650",image_before:null,image_after:null,featured:false},
   {id:"s8",name:"Penteado Festa",category:"Penteados",description:"Penteado para eventos especiais: coques, tranças e presos com acabamento premium. Inclui teste prévio e fixação de longa duração.",duration:"1h30",price:"R$ 350",image_before:null,image_after:null,featured:false},
   {id:"s9",name:"Mega Hair Premium",category:"Mega Hair",description:"Aplicação de mega hair em fios naturais de alta qualidade. Acréscimo de comprimento e volume com acabamento imperceptível. Inclui manutenção de 15 dias.",duration:"4h",price:"Sob consulta",image_before:null,image_after:null,featured:false}
@@ -349,7 +309,6 @@ const TESTIMONIALS = [
   {id:"t3",client_name:"Carolina Mendes",text:"Ambiente sofisticado e acolhedor, profissionais que dominam o que fazem. O corte do Rafael valorizou meu rosto como nenhum outro. Virei cliente fiel!",rating:5,service:"Corte Feminino Modelagem"}
 ];
 
-const TIME_SLOTS = ["09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00"];
 const STORAGE_KEY = "aurea_cart_v1";
 
 /* ============ HELPERS ============ */
@@ -360,18 +319,23 @@ const stars = n => Array.from({length:n||5}).map(()=>'<svg width="14" height="14
 /* ============ CART ============ */
 let cart = [];
 try { cart = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e){ cart = []; }
-function saveCart(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); }
-function cartCount(){ return cart.length; }
+function saveCart(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); updateCartBadge(); }
 function cartTotal(){ return cart.filter(i=>i.type==='product').reduce((s,i)=>s+i.price*i.quantity,0); }
 
-function addServiceToCart(service, booking){
+function updateCartBadge(){}
+
+function addServiceToCartDirect(serviceId){
+  const service = SERVICES.find(s => s.id === serviceId);
+  if(!service) return;
   cart.push({
     cartId: 'svc_'+Date.now()+'_'+Math.random().toString(36).slice(2,7),
     type:'service', id:service.id, name:service.name, price:service.price,
-    professional: booking.professional||'', date: booking.date||'', time: booking.time||'', notes: booking.notes||''
+    professional: '', date: '', time: '', notes: ''
   });
   saveCart();
+  toast('Procedimento adicionado ao carrinho!');
 }
+
 function addProductToCart(product){
   const ex = cart.find(i=>i.type==='product'&&i.id===product.id);
   if(ex){ ex.quantity++; } else {
@@ -408,7 +372,6 @@ function render(){
   else if(currentRoute === '/procedimentos'){ app.innerHTML = pageProcedures(); footer.innerHTML = pageFooter(); }
   else if(currentRoute === '/loja'){ app.innerHTML = pageShop(); footer.innerHTML = pageFooter(); }
   else if(currentRoute === '/carrinho'){ app.innerHTML = pageCart(); footer.innerHTML = pageFooter(); }
-  else if(currentRoute === '/contato'){ app.innerHTML = pageContact(); footer.innerHTML = pageFooter(); }
   else { app.innerHTML = pageHome(); footer.innerHTML = pageFooter(); }
   if(currentRoute === '/procedimentos') initProcedures();
   if(currentRoute === '/loja') initShop();
@@ -498,7 +461,6 @@ function pageAbout(){
         </div>
       </section>
       
-      <!-- Equipe movida para o primeiro lugar -->
       <section class="sec" style="background:color-mix(in srgb,var(--secondary) 50%,transparent)">
         <div class="wrap">
           ${secHead('Nossa equipe','Profissionais que dominam a arte','Especialistas dedicados a transformar seu cabelo com técnica e cuidado.')}
@@ -535,7 +497,7 @@ function pageProcedures(){
             ${s.duration?`<span class="text-muted" style="display:flex;align-items:center;gap:8px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ${esc(s.duration)}</span>`:''}
             <span class="price">${esc(s.price)}</span>
           </div>
-          <button class="btn-bronze" onclick="openBooking('${s.id}')">Agendar este procedimento</button>
+          <button class="btn-bronze" onclick="addServiceToCartDirect('${s.id}')">Adicionar ao Carrinho</button>
         </div>
       </article>`;
     }).join('');
@@ -554,7 +516,7 @@ function pageProcedures(){
   return `
     <div class="page">
       <div class="wrap">
-        ${secHead('Procedimentos','Nossos serviços','Explore nossos procedimentos por categoria. Selecione um serviço para agendar e adicionar ao carrinho.')}
+        ${secHead('Procedimentos','Nossos serviços','Explore nossos procedimentos por categoria. Adicione diretamente ao carrinho.')}
         <div>${accHtml}</div>
       </div>
     </div>
@@ -571,10 +533,6 @@ function pageShop(){
       <div class="wrap">
         ${secHead('Loja','Farmácia capilar','Produtos profissionais selecionados para manter a saúde e o brilho do seu cabelo em casa.')}
         <div class="shop-tools">
-          <div class="search-wrap">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-            <input id="shopSearch" placeholder="Buscar por nome ou marca..." oninput="setShopSearch(this.value)" value="${esc(shopSearch)}">
-          </div>
           <div class="cats">${catsHtml}</div>
         </div>
         <div id="prodGrid"></div>
@@ -583,18 +541,14 @@ function pageShop(){
   `;
 }
 let shopCategory = 'Todos';
-let shopSearch = '';
 function setShopCategory(c){ shopCategory = c; render(); }
-function setShopSearch(v){ shopSearch = v; renderProdGrid(); }
 function initShop(){ renderProdGrid(); }
 function renderProdGrid(){
   const grid = document.getElementById('prodGrid');
   if(!grid) return;
   const list = PRODUCTS.filter(p=>{
     const matchCat = shopCategory==='Todos' || p.category===shopCategory;
-    const q = shopSearch.toLowerCase();
-    const matchSearch = !q || p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q);
-    return matchCat && matchSearch;
+    return matchCat;
   });
   if(!list.length){ grid.innerHTML = `<p class="text-muted text-center" style="padding:80px 0">Nenhum produto encontrado.</p>`; return; }
   grid.className = 'grid-prod';
@@ -622,7 +576,7 @@ function pageCart(){
         <h1 style="font-size:1.875rem;margin-bottom:16px">Seu carrinho está vazio</h1>
         <p class="text-muted" style="margin-bottom:32px">Adicione procedimentos e produtos para montar seu pedido.</p>
         <div class="btn-row" style="justify-content:center;display:flex;flex-wrap:wrap;gap:16px">
-          <a href="#/procedimentos" class="btn-bronze">Agendar Procedimento</a>
+          <a href="#/procedimentos" class="btn-bronze">Adicionar Procedimento</a>
           <a href="#/loja" class="btn-outline">Ver Loja</a>
         </div>
       </div>
@@ -636,9 +590,6 @@ function pageCart(){
     <div class="cart-row">
       <div style="flex:1">
         <h3 style="font-size:1.125rem;margin-bottom:4px">${esc(s.name)}</h3>
-        ${s.professional?`<p class="text-muted" style="font-size:.875rem">Profissional: ${esc(s.professional)}</p>`:''}
-        ${s.date?`<p class="text-muted" style="font-size:.875rem">Data: ${esc(s.date)}${s.time?` às ${esc(s.time)}`:''}</p>`:''}
-        ${s.notes?`<p class="text-muted" style="font-size:.875rem;margin-top:4px;font-style:italic">"${esc(s.notes)}"</p>`:''}
       </div>
       <div class="ci-right">
         <span class="price">${esc(s.price)}</span>
@@ -714,7 +665,7 @@ function buildCartMessage(){
   lines.push('');
   if(clientName) lines.push(`Cliente: ${clientName}`);
   lines.push('');
-  if(services.length){ lines.push('*PROCEDIMENTOS*'); services.forEach((s,i)=>{ lines.push(`${i+1}. ${s.name} — ${s.price}`); if(s.professional) lines.push(`   Profissional: ${s.professional}`); if(s.date) lines.push(`   Data: ${s.date}${s.time?` às ${s.time}`:''}`); if(s.notes) lines.push(`   Obs: ${s.notes}`); }); lines.push(''); }
+  if(services.length){ lines.push('*PROCEDIMENTOS*'); services.forEach((s,i)=>{ lines.push(`${i+1}. ${s.name} — ${s.price}`); }); lines.push(''); }
   if(products.length){ lines.push('*PRODUTOS*'); products.forEach((p,i)=>{ lines.push(`${i+1}. ${p.name} (${p.brand}) — ${BRL(p.price)} x${p.quantity} = ${BRL(p.price*p.quantity)}`); }); lines.push(''); }
   lines.push(`*TOTAL ESTIMADO: ${BRL(total)}*`);
   lines.push('');
@@ -734,52 +685,6 @@ function copySummary(){
   }).catch(()=>{});
 }
 
-function pageContact(){
-  return `
-    <div class="page">
-      <div class="wrap">
-        ${secHead('Contato','Vamos conversar','Entre em contato para agendar, tirar dúvidas ou simplesmente dizer olá. Respondemos o mais breve possível.')}
-        <div class="contact-grid">
-          <form onsubmit="submitContact(event)">
-            <div class="form-field"><label class="label-caps">Nome</label><input required id="cf-name"></div>
-            <div class="form-field"><label class="label-caps">E-mail</label><input type="email" required id="cf-email"></div>
-            <div class="form-field"><label class="label-caps">Telefone</label><input id="cf-phone"></div>
-            <div class="form-field"><label class="label-caps">Mensagem</label><textarea required rows="5" id="cf-msg" style="resize:none"></textarea></div>
-            <button type="submit" class="btn-bronze" style="width:100%">
-              <span style="display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg> Enviar Mensagem</span>
-            </button>
-            <p class="text-muted text-center" style="font-size:.875rem;margin-top:16px;display:none" id="cf-sent">Abrindo seu cliente de e-mail… Obrigada pelo contato!</p>
-          </form>
-          <div>
-            <div style="margin-bottom:40px">
-              <div class="ci-info"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><div><p class="label-caps ci-label">Endereço</p><p class="text-muted">${esc(SALON.address)}</p></div></div>
-              <div class="ci-info"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span><div><p class="label-caps ci-label">Telefone / WhatsApp</p><p class="text-muted">${esc(SALON.phone)}</p></div></div>
-              <div class="ci-info"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span><div><p class="label-caps ci-label">E-mail</p><p class="text-muted">${esc(SALON.email)}</p></div></div>
-              <div class="ci-info"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><div><p class="label-caps ci-label">Horário de funcionamento</p><p class="text-muted">${esc(SALON.hours)}</p></div></div>
-            </div>
-            <div class="social-row">
-              <a href="${SALON.instagram}" target="_blank" rel="noreferrer" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
-              <a href="${SALON.facebook}" target="_blank" rel="noreferrer" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-            </div>
-            <div class="map-box"><iframe src="${SALON.mapsEmbedUrl}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-}
-function submitContact(e){
-  e.preventDefault();
-  const name = document.getElementById('cf-name').value;
-  const email = document.getElementById('cf-email').value;
-  const phone = document.getElementById('cf-phone').value;
-  const msg = document.getElementById('cf-msg').value;
-  const subject = encodeURIComponent(`Contato pelo site — ${name}`);
-  const body = encodeURIComponent(`Nome: ${name}\nE-mail: ${email}\nTelefone: ${phone}\n\n${msg}`);
-  window.location.href = `mailto:${SALON.email}?subject=${subject}&body=${body}`;
-  document.getElementById('cf-sent').style.display = 'block';
-}
-
 function pageFooter(){
   const year = new Date().getFullYear();
   return `
@@ -788,7 +693,7 @@ function pageFooter(){
         <div class="foot-grid">
           <div>
             <h3>${esc(SALON.name)}</h3>
-            <p class="text-muted" style="font-size:.875rem;line-height:1.6">${esc(SALON.tagline)}. Cuidado capilar artesanal com produtos premium e atendimento personalizado.</p>
+            <p class="text-muted" style="font-size:.875rem;line-height:1.6">Cuidado capilar artesanal com produtos premium e atendimento personalizado.</p>
           </div>
           <div>
             <p class="label-caps" style="margin-bottom:12px">Contato</p>
@@ -803,79 +708,10 @@ function pageFooter(){
           </div>
         </div>
         <div class="horizon-rule" style="margin:24px 0 16px"></div>
-        <p class="foot-bottom">© ${year} ${esc(SALON.name)} · Hair Atelier. Todos os direitos reservados.</p>
+        <p class="foot-bottom">© ${year} ${esc(SALON.name)}. Todos os direitos reservados.</p>
       </div>
     </footer>
   `;
-}
-
-/* ============ BOOKING MODAL ============ */
-let bookingServiceId = null;
-let bookingState = { professional:'', date:'', time:'', notes:'' };
-function openBooking(serviceId){
-  bookingServiceId = serviceId;
-  bookingState = { professional:'', date:'', time:'', notes:'' };
-  renderBooking(false);
-}
-function closeBooking(){ document.getElementById('modal-root').innerHTML=''; bookingServiceId=null; document.body.style.overflow=''; }
-function renderBooking(confirmed){
-  const s = SERVICES.find(x=>x.id===bookingServiceId);
-  if(!s) return closeBooking();
-  document.body.style.overflow='hidden';
-  const today = new Date().toISOString().split('T')[0];
-  const profOpts = PROFESSIONALS.map(p=>`<option value="${esc(p.name)}" ${bookingState.professional===p.name?'selected':''}>${esc(p.name)} — ${esc(p.specialty)}</option>`).join('');
-  const slots = TIME_SLOTS.map(slot=>`<button class="slot ${bookingState.time===slot?'active':''}" onclick="setBookingTime('${slot}')">${slot}</button>`).join('');
-  const canConfirm = bookingState.date && bookingState.time;
-
-  document.getElementById('modal-root').innerHTML = `
-    <div class="modal-overlay" onclick="if(event.target===this)closeBooking()">
-      <div class="modal-box">
-        <button class="modal-close" onclick="closeBooking()" aria-label="Fechar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg></button>
-        ${confirmed ? `
-          <div class="confirm-check">
-            <div class="cc-ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <h3 style="font-size:1.5rem;margin-bottom:12px">Adicionado ao carrinho</h3>
-            <p class="text-muted" style="font-size:.875rem">Seu procedimento foi adicionado. Finalize no carrinho para enviar ao salão.</p>
-          </div>
-        ` : `
-          <p class="label-caps" style="margin-bottom:12px">Agendamento</p>
-          <h3 style="font-size:1.5rem;margin-bottom:4px">${esc(s.name)}</h3>
-          <p class="text-muted" style="font-size:.875rem;margin-bottom:32px">${s.duration?`${esc(s.duration)} · `:''}${esc(s.price)}</p>
-          <div style="display:flex;flex-direction:column;gap:24px">
-            <div>
-              <label class="mlabel label-caps"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Profissional (opcional)</label>
-              <select onchange="setBookingPro(this.value)"><option value="">Sem preferência</option>${profOpts}</select>
-            </div>
-            <div>
-              <label class="mlabel label-caps"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Data preferida</label>
-              <input type="date" min="${today}" value="${bookingState.date}" onchange="setBookingDate(this.value)">
-            </div>
-            <div>
-              <label class="mlabel label-caps"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Horário</label>
-              <div class="slots">${slots}</div>
-            </div>
-            <div>
-              <label class="mlabel label-caps"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Observações</label>
-              <textarea rows="3" placeholder="Comprimento do cabelo, alergias, preferências..." oninput="setBookingNotes(this.value)">${esc(bookingState.notes)}</textarea>
-            </div>
-          </div>
-          <button class="btn-bronze" style="width:100%;margin-top:32px" ${canConfirm?'':'disabled'} onclick="confirmBooking()">Adicionar ao Carrinho</button>
-          ${!canConfirm?`<p class="text-muted text-center" style="font-size:.75rem;margin-top:12px">Selecione data e horário para continuar.</p>`:''}
-        `}
-      </div>
-    </div>
-  `;
-}
-function setBookingPro(v){ bookingState.professional=v; renderBooking(false); }
-function setBookingDate(v){ bookingState.date=v; renderBooking(false); }
-function setBookingTime(v){ bookingState.time=v; renderBooking(false); }
-function setBookingNotes(v){ bookingState.notes=v; }
-function confirmBooking(){
-  const s = SERVICES.find(x=>x.id===bookingServiceId);
-  addServiceToCart(s, bookingState);
-  renderBooking(true);
-  toast('Procedimento adicionado');
-  setTimeout(closeBooking, 1400);
 }
 
 /* ============ INIT ============ */

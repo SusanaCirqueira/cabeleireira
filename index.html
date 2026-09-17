@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Auréa — salão especializado em cuidados capilares. Coloração, cortes, tratamentos, alisamento, penteados e mega hair com atendimento personalizado." />
-<title>Auréa</title>
+<meta name="description" content="Jéssica Martins Exclusive Salon — salão especializado em cuidados capilares, coloração, cortes e tratamentos." />
+<title>Jéssica Martins Exclusive Salon</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600&display=swap');
 
@@ -55,8 +55,6 @@
 
   .btn-outline{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--foreground);color:var(--foreground);background:transparent;padding:16px 32px;font-size:.875rem;text-transform:uppercase;letter-spacing:.15em;font-weight:500;transition:all .3s;min-height:48px}
   .btn-outline:hover{background:var(--foreground);color:var(--background)}
-  .link-arrow{display:inline-flex;align-items:center;gap:8px;font-size:.875rem;text-transform:uppercase;letter-spacing:.15em;color:var(--primary);transition:color .3s}
-  .link-arrow:hover{color:var(--foreground)}
   .scale-hover{transition:transform .7s cubic-bezier(.22,1,.36,1)}
   .scale-hover:hover{transform:scale(1.03)}
 
@@ -72,13 +70,16 @@
   .nav-left{display:flex;align-items:center;gap:16px}
   .back-btn{display:inline-flex;align-items:center;justify-content:center;background:none;border:0;color:color-mix(in srgb, var(--foreground) 70%, transparent);padding:8px;transition:color .3s}
   .back-btn:hover{color:var(--primary)}
-  .brand{font-family:var(--font-heading);font-size:1.5rem;letter-spacing:.2em;text-transform:uppercase}
+  
+  /* LOGO TAMANHO FIXO DE 92PX */
+  .brand-logo{width:92px;height:auto;display:block;object-fit:contain;}
+
   .nav-right{display:flex;align-items:center;gap:16px}
   .nav-cart-icon{display:inline-flex;align-items:center;justify-content:center;color:color-mix(in srgb, var(--foreground) 70%, transparent);transition:color .3s;padding:8px}
   .nav-cart-icon:hover,.nav-cart-icon.active{color:var(--primary)}
   .burger{display:flex;background:none;border:0;color:var(--foreground);padding:8px}
 
-  /* QUADRANTE SUPERIOR DIREITO - MENU SUSPENSO */
+  /* MENU SUSPENSO NO QUADRANTE SUPERIOR DIREITO */
   .mobile-menu{display:none;position:fixed;top:80px;right:0;width:100%;max-width:420px;background:var(--card);border-left:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,0.5);z-index:100;animation:fadeInDown .3s ease}
   .mobile-menu.open{display:block}
   .mobile-menu .mm-inner{padding:32px;display:flex;flex-direction:column;gap:24px}
@@ -103,15 +104,12 @@
   .sec-head{max-width:42rem;margin:0 auto 36px;text-align:center}
   .sec-head h2{font-size:clamp(1.875rem,4vw,3rem);letter-spacing:.05em;line-height:1.1;margin-top:12px}
   .sec-head p{margin-top:16px;color:var(--muted-foreground);line-height:1.6}
-  .sec-head.left{text-align:left;margin-left:0}
 
   /* GRIDS */
   .grid-2{display:grid;grid-template-columns:1fr;gap:64px;align-items:center}
   @media(min-width:768px){.grid-2{grid-template-columns:1fr 1fr}}
   .grid-3{display:grid;grid-template-columns:1fr;gap:32px}
   @media(min-width:768px){.grid-3{grid-template-columns:repeat(3,1fr)}}
-  .grid-4{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
-  @media(min-width:768px){.grid-4{grid-template-columns:repeat(4,1fr)}}
   .grid-prod{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
   @media(min-width:768px){.grid-prod{grid-template-columns:repeat(3,1fr)}}
   @media(min-width:1024px){.grid-prod{grid-template-columns:repeat(4,1fr)}}
@@ -172,12 +170,8 @@
   .ci-remove{color:var(--muted-foreground);background:none;border:0;transition:color .3s}
   .ci-remove:hover{color:var(--destructive)}
   .summary{background:color-mix(in srgb,var(--secondary) 50%,transparent);border:1px solid var(--border);padding:32px;position:sticky;top:112px}
-  .summary .sum-row{display:flex;justify-content:space-between;font-size:.875rem;color:var(--muted-foreground);margin-bottom:12px}
-  .summary .sum-row span:first-child{flex:1;margin-right:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .summary .total-row{display:flex;justify-content:space-between;align-items:center;margin:24px 0 32px}
   .summary .total-row .t{font-family:var(--font-heading);font-size:1.5rem}
-  .summary input{width:100%;background:var(--background);border:1px solid var(--border);padding:12px 16px;font-size:.875rem;color:var(--foreground);outline:none}
-  .summary input:focus{border-color:var(--primary)}
   .summary .btn-full{width:100%;margin-bottom:12px}
   .empty-cart{padding:160px 0 128px;text-align:center}
   .empty-cart .ec-inner{max-width:28rem;margin:0 auto;padding:0 24px}
@@ -200,7 +194,10 @@
       <button class="back-btn" id="backBtn" onclick="goBack()" aria-label="Voltar" style="display: none;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
       </button>
-      <a href="#/" class="brand">Auréa</a>
+      <!-- LOGO CORRETA COM LARGURA DE 92PX -->
+      <a href="#/" class="brand-link">
+        <img src="https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/jm_logo_92px.png" alt="Jéssica Martins Logo" class="brand-logo">
+      </a>
     </div>
     <div class="nav-right">
       <a href="#/carrinho" class="nav-cart-icon" id="navCartIcon" data-route="/carrinho" aria-label="Carrinho" style="display: none;">
@@ -216,8 +213,8 @@
   <div class="mobile-menu" id="mobileMenu">
     <div class="mm-inner">
       <div>
-        <h3>Auréa</h3>
-        <p class="text-muted" style="font-size:.85rem;line-height:1.5;margin-top:8px">Hair Atelier. Cuidado capilar artesanal com produtos premium e atendimento personalizado.</p>
+        <h3>Jéssica Martins</h3>
+        <p class="text-muted" style="font-size:.85rem;line-height:1.5;margin-top:8px">Exclusive Salon. Cuidado capilar artesanal com produtos premium e atendimento personalizado.</p>
       </div>
       <div class="horizon-rule"></div>
       <div>
@@ -242,10 +239,10 @@
 
 <script>
 const SALON = {
-  name: "Auréa",
+  name: "Jéssica Martins Exclusive Salon",
   whatsappNumber: "5511999999999",
   phone: "+55 (11) 99999-9999",
-  email: "contato@aureahair.com.br",
+  email: "contato@jessicamartins.com.br",
   address: "Rua Oscar Freire, 1200 — Jardins, São Paulo — SP",
   hours: "Terça a Sábado, 9h às 19h · Domingo e Segunda: fechado"
 };
@@ -262,14 +259,14 @@ const SERVICES = [
 ];
 
 const PRODUCTS = [
-  {id:"p1",name:"Shampoo Reconstrutor",brand:"Auréa Pro",category:"Shampoos",price:89.90,description:"Shampoo de reconstrução com queratina e óleos nobres.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/4eda256ed_generated_98681078.jpg"},
-  {id:"p2",name:"Condicionador Hidratante",brand:"Auréa Pro",category:"Condicionadores",price:92.90,description:"Condicionador com manteiga de karité e pantenol.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/bfebf7ba6_generated_e5594907.jpg"},
-  {id:"p3",name:"Máscara de Tratamento Intensivo",brand:"Auréa Pro",category:"Máscaras",price:149.90,description:"Máscara de uso semanal com alta concentração.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/e27dd4604_generated_f7bbbf87.jpg"},
-  {id:"p4",name:"Óleo Finalizador Nobre",brand:"Auréa Pro",category:"Óleos",price:119.90,description:"Óleo multifuncional com argan e camélia.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/938b1ef89_generated_5a4ef479.jpg"}
+  {id:"p1",name:"Shampoo Reconstrutor",brand:"JM Pro",category:"Shampoos",price:89.90,description:"Shampoo de reconstrução com queratina e óleos nobres.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/4eda256ed_generated_98681078.jpg"},
+  {id:"p2",name:"Condicionador Hidratante",brand:"JM Pro",category:"Condicionadores",price:92.90,description:"Condicionador com manteiga de karité e pantenol.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/bfebf7ba6_generated_e5594907.jpg"},
+  {id:"p3",name:"Máscara de Tratamento Intensivo",brand:"JM Pro",category:"Máscaras",price:149.90,description:"Máscara de uso semanal com alta concentração.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/e27dd4604_generated_f7bbbf87.jpg"},
+  {id:"p4",name:"Óleo Finalizador Nobre",brand:"JM Pro",category:"Óleos",price:119.90,description:"Óleo multifuncional com argan e camélia.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/938b1ef89_generated_5a4ef479.jpg"}
 ];
 
 const PROFESSIONALS = [
-  {id:"pr1",name:"Helena Martins",specialty:"Coloração e Mechas",bio:"Especialista em colorimetria com mais de 12 anos de experiência.",photo:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/999c837f0_generated_388d2ea3.jpg"},
+  {id:"pr1",name:"Jéssica Martins",specialty:"Coloração e Direção Artística",bio:"Fundadora e especialista em colorimetria com mais de 12 anos de experiência.",photo:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/999c837f0_generated_388d2ea3.jpg"},
   {id:"pr2",name:"Rafael Costa",specialty:"Cortes e Penteados",bio:"Cabeleireiro premiado em concursos nacionais de corte.",photo:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/5102c517b_generated_9eeff0be.jpg"},
   {id:"pr3",name:"Beatriz Almeida",specialty:"Tratamentos e Mega Hair",bio:"Especialista em reconstrução capilar e mega hair.",photo:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/78c2cf4fa_generated_8d20901c.jpg"}
 ];
@@ -280,7 +277,7 @@ const TESTIMONIALS = [
   {id:"t3",client_name:"Carolina Mendes",text:"Ambiente sofisticado e acolhedor, profissionais que dominam o que fazem.",rating:5,service:"Corte Feminino Modelagem"}
 ];
 
-const STORAGE_KEY = "aurea_cart_v1";
+const STORAGE_KEY = "jm_cart_v1";
 let cart = [];
 try { cart = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e){ cart = []; }
 function saveCart(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); }
@@ -386,7 +383,7 @@ function pageHome(){
 
   return `
     <section class="hero">
-      <img class="hero-img" src="${HERO_IMG}" alt="Interior do salão Auréa">
+      <img class="hero-img" src="${HERO_IMG}" alt="Interior do salão">
       <div class="hero-overlay"></div>
       <div class="hero-content wrap">
         <h1>A arte de<br>cuidar do<br>cabelo</h1>
@@ -612,7 +609,7 @@ function pageCart(){
   `;
 }
 function checkoutWhatsApp(){
-  const msg = encodeURIComponent("Olá! Gostaria de confirmar meu agendamento/pedido no salão Auréa.");
+  const msg = encodeURIComponent("Olá! Gostaria de confirmar meu agendamento/pedido no Jéssica Martins Exclusive Salon.");
   window.open(`https://wa.me/${SALON.whatsappNumber}?text=${msg}`,'_blank');
 }
 

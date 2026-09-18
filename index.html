@@ -33,10 +33,19 @@
   input,textarea,select{font-family:inherit}
   ::selection{background:var(--primary);color:var(--primary-foreground)}
 
-  /* Efeito de brilho elegante adicionado aos textos principais e títulos */
+  /* Efeito de movimento de luz passando pelos textos (Shimmer / Reflexo deslizante) */
+  @keyframes shineMove {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
   .gold-glow {
-    color: var(--primary);
-    text-shadow: 0 0 12px rgba(245, 197, 66, 0.45), 0 0 25px rgba(245, 197, 66, 0.2);
+    background: linear-gradient(90deg, hsl(43, 90%, 58%) 0%, #fff 50%, hsl(43, 90%, 58%) 100%);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shineMove 4s linear infinite;
   }
 
   .wrap{max-width:1280px;margin:0 auto;padding:0 24px}

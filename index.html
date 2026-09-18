@@ -33,14 +33,14 @@
   input,textarea,select{font-family:inherit}
   ::selection{background:var(--primary);color:var(--primary-foreground)}
 
-  /* Efeito de movimento de luz passando pelos textos (Shimmer / Reflexo deslizante) */
+  /* Efeito de movimento de luz em tons estritamente dourados passando pelos textos */
   @keyframes shineMove {
     0% { background-position: 200% 0; }
     100% { background-position: -200% 0; }
   }
 
   .gold-glow {
-    background: linear-gradient(90deg, hsl(43, 90%, 58%) 0%, #fff 50%, hsl(43, 90%, 58%) 100%);
+    background: linear-gradient(90deg, hsl(43, 80%, 45%) 0%, hsl(43, 95%, 75%) 30%, hsl(38, 90%, 55%) 50%, hsl(43, 95%, 75%) 70%, hsl(43, 80%, 45%) 100%);
     background-size: 200% auto;
     color: transparent;
     -webkit-background-clip: text;

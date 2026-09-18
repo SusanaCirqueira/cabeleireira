@@ -12,7 +12,8 @@
     --background: hsl(25 38% 9%);
     --foreground: hsl(36 32% 93%);
     --card: hsl(26 35% 12%);
-    --primary: hsl(46 68% 47%);
+    /* Dourado mais vivo/intenso atualizado */
+    --primary: hsl(45 85% 52%);
     --primary-foreground: hsl(25 38% 9%);
     --secondary: hsl(28 33% 15%);
     --muted: hsl(28 30% 19%);
@@ -20,8 +21,9 @@
     --border: hsl(26 28% 28%);
     --destructive: hsl(0 70% 50%);
     --radius: 0.25rem;
+    /* Alterado para a mesma fonte geométrica/elegante da logo (Tenor Sans) */
     --font-heading: 'Tenor Sans', ui-sans-serif, system-ui, sans-serif;
-    --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Tenor Sans', ui-sans-serif, system-ui, sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -74,8 +76,8 @@
   
   .brand-logo{width:264px;height:auto;display:block;object-fit:contain;}
 
-  /* Ajuste para mover o menu um pouco mais para a esquerda e alterar a cor para dourado */
-  .nav-right{display:flex;align-items:center;gap:12px;padding-right:32px}
+  /* Menu mais para a esquerda e com cor dourada */
+  .nav-right{display:flex;align-items:center;gap:12px;padding-right:64px;color:var(--primary)}
   .nav-cart-icon{display:inline-flex;align-items:center;justify-content:center;color:var(--primary);transition:color .3s;padding:8px}
   .nav-cart-icon:hover,.nav-cart-icon.active{color:var(--primary)}
   .burger{display:flex;background:none;border:0;color:var(--primary);padding:8px;transition:color .3s}
@@ -89,7 +91,7 @@
   .mobile-menu ul li{margin-bottom:10px;font-size:.875rem}
   @keyframes fadeInDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
 
-  /* HERO (POSIÇÃO ORIGINAL + DESFOQUE + TÍTULO EM DOURADO) */
+  /* HERO (Título com a cor dourada atualizada) */
   .hero{position:relative;height:calc(100vh - 80px);min-height:520px;margin-top:80px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
   .hero-img{
     position:absolute;
@@ -97,8 +99,8 @@
     width:100%;
     height:100%;
     object-fit:cover;
-    filter: blur(4px); /* Mantém o desfoque */
-    transform: scale(1.05); /* Amplia levemente para evitar bordas brancas do desfoque */
+    filter: blur(4px);
+    transform: scale(1.05);
   }
   .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.2), transparent, rgba(0,0,0,.4))}
   .hero-content{position:relative;z-index:10;width:100%;padding-bottom:80px}

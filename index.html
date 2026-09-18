@@ -74,10 +74,12 @@
   
   .brand-logo{width:264px;height:auto;display:block;object-fit:contain;}
 
-  .nav-right{display:flex;align-items:center;gap:12px;padding-right:8px}
-  .nav-cart-icon{display:inline-flex;align-items:center;justify-content:center;color:color-mix(in srgb, var(--foreground) 70%, transparent);transition:color .3s;padding:8px}
+  /* Ajuste para mover o menu um pouco mais para a esquerda e alterar a cor para dourado */
+  .nav-right{display:flex;align-items:center;gap:12px;padding-right:32px}
+  .nav-cart-icon{display:inline-flex;align-items:center;justify-content:center;color:var(--primary);transition:color .3s;padding:8px}
   .nav-cart-icon:hover,.nav-cart-icon.active{color:var(--primary)}
-  .burger{display:flex;background:none;border:0;color:var(--foreground);padding:8px}
+  .burger{display:flex;background:none;border:0;color:var(--primary);padding:8px;transition:color .3s}
+  .burger:hover{opacity:.88}
 
   .mobile-menu{display:none;position:fixed;top:80px;right:0;width:100%;max-width:420px;background:var(--card);border-left:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,0.5);z-index:100;animation:fadeInDown .3s ease}
   .mobile-menu.open{display:block}
@@ -87,7 +89,7 @@
   .mobile-menu ul li{margin-bottom:10px;font-size:.875rem}
   @keyframes fadeInDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
 
-  /* HERO (POSIÇÃO ORIGINAL + DESFOQUE) */
+  /* HERO (POSIÇÃO ORIGINAL + DESFOQUE + TÍTULO EM DOURADO) */
   .hero{position:relative;height:calc(100vh - 80px);min-height:520px;margin-top:80px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
   .hero-img{
     position:absolute;
@@ -100,7 +102,7 @@
   }
   .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.2), transparent, rgba(0,0,0,.4))}
   .hero-content{position:relative;z-index:10;width:100%;padding-bottom:80px}
-  .hero h1{color:#fff;font-size:clamp(3rem,7vw,4.5rem);line-height:1.05;max-width:36rem}
+  .hero h1{color:var(--primary);font-size:clamp(3rem,7vw,4.5rem);line-height:1.05;max-width:36rem}
   .hero-bounce{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:10;color:rgba(255,255,255,.7);animation:bounce 2s infinite}
   @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
@@ -179,7 +181,7 @@
   .summary{background:color-mix(in srgb,var(--secondary) 50%,transparent);border:1px solid var(--border);padding:32px;position:sticky;top:112px}
   .summary .total-row{display:flex;justify-content:space-between;align-items:center;margin:24px 0 32px}
   .summary .total-row .t{font-family:var(--font-heading);font-size:1.5rem}
-  .summary .btn-full{width:100%;margin-bottom:12px}
+  .summary .btn-full{width:100%_i;margin-bottom:12px}
   .empty-cart{padding:160px 0 128px;text-align:center}
   .empty-cart .ec-inner{max-width:28rem;margin:0 auto;padding:0 24px}
 

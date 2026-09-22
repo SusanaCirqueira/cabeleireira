@@ -236,10 +236,6 @@
 
   .page{padding-top:100px;padding-bottom:64px}
   @media(min-width:768px){.page{padding-top:128px;padding-bottom:96px}}
-  
-  .order-1{order:1}
-  .order-2{order:2}
-  @media(min-width:768px){.md-order-1{order:1}.md-order-2{order:2}}
 </style>
 </head>
 <body>
@@ -302,7 +298,6 @@ const SALON = {
 };
 
 const HERO_IMG = "im.png";
-const ABOUT_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/1009892ae_generated_17cd54f2.jpg";
 const MACRO_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/f7c83c19d_generated_b0888844.jpg";
 const TRANSFORM_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/c44d11f14_generated_2ffc9168.jpg";
 
@@ -448,20 +443,17 @@ function pageHome(){
     </section>
 
     <section class="sec">
-      <div class="wrap grid-2">
-        <div class="order-2 md-order-2">
-          <p class="label-caps" style="margin-bottom:16px">Bem-vindo ao ${esc(SALON.name)}</p>
-          <h2 class="gold-glow" style="font-size:clamp(1.75rem,3vw,2.25rem);line-height:1.2;margin-bottom:20px">Onde cada fio é tratado como obra de arte</h2>
-          <p class="text-muted" style="margin-bottom:16px;line-height:1.6">Há mais de uma década, o ${esc(SALON.name)} une técnica, sensibilidade e produtos premium para revelar a melhor versão do seu cabelo. Nosso atendimento personalizado começa na escuta e termina no espelho — com resultados que respeitam a saúde capilar.</p>
-          <p class="text-muted" style="margin-bottom:24px;line-height:1.6">Trabalhamos com marcas profissionais selecionadas e técnicas exclusivas, em um ambiente pensado para o seu bem-estar.</p>
-          
+      <div class="wrap" style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p class="label-caps" style="margin-bottom:16px">Bem-vindo ao ${esc(SALON.name)}</p>
+        <h2 class="gold-glow" style="font-size:clamp(1.75rem,3.5vw,2.5rem);line-height:1.2;margin-bottom:20px">Onde cada fio é tratado como obra de arte</h2>
+        <p class="text-muted" style="margin-bottom:16px;line-height:1.6">Há mais de uma década, o ${esc(SALON.name)} une técnica, sensibilidade e produtos premium para revelar a melhor versão do seu cabelo. Nosso atendimento personalizado começa na escuta e termina no espelho — com resultados que respeitam a saúde capilar.</p>
+        <p class="text-muted" style="margin-bottom:32px;line-height:1.6">Trabalhamos com marcas profissionais selecionadas e técnicas exclusivas, em um ambiente pensado para o seu bem-estar.</p>
+        
+        <div style="display: flex; justify-content: center;">
           <a href="#/salao" class="btn-white-solid">
             Conheça o salão 
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-        </div>
-        <div class="order-1 md-order-1">
-          <div class="aspect-45 overflow-hidden"><img src="${ABOUT_IMG}" alt="Espaço do salão" class="obj-cover scale-hover"></div>
         </div>
       </div>
     </section>

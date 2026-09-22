@@ -110,7 +110,7 @@
   .mobile-menu ul li{margin-bottom:10px;font-size:.875rem}
   @keyframes fadeInDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
 
-  /* HERO - Blur de 3px */
+  /* HERO - Blur de volta para 3px */
   .hero{position:relative;height:calc(100vh - 70px);min-height:480px;margin-top:70px;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden}
   @media(min-width:1024px){.hero{height:calc(100vh - 80px);min-height:520px;margin-top:80px}}
   
@@ -431,7 +431,18 @@ function pageHome(){
     </article>`).join('');
 
   return `
-    <section class="sec" style="padding-top: 60px;">
+    <section class="hero">
+      <img class="hero-img" src="${HERO_IMG}" alt="Interior do salão">
+      <div class="hero-overlay"></div>
+      <div class="hero-content wrap">
+        <h1 class="gold-glow">A arte de<br>cuidar do<br>cabelo</h1>
+      </div>
+      <div class="hero-bounce">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </section>
+
+    <section class="sec">
       <div class="wrap" style="max-width: 800px; margin: 0 auto; text-align: center;">
         <p class="label-caps" style="margin-bottom:16px">Bem-vindo ao ${esc(SALON.name)}</p>
         <h2 class="gold-glow" style="font-size:clamp(1.75rem,3.5vw,2.5rem);line-height:1.2;margin-bottom:20px">Onde cada fio é tratado como obra de arte</h2>

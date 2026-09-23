@@ -156,6 +156,9 @@
 
   .aspect-45{aspect-ratio:4/5}
   .aspect-34{aspect-ratio:3/4}
+  /* Proporção ajustada para as fotos ficarem menores/mais compactas verticalmente */
+  .aspect-team{aspect-ratio:4/3.5}
+  
   .overflow-hidden{overflow:hidden}
   .obj-cover{width:100%;height:100%;object-fit:cover}
 
@@ -452,7 +455,6 @@ function pageHome(){
       </div>
     </section>
 
-    <!-- Usando a classe de tela inteira exata -->
     <section class="fullscreen-section">
       <div class="wrap" style="max-width: 800px; margin: 0 auto; text-align: center;">
         <p class="label-caps" style="margin-bottom:12px">Bem-vindo ao ${esc(SALON.name)}</p>
@@ -481,15 +483,15 @@ function pageHome(){
 function pageAbout(){
   const teamHtml = PROFESSIONALS.map(p=>`
     <article>
-      <div class="aspect-34 overflow-hidden" style="margin-bottom:16px;background:var(--secondary)">${p.photo?`<img src="${p.photo}" alt="${esc(p.name)}" class="obj-cover scale-hover">`:''}</div>
-      <p class="label-caps" style="margin-bottom:6px">${esc(p.specialty)}</p>
-      <h3 class="gold-glow" style="font-size:1.2rem;margin-bottom:8px">${esc(p.name)}</h3>
-      <p class="text-muted" style="font-size:.85rem;line-height:1.6">${esc(p.bio)}</p>
+      <!-- Usando a nova proporção aspect-team para reduzir a altura das fotos -->
+      <div class="aspect-team overflow-hidden" style="margin-bottom:12px;background:var(--secondary)">${p.photo?`<img src="${p.photo}" alt="${esc(p.name)}" class="obj-cover scale-hover">`:''}</div>
+      <p class="label-caps" style="margin-bottom:4px">${esc(p.specialty)}</p>
+      <h3 class="gold-glow" style="font-size:1.15rem;margin-bottom:6px">${esc(p.name)}</h3>
+      <p class="text-muted" style="font-size:.8rem;line-height:1.5">${esc(p.bio)}</p>
     </article>`).join('');
 
   return `
     <div style="padding-top:0">
-      <!-- Usando a classe de tela inteira exata -->
       <section class="fullscreen-section">
         <div style="max-width:42rem;margin:0 auto;padding:0 16px;text-align:center">
           <p class="label-caps" style="margin-bottom:12px">O Salão</p>
@@ -498,7 +500,8 @@ function pageAbout(){
         </div>
       </section>
       
-      <section class="sec" style="background:color-mix(in srgb,var(--secondary) 50%,transparent)">
+      <!-- Seção da Equipe com espaçamento otimizado para caber perfeitamente na tela -->
+      <section class="sec" style="background:color-mix(in srgb,var(--secondary) 50%,transparent); padding-top: 40px; padding-bottom: 40px;">
         <div class="wrap">
           ${secHead('Nossa equipe','Profissionais que dominam a arte','Especialistas dedicados a transformar seu cabelo com técnica e cuidado.')}
           <div class="grid-3">${teamHtml}</div>

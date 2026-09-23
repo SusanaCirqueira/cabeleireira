@@ -102,7 +102,7 @@
   .mobile-menu ul li{margin-bottom:10px;font-size:.875rem}
   @keyframes fadeInDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
 
-  /* HERO - Blur ajustado para 2px e título mais abaixo */
+  /* HERO */
   .hero{position:relative;height:calc(100vh - 70px);min-height:480px;margin-top:70px;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden}
   @media(min-width:1024px){.hero{height:calc(100vh - 80px);min-height:520px;margin-top:80px}}
   
@@ -111,7 +111,6 @@
   .hero-content{position:relative;z-index:10;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding-top:32vh;}
   @media(min-width:768px){.hero-content{padding-top:36vh;}}
   
-  /* Título da Home em maiúsculas */
   .hero h1{font-size:clamp(3rem, 7.5vw, 5.8rem);line-height:1.05;text-transform:uppercase;}
   
   .hero-bounce{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:10;color:rgba(255,255,255,.7);animation:bounce 2s infinite}
@@ -436,7 +435,8 @@ function pageHome(){
       </div>
     </section>
 
-    <section class="sec">
+    <!-- Título posicionado um pouquinho mais para baixo (margin-top: 40px) -->
+    <section class="sec" style="margin-top: 40px;">
       <div class="wrap" style="max-width: 800px; margin: 0 auto; text-align: center;">
         <p class="label-caps" style="margin-bottom:16px">Bem-vindo ao ${esc(SALON.name)}</p>
         <h2 class="gold-glow" style="font-size:clamp(1.75rem,3.5vw,2.5rem);line-height:1.2;margin-bottom:20px">Onde cada fio é tratado como obra de arte</h2>

@@ -72,7 +72,7 @@
   .grid-2-buttons{display:grid;grid-template-columns:1fr;gap:16px;max-width:800px;margin:0 auto}
   @media(min-width:768px){.grid-2-buttons{grid-template-columns:repeat(2,1fr);gap:32px}}
   
-  .big-nav-btn{min-height:90px;background:var(--secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foreground);transition:all .3s ease;text-align:center;padding:16px}
+  .big-nav-btn{min-height:100px;background:var(--secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foreground);transition:all .3s ease;text-align:center;padding:20px}
   @media(min-width:768px){.big-nav-btn{aspect-ratio:10/11;font-size:1.25rem;min-height:unset}}
   .big-nav-btn:hover{background:var(--primary);color:var(--primary-foreground);border-color:var(--primary);transform:translateY(-4px);box-shadow: 0 0 20px rgba(245, 197, 66, 0.4);}
 
@@ -103,26 +103,42 @@
   .mobile-menu ul li{margin-bottom:8px;font-size:.85rem}
   @keyframes fadeInDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
 
-  /* HERO */
-  .hero{position:relative;height:70vh;min-height:380px;margin-top:65px;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden}
-  @media(min-width:768px){.hero{height:calc(100vh - 80px);min-height:520px;margin-top:80px}}
+  /* HERO MOBILE */
+  .hero{position:relative;height:calc(100vh - 65px);min-height:420px;margin-top:65px;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden}
+  @media(min-width:1024px){.hero{height:calc(100vh - 80px);min-height:520px;margin-top:80px}}
   
   .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter: blur(2px);transform: scale(1.05);}
   .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45))}
-  .hero-content{position:relative;z-index:10;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding-top:22vh;}
+  .hero-content{position:relative;z-index:10;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding-top:28vh;}
   @media(min-width:768px){.hero-content{padding-top:36vh;}}
   
-  .hero h1{font-size:clamp(2.2rem, 7.5vw, 5.8rem);line-height:1.1;text-transform:uppercase;padding:0 8px;}
+  .hero h1{font-size:clamp(2.4rem, 7.5vw, 5.8rem);line-height:1.1;text-transform:uppercase;padding:0 8px;}
   
   .hero-bounce{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:10;color:rgba(255,255,255,.7);animation:bounce 2s infinite}
   @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-  /* SECTIONS (ALTURA NATURAL BASEADA NO CONTEÚDO) */
-  .sec{padding:48px 0}
-  @media(min-width:768px){.sec{padding:80px 0}}
-  
+  /* FULLSCREEN SECTION */
+  .fullscreen-section {
+    min-height: calc(100vh - 65px);
+    margin-top: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px;
+  }
+  @media(min-width: 1024px) {
+    .fullscreen-section {
+      height: calc(100vh - 80px);
+      margin-top: 80px;
+      padding: 0 16px;
+    }
+  }
+
+  /* SECTIONS */
+  .sec{padding:40px 0}
+  @media(min-width:768px){.sec{padding:70px 0}}
   .sec-head{max-width:42rem;margin:0 auto 24px;text-align:center;padding:0 12px}
-  @media(min-width:768px){.sec-head{margin:0 auto 36px}}
+  @media(min-width:768px){.sec-head{margin:0 auto 32px}}
   .sec-head h2{font-size:clamp(1.4rem,3vw,2.5rem);letter-spacing:.05em;line-height:1.15;margin-top:4px}
   .sec-head p{margin-top:8px;color:var(--muted-foreground);line-height:1.5;font-size:0.85rem}
   @media(min-width:768px){.sec-head p{font-size:1rem}}
@@ -145,7 +161,7 @@
   .obj-cover{width:100%;height:100%;object-fit:cover}
 
   /* TESTIMONIAL */
-  .tst{border:1px solid var(--border);padding:20px;background:color-mix(in srgb,var(--secondary) 20%,transparent)}
+  .tst{border:1px solid var(--border);padding:20px}
   @media(min-width:768px){.tst{padding:32px}}
   .tst .stars{display:flex;gap:4px;margin-bottom:10px}
   .tst .stars svg{fill:var(--primary);color:var(--primary);filter: drop-shadow(0 0 5px rgba(245, 197, 66, 0.5));}
@@ -437,7 +453,7 @@ function pageHome(){
       </div>
     </section>
 
-    <section class="sec">
+    <section class="fullscreen-section">
       <div class="wrap" style="max-width: 800px; margin: 0 auto; text-align: center;">
         <p class="label-caps" style="margin-bottom:8px">Bem-vindo ao ${esc(SALON.name)}</p>
         <h2 class="gold-glow" style="font-size:clamp(1.3rem,3vw,2.25rem);line-height:1.2;margin-bottom:12px">Onde cada fio é tratado como obra de arte</h2>
@@ -453,7 +469,7 @@ function pageHome(){
       </div>
     </section>
 
-    <section class="sec" style="background:color-mix(in srgb,var(--secondary) 30%,transparent);">
+    <section class="sec">
       <div class="wrap">
         ${secHead('Depoimentos','O que dizem nossas clientes')}
         <div class="grid-3">${tstCards}</div>
@@ -473,7 +489,7 @@ function pageAbout(){
 
   return `
     <div style="padding-top:0">
-      <section class="sec" style="padding-top: 60px;">
+      <section class="fullscreen-section">
         <div style="max-width:42rem;margin:0 auto;padding:0 16px;text-align:center">
           <p class="label-caps" style="margin-bottom:10px">O Salão</p>
           <h1 class="gold-glow" style="font-size:clamp(1.5rem,4vw,3.25rem);line-height:1.15;margin-bottom:16px">Um santuário dedicado à saúde e beleza capilar</h1>
@@ -481,7 +497,7 @@ function pageAbout(){
         </div>
       </section>
       
-      <section class="sec" style="background:color-mix(in srgb,var(--secondary) 50%,transparent);">
+      <section class="fullscreen-section" style="background:color-mix(in srgb,var(--secondary) 50%,transparent);">
         <div class="wrap" style="width: 100%;">
           ${secHead('Nossa equipe','Profissionais que dominam a arte','Especialistas dedicados a transformar seu cabelo com técnica e cuidado.')}
           <div class="grid-3">${teamHtml}</div>

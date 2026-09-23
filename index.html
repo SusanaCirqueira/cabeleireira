@@ -36,9 +36,9 @@
   input,textarea,select{font-family:inherit}
   ::selection{background:var(--primary);color:var(--primary-foreground)}
 
-  /* Dourado fixo e marcante (sem animação de movimento) */
+  /* Dourado fixo e marcante (mesmo tom da logo/tema) */
   .gold-glow {
-    color: hsl(43, 90% 58%);
+    color: var(--primary);
     text-shadow: 0 0 10px rgba(245, 197, 66, 0.35);
   }
 
@@ -102,16 +102,18 @@
   .mobile-menu ul li{margin-bottom:10px;font-size:.875rem}
   @keyframes fadeInDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
 
-  /* HERO */
+  /* HERO - Blur ajustado para 2px */
   .hero{position:relative;height:calc(100vh - 70px);min-height:480px;margin-top:70px;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden}
   @media(min-width:1024px){.hero{height:calc(100vh - 80px);min-height:520px;margin-top:80px}}
   
-  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter: blur(3px);transform: scale(1.05);}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter: blur(2px);transform: scale(1.05);}
   .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.4))}
   .hero-content{position:relative;z-index:10;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding-top:24vh;}
   @media(min-width:768px){.hero-content{padding-top:28vh;}}
   
-  .hero h1{font-size:clamp(3.5rem, 8.5vw, 6.8rem);line-height:1.02;}
+  /* Título da Home em maiúsculas */
+  .hero h1{font-size:clamp(3rem, 7.5vw, 5.8rem);line-height:1.05;text-transform:uppercase;}
+  
   .hero-bounce{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:10;color:rgba(255,255,255,.7);animation:bounce 2s infinite}
   @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
@@ -427,7 +429,7 @@ function pageHome(){
       <img class="hero-img" src="${HERO_IMG}" alt="Interior do salão">
       <div class="hero-overlay"></div>
       <div class="hero-content wrap">
-        <h1 class="gold-glow">A arte de<br>cuidar do<br>cabelo</h1>
+        <h1 class="gold-glow">A ARTE DE<br>CUIDAR DO<br>CABELO</h1>
       </div>
       <div class="hero-bounce">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>

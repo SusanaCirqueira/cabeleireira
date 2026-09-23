@@ -36,18 +36,10 @@
   input,textarea,select{font-family:inherit}
   ::selection{background:var(--primary);color:var(--primary-foreground)}
 
-  @keyframes shineMove {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-  }
-
+  /* Dourado fixo e marcante (sem animação de movimento) */
   .gold-glow {
-    background: linear-gradient(90deg, hsl(43, 80%, 45%) 0%, hsl(43, 95%, 75%) 30%, hsl(38, 90%, 55%) 50%, hsl(43, 95%, 75%) 70%, hsl(43, 80%, 45%) 100%);
-    background-size: 200% auto;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: shineMove 4s linear infinite;
+    color: hsl(43, 90% 58%);
+    text-shadow: 0 0 10px rgba(245, 197, 66, 0.35);
   }
 
   .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 16px}
@@ -110,7 +102,7 @@
   .mobile-menu ul li{margin-bottom:10px;font-size:.875rem}
   @keyframes fadeInDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
 
-  /* HERO - Blur de volta para 3px */
+  /* HERO */
   .hero{position:relative;height:calc(100vh - 70px);min-height:480px;margin-top:70px;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden}
   @media(min-width:1024px){.hero{height:calc(100vh - 80px);min-height:520px;margin-top:80px}}
   

@@ -435,8 +435,8 @@ function pageHome(){
       </div>
     </section>
 
-    <!-- Título posicionado um pouquinho mais para baixo (margin-top: 40px) -->
-    <section class="sec" style="margin-top: 40px;">
+    <!-- Seção ajustada para ocupar a tela inteira (min-height preenchendo a viewport abaixo do menu) -->
+    <section style="min-height: calc(100vh - 70px); display: flex; align-items: center; justify-content: center; padding: 40px 0;">
       <div class="wrap" style="max-width: 800px; margin: 0 auto; text-align: center;">
         <p class="label-caps" style="margin-bottom:16px">Bem-vindo ao ${esc(SALON.name)}</p>
         <h2 class="gold-glow" style="font-size:clamp(1.75rem,3.5vw,2.5rem);line-height:1.2;margin-bottom:20px">Onde cada fio é tratado como obra de arte</h2>
@@ -472,7 +472,8 @@ function pageAbout(){
 
   return `
     <div style="padding-top:20px">
-      <section style="padding:48px 0">
+      <!-- Seção do topo alterada para tela inteira (min-height) com alinhamento vertical centralizado -->
+      <section style="min-height: calc(100vh - 70px); display: flex; align-items: center; justify-content: center; padding: 40px 0;">
         <div style="max-width:42rem;margin:0 auto;padding:0 16px;text-align:center">
           <p class="label-caps" style="margin-bottom:12px">O Salão</p>
           <h1 class="gold-glow" style="font-size:clamp(2rem,4.5vw,3.75rem);line-height:1.1;margin-bottom:24px">Um santuário dedicado à saúde e beleza capilar</h1>

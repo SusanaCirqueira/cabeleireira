@@ -116,6 +116,23 @@
   .hero-bounce{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:10;color:rgba(255,255,255,.7);animation:bounce 2s infinite}
   @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
+  /* FULLSCREEN SECTION FIX */
+  .fullscreen-section {
+    height: calc(100vh - 70px);
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    overflow: hidden;
+  }
+  @media(min-width: 1024px) {
+    .fullscreen-section {
+      height: calc(100vh - 80px);
+      margin-top: 80px;
+    }
+  }
+
   /* SECTIONS */
   .sec{padding:40px 0}
   @media(min-width:768px){.sec{padding:70px 0}}
@@ -435,13 +452,13 @@ function pageHome(){
       </div>
     </section>
 
-    <!-- Seção ajustada para ocupar a tela inteira (min-height preenchendo a viewport abaixo do menu) -->
-    <section style="min-height: calc(100vh - 70px); display: flex; align-items: center; justify-content: center; padding: 40px 0;">
+    <!-- Usando a classe de tela inteira exata -->
+    <section class="fullscreen-section">
       <div class="wrap" style="max-width: 800px; margin: 0 auto; text-align: center;">
-        <p class="label-caps" style="margin-bottom:16px">Bem-vindo ao ${esc(SALON.name)}</p>
-        <h2 class="gold-glow" style="font-size:clamp(1.75rem,3.5vw,2.5rem);line-height:1.2;margin-bottom:20px">Onde cada fio é tratado como obra de arte</h2>
-        <p class="text-muted" style="margin-bottom:16px;line-height:1.6">Há mais de uma década, o ${esc(SALON.name)} une técnica, sensibilidade e produtos premium para revelar a melhor versão do seu cabelo. Nosso atendimento personalizado começa na escuta e termina no espelho — com resultados que respeitam a saúde capilar.</p>
-        <p class="text-muted" style="margin-bottom:32px;line-height:1.6">Trabalhamos com marcas profissionais selecionadas e técnicas exclusivas, em um ambiente pensado para o seu bem-estar.</p>
+        <p class="label-caps" style="margin-bottom:12px">Bem-vindo ao ${esc(SALON.name)}</p>
+        <h2 class="gold-glow" style="font-size:clamp(1.5rem,3vw,2.25rem);line-height:1.2;margin-bottom:16px">Onde cada fio é tratado como obra de arte</h2>
+        <p class="text-muted" style="margin-bottom:12px;line-height:1.5;font-size:0.95rem">Há mais de uma década, o ${esc(SALON.name)} une técnica, sensibilidade e produtos premium para revelar a melhor versão do seu cabelo. Nosso atendimento personalizado começa na escuta e termina no espelho — com resultados que respeitam a saúde capilar.</p>
+        <p class="text-muted" style="margin-bottom:24px;line-height:1.5;font-size:0.95rem">Trabalhamos com marcas profissionais selecionadas e técnicas exclusivas, em um ambiente pensado para o seu bem-estar.</p>
         
         <div style="display: flex; justify-content: center;">
           <a href="#/salao" class="btn-white-solid">
@@ -471,13 +488,13 @@ function pageAbout(){
     </article>`).join('');
 
   return `
-    <div style="padding-top:20px">
-      <!-- Seção do topo alterada para tela inteira (min-height) com alinhamento vertical centralizado -->
-      <section style="min-height: calc(100vh - 70px); display: flex; align-items: center; justify-content: center; padding: 40px 0;">
+    <div style="padding-top:0">
+      <!-- Usando a classe de tela inteira exata -->
+      <section class="fullscreen-section">
         <div style="max-width:42rem;margin:0 auto;padding:0 16px;text-align:center">
           <p class="label-caps" style="margin-bottom:12px">O Salão</p>
-          <h1 class="gold-glow" style="font-size:clamp(2rem,4.5vw,3.75rem);line-height:1.1;margin-bottom:24px">Um santuário dedicado à saúde e beleza capilar</h1>
-          <p class="text-muted" style="font-size:1rem;line-height:1.6">O ${esc(SALON.name)} nasceu do desejo de criar um espaço onde técnica e sensibilidade se encontrassem. Aqui, cada procedimento começa pela escuta — entendemos seu estilo de vida, seu cabelo e seus desejos antes de sugerir qualquer serviço.</p>
+          <h1 class="gold-glow" style="font-size:clamp(1.75rem,4vw,3.25rem);line-height:1.1;margin-bottom:20px">Um santuário dedicado à saúde e beleza capilar</h1>
+          <p class="text-muted" style="font-size:0.95rem;line-height:1.5">O ${esc(SALON.name)} nasceu do desejo de criar um espaço onde técnica e sensibilidade se encontrassem. Aqui, cada procedimento começa pela escuta — entendemos seu estilo de vida, seu cabelo e seus desejos antes de sugerir qualquer serviço.</p>
         </div>
       </section>
       

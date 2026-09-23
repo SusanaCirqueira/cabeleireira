@@ -349,7 +349,6 @@ const PRODUCTS = [
   {id:"p4",name:"Óleo Finalizador Nobre",brand:"JM Pro",category:"Óleos",price:119.90,description:"Óleo multifuncional com argan e camélia.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/938b1ef89_generated_5a4ef479.jpg"}
 ];
 
-// Apenas a Jéssica Martins mantida na equipe
 const PROFESSIONALS = [
   {id:"pr1",name:"Jéssica Martins",specialty:"Coloração e Direção Artística",bio:"Fundadora e especialista em colorimetria com mais de 12 anos de experiência.",photo:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/999c837f0_generated_388d2ea3.jpg"}
 ];
@@ -517,8 +516,9 @@ function pageAbout(){
       <section class="fullscreen-section">
         <div style="max-width:42rem;margin:0 auto;padding:0 16px;text-align:center">
           <p class="label-caps" style="margin-bottom:10px">O Salão</p>
-          <h1 class="gold-glow" style="font-size:clamp(1.5rem,4vw,3.25rem);line-height:1.15;margin-bottom:16px">Um santuário dedicado à saúde e beleza capilar</h1>
-          <p class="text-muted" style="font-size:0.9rem;line-height:1.5">O ${esc(SALON.name)} nasceu do desejo de criar um espaço onde técnica e sensibilidade se encontrassem. Aqui, cada procedimento começa pela escuta — entendemos seu estilo de vida, seu cabelo e seus desejos antes de sugerir qualquer serviço.</p>
+          <!-- Espaçamento aplicado abaixo do título principal da segunda página -->
+          <h1 class="gold-glow" style="font-size:clamp(1.5rem,4vw,3.25rem);line-height:1.15;margin-bottom:32px">Um santuário dedicado à saúde e beleza capilar</h1>
+          <p class="text-muted" style="font-size:0.9rem;line-height:1.6">O ${esc(SALON.name)} nasceu do desejo de criar um espaço onde técnica e sensibilidade se encontrassem. Aqui, cada procedimento começa pela escuta — entendemos seu estilo de vida, seu cabelo e seus desejos antes de sugerir qualquer serviço.</p>
         </div>
       </section>
       

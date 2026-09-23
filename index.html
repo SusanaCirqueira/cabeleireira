@@ -117,7 +117,7 @@
   .hero-bounce{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:10;color:rgba(255,255,255,.7);animation:bounce 2s infinite}
   @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-  /* FULLSCREEN SECTION */
+  /* FULLSCREEN SECTION COM ESPAÇAMENTOS FORTES */
   .fullscreen-section {
     min-height: calc(100vh - 65px);
     margin-top: 65px;
@@ -132,6 +132,29 @@
       margin-top: 80px;
       padding: 0 16px;
     }
+  }
+
+  /* BLOCO DE BOAS-VINDAS CUSTOMIZADO */
+  .hero-welcome-box {
+    max-width: 840px; 
+    margin: 0 auto; 
+    text-align: center;
+  }
+  .hero-welcome-box h2 {
+    margin-top: 24px;       /* Afasta o título da pequena etiqueta superior */
+    margin-bottom: 32px;    /* Afasta bastante o título do bloco de texto principal */
+    font-size: clamp(1.4rem, 3.2vw, 2.4rem);
+    line-height: 1.25;
+  }
+  .hero-welcome-box p {
+    margin-bottom: 16px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+  .hero-welcome-btn-wrap {
+    margin-top: 45px;       /* Empurra o botão bem mais para baixo do texto */
+    display: flex; 
+    justify-content: center; 
   }
 
   /* SECTIONS */
@@ -455,17 +478,19 @@ function pageHome(){
     </section>
 
     <section class="fullscreen-section">
-      <div class="wrap" style="max-width: 800px; margin: 0 auto; text-align: center;">
-        <p class="label-caps" style="margin-bottom:8px">Bem-vindo ao ${esc(SALON.name)}</p>
-        <h2 class="gold-glow" style="font-size:clamp(1.3rem,3vw,2.25rem);line-height:1.2;margin-bottom:20px">Onde cada fio é tratado como obra de arte</h2>
-        <p class="text-muted" style="margin-bottom:12px;line-height:1.5;font-size:0.9rem">Há mais de uma década, o ${esc(SALON.name)} une técnica, sensibilidade e produtos premium para revelar a melhor versão do seu cabelo. Nosso atendimento personalizado começa na escuta e termina no espelho — com resultados que respeitam a saúde capilar.</p>
-        <p class="text-muted" style="margin-bottom:20px;line-height:1.5;font-size:0.9rem">Trabalhamos com marcas profissionais selecionadas e técnicas exclusivas, em um ambiente pensado para o seu bem-estar.</p>
-        
-        <div style="display: flex; justify-content: center; margin-top: 24px;">
-          <a href="#/salao" class="btn-white-solid">
-            Conheça o salão 
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
+      <div class="wrap">
+        <div class="hero-welcome-box">
+          <p class="label-caps">Bem-vindo ao ${esc(SALON.name)}</p>
+          <h2 class="gold-glow">Onde cada fio é tratado como obra de arte</h2>
+          <p class="text-muted">Há mais de uma década, o ${esc(SALON.name)} une técnica, sensibilidade e produtos premium para revelar a melhor versão do seu cabelo. Nosso atendimento personalizado começa na escuta e termina no espelho — com resultados que respeitam a saúde capilar.</p>
+          <p class="text-muted">Trabalhamos com marcas profissionais selecionadas e técnicas exclusivas, em um ambiente pensado para o seu bem-estar.</p>
+          
+          <div class="hero-welcome-btn-wrap">
+            <a href="#/salao" class="btn-white-solid">
+              Conheça o salão 
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>

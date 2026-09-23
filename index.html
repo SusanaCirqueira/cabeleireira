@@ -141,8 +141,8 @@
     text-align: center;
   }
   .hero-welcome-box h2 {
-    margin-top: 24px;       /* Afasta o título da pequena etiqueta superior */
-    margin-bottom: 32px;    /* Afasta bastante o título do bloco de texto principal */
+    margin-top: 24px;       
+    margin-bottom: 32px;    
     font-size: clamp(1.4rem, 3.2vw, 2.4rem);
     line-height: 1.25;
   }
@@ -152,7 +152,7 @@
     font-size: 0.95rem;
   }
   .hero-welcome-btn-wrap {
-    margin-top: 45px;       /* Empurra o botão bem mais para baixo do texto */
+    margin-top: 45px;       
     display: flex; 
     justify-content: center; 
   }
@@ -349,10 +349,9 @@ const PRODUCTS = [
   {id:"p4",name:"Óleo Finalizador Nobre",brand:"JM Pro",category:"Óleos",price:119.90,description:"Óleo multifuncional com argan e camélia.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/938b1ef89_generated_5a4ef479.jpg"}
 ];
 
+// Apenas a Jéssica Martins mantida na equipe
 const PROFESSIONALS = [
-  {id:"pr1",name:"Jéssica Martins",specialty:"Coloração e Direção Artística",bio:"Fundadora e especialista em colorimetria com mais de 12 anos de experiência.",photo:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/999c837f0_generated_388d2ea3.jpg"},
-  {id:"pr2",name:"Rafael Costa",specialty:"Cortes e Penteados",bio:"Cabeleireiro premiado em concursos nacionais de corte.",photo:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/5102c517b_generated_9eeff0be.jpg"},
-  {id:"pr3",name:"Beatriz Almeida",specialty:"Tratamentos e Mega Hair",bio:"Especialista em reconstrução capilar e mega hair.",photo:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/78c2cf4fa_generated_8d20901c.jpg"}
+  {id:"pr1",name:"Jéssica Martins",specialty:"Coloração e Direção Artística",bio:"Fundadora e especialista em colorimetria com mais de 12 anos de experiência.",photo:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/999c837f0_generated_388d2ea3.jpg"}
 ];
 
 const TESTIMONIALS = [
@@ -506,11 +505,11 @@ function pageHome(){
 
 function pageAbout(){
   const teamHtml = PROFESSIONALS.map(p=>`
-    <article>
+    <article style="max-width:320px;margin:0 auto">
       <div class="aspect-team overflow-hidden" style="margin-bottom:8px;background:var(--secondary)">${p.photo?`<img src="${p.photo}" alt="${esc(p.name)}" class="obj-cover scale-hover">`:''}</div>
       <p class="label-caps" style="margin-bottom:2px">${esc(p.specialty)}</p>
-      <h3 class="gold-glow" style="font-size:1rem;margin-bottom:4px">${esc(p.name)}</h3>
-      <p class="text-muted" style="font-size:.75rem;line-height:1.4">${esc(p.bio)}</p>
+      <h3 class="gold-glow" style="font-size:1.1rem;margin-bottom:4px">${esc(p.name)}</h3>
+      <p class="text-muted" style="font-size:.8rem;line-height:1.4">${esc(p.bio)}</p>
     </article>`).join('');
 
   return `
@@ -524,9 +523,9 @@ function pageAbout(){
       </section>
       
       <section class="fullscreen-section" style="background:color-mix(in srgb,var(--secondary) 50%,transparent);">
-        <div class="wrap" style="width: 100%;">
-          ${secHead('Nossa equipe','Profissionais que dominam a arte','Especialistas dedicados a transformar seu cabelo com técnica e cuidado.')}
-          <div class="grid-3">${teamHtml}</div>
+        <div class="wrap" style="width: 100%; text-align: center;">
+          ${secHead('Direção Artística','Frente ao salão','Especialista dedicada a transformar seu cabelo com técnica e cuidado.')}
+          <div style="margin-top:20px">${teamHtml}</div>
         </div>
       </section>
 

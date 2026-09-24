@@ -197,32 +197,35 @@
 
   .sec{padding:40px 0}
   @media(min-width:768px){.sec{padding:70px 0}}
-  .sec-head{max-width:42rem;margin:0 auto 24px;text-align:center;padding:0 12px}
-  @media(min-width:768px){.sec-head{margin:0 auto 32px}}
+  
+  /* Ajuste para aproximar o título um pouco mais para cima */
+  .sec-head{max-width:42rem;margin:0 auto 12px;text-align:center;padding:0 12px}
+  @media(min-width:768px){.sec-head{margin:0 auto 16px}}
   .sec-head h2{font-size:clamp(1.6rem,3.5vw,2.8rem);letter-spacing:.05em;line-height:1.15;margin-top:4px}
   .sec-head p{margin-top:8px;color:var(--muted-foreground);line-height:1.5;font-size:0.8rem}
   @media(min-width:768px){.sec-head p{font-size:0.9rem}}
 
+  /* Caixa do depoimento aumentada e posicionamento das setas para dentro */
   .testimonial-slider-container {
-    max-width: 700px;
+    max-width: 860px;
     margin: 0 auto;
     position: relative;
-    padding: 0 40px;
+    padding: 0 10px;
   }
   .tst {
     border: 1px solid var(--border);
-    padding: 30px 24px;
+    padding: 50px 60px;
     background: var(--card);
     text-align: center;
     border-radius: var(--radius);
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   }
-  @media(min-width:768px){.tst{padding:45px 50px}}
-  .tst .stars{display:flex;justify-content:center;gap:4px;margin-bottom:14px}
+  @media(min-width:768px){.tst{padding:65px 80px}}
+  .tst .stars{display:flex;justify-content:center;gap:4px;margin-bottom:18px}
   .tst .stars svg{fill:var(--primary);color:var(--primary);filter: drop-shadow(0 0 5px rgba(245, 197, 66, 0.5));}
-  .tst p{color:var(--muted-foreground);line-height:1.6;margin-bottom:20px;font-style:italic;font-size:0.95rem}
-  @media(min-width:768px){.tst p{font-size:1.1rem}}
-  .tst .who{font-family:var(--font-heading);letter-spacing:.05em;font-size:1.05rem}
+  .tst p{color:var(--muted-foreground);line-height:1.7;margin-bottom:24px;font-style:italic;font-size:1.05rem}
+  @media(min-width:768px){.tst p{font-size:1.25rem}}
+  .tst .who{font-family:var(--font-heading);letter-spacing:.05em;font-size:1.15rem}
   
   .tst-arrow {
     position: absolute;
@@ -231,8 +234,8 @@
     background: var(--secondary);
     border: 1px solid var(--border);
     color: var(--primary);
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -247,11 +250,12 @@
     border-color: var(--primary);
     box-shadow: 0 0 10px rgba(245, 197, 66, 0.4);
   }
-  .tst-prev { left: -4px; }
-  .tst-next { right: -4px; }
+  /* Setas posicionadas dentro do retângulo nas extremidades esquerda e direita */
+  .tst-prev { left: 16px; }
+  .tst-next { right: 16px; }
   @media(min-width:768px){
-    .tst-prev { left: -10px; }
-    .tst-next { right: -10px; }
+    .tst-prev { left: 24px; }
+    .tst-next { right: 24px; }
   }
 
   .prof-slider {
@@ -520,10 +524,16 @@ function changeTestimonial(direction) {
 function renderSingleTestimonial(t) {
   return `
     <article class="tst">
+      <button class="tst-arrow tst-prev" onclick="changeTestimonial(-1)" aria-label="Anterior">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
       <div class="stars">${stars(t.rating)}</div>
       <p>"${esc(t.text)}"</p>
       <p class="who">— ${esc(t.client_name)}</p>
       ${t.service?`<p class="text-muted" style="font-size:.7rem;margin-top:4px">${esc(t.service)}</p>`:''}
+      <button class="tst-arrow tst-next" onclick="changeTestimonial(1)" aria-label="Próximo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </article>
   `;
 }
@@ -658,15 +668,9 @@ function pageHome(){
       <div class="wrap" style="width:100%;">
         ${secHead('Depoimentos','O que dizem nossas clientes')}
         <div class="testimonial-slider-container">
-          <button class="tst-arrow tst-prev" onclick="changeTestimonial(-1)" aria-label="Anterior">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
           <div id="testimonialCardContainer">
             ${renderSingleTestimonial(TESTIMONIALS[currentTestimonialIndex])}
           </div>
-          <button class="tst-arrow tst-next" onclick="changeTestimonial(1)" aria-label="Próximo">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
         </div>
       </div>
     </section>

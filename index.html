@@ -45,7 +45,6 @@
   @media(min-width:768px){.wrap{padding:0 24px}}
   @media(min-width:1024px){.wrap{padding:0 40px}}
 
-  /* Aqui padronizamos todas as legendas/frases menores do site para o mesmo tamanho pequeno */
   .label-caps{text-transform:uppercase;letter-spacing:.15em;font-size:0.45rem !important;color:var(--muted-foreground);font-weight:500;font-family:'Inter',sans-serif;}
   @media(min-width:768px){.label-caps{font-size:0.5rem !important}}
   
@@ -78,11 +77,26 @@
   .big-nav-btn:hover{background:var(--primary);color:var(--primary-foreground);border-color:var(--primary);transform:translateY(-4px);box-shadow: 0 0 20px rgba(245, 197, 66, 0.4);}
 
   header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--secondary);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);transition:all .5s}
-  header.nav .nav-inner{max-width:100%;margin:0;padding:0 12px;height:85px;display:flex;align-items:center;justify-content:space-between}
-  @media(min-width:1024px){header.nav .nav-inner{padding:0 24px;height:105px}}
   
-  .nav-left{display:flex;align-items:center;gap:6px}
-  .back-btn{display:inline-flex;align-items:center;justify-content:center;background:none;border:0;color:color-mix(in srgb, var(--foreground) 70%, transparent);padding:8px;transition:color .3s}
+  /* Ajustado o padding esquerdo para aproximar a logo da borda */
+  header.nav .nav-inner{max-width:100%;margin:0;padding:0 6px 0 4px;height:85px;display:flex;align-items:center;justify-content:space-between}
+  @media(min-width:1024px){header.nav .nav-inner{padding:0 16px 0 10px;height:105px}}
+  
+  .nav-left{display:flex;align-items:center;gap:4px; position: relative;}
+  
+  /* Seta absoluta para não deslocar a posição fixa da logo */
+  .back-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:none;
+    border:0;
+    color:color-mix(in srgb, var(--foreground) 70%, transparent);
+    padding:8px;
+    transition:color .3s;
+    position: absolute;
+    left: -40px;
+  }
   .back-btn:hover{color:var(--primary)}
   
   .brand-logo{width:210px;height:auto;display:block;object-fit:contain;filter: drop-shadow(0 0 10px rgba(245, 197, 66, 0.3));}

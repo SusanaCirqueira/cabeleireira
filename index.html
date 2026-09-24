@@ -174,11 +174,11 @@
 
   .testimonial-section {
     min-height: auto !important;
-    padding: 60px 16px !important;
+    padding: 40px 16px 80px 16px !important; /* Espaçamento ajustado para subir o título */
   }
   @media(min-width: 1024px) {
     .testimonial-section {
-      padding: 80px 16px !important;
+      padding: 50px 16px 100px 16px !important;
     }
   }
 
@@ -207,8 +207,9 @@
   .sec{padding:40px 0}
   @media(min-width:768px){.sec{padding:70px 0}}
   
-  .sec-head{max-width:42rem;margin:0 auto 50px;text-align:center;padding:0 12px}
-  @media(min-width:768px){.sec-head{margin:0 auto 64px}}
+  /* Título um pouco mais acima reduzindo a margem inferior */
+  .sec-head{max-width:42rem;margin:0 auto 25px;text-align:center;padding:0 12px}
+  @media(min-width:768px){.sec-head{margin:0 auto 35px}}
   .sec-head h2{font-size:clamp(1.6rem,3.5vw,2.8rem);letter-spacing:.05em;line-height:1.15;margin-top:0px}
   .sec-head p{margin-top:6px;color:var(--muted-foreground);line-height:1.5;font-size:0.8rem}
   @media(min-width:768px){.sec-head p{font-size:0.9rem}}

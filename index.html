@@ -115,7 +115,6 @@
   .hero-bounce{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:10;color:rgba(255,255,255,.7);animation:bounce 2s infinite}
   @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-  /* Ajuste estrutural para secções de tela inteira sem margens cumulativas incorretas */
   .fullscreen-section {
     min-height: calc(100vh - 85px);
     display: flex;
@@ -161,7 +160,6 @@
   .sec-head p{margin-top:8px;color:var(--muted-foreground);line-height:1.5;font-size:0.8rem}
   @media(min-width:768px){.sec-head p{font-size:0.9rem}}
 
-  /* DEPOIMENTOS EM CARROSSEL COM SETAS */
   .testimonial-slider-container {
     max-width: 700px;
     margin: 0 auto;
@@ -213,7 +211,6 @@
     .tst-next { right: -10px; }
   }
 
-  /* ESTILOS PARA O CARROSSEL DE PROFISSIONAIS */
   .prof-slider {
     position: relative;
     width: 100%;
@@ -419,8 +416,6 @@ const PROFESSIONALS = [
   {
     id: "pr1",
     name: "Jéssica Martins",
-    specialty: "Coloração e Direção Artística",
-    bio: "Fundadora e especialista em colorimetria com mais de 12 anos de experiência.",
     photos: [
       "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/999c837f0_generated_388d2ea3.jpg",
       TRANSFORM_IMG,
@@ -635,12 +630,12 @@ function pageHome(){
 function pageAbout(){
   const teamHtml = PROFESSIONALS.map(p => {
     const imagesHtml = p.photos && p.photos.length > 0 
-      ? p.photos.map((photo, index) => `<img src="${photo}" alt="${esc(p.name)}" class="${index === 0 ? 'active' : ''}">`).join('')
+      ? p.photos.map((photo, index) => `<img src="${photo}" alt="Foto" class="${index === 0 ? 'active' : ''}">`).join('')
       : '';
 
     return `
       <article style="max-width:300px;margin:0 auto">
-        <div class="prof-slider" id="prof-slider-${p.id}" style="margin-bottom:8px;">
+        <div class="prof-slider" id="prof-slider-${p.id}">
           ${imagesHtml}
           ${p.photos && p.photos.length > 1 ? `
             <button class="prof-arrow prof-prev" onclick="changeProfPhoto('${p.id}', -1)" aria-label="Anterior">
@@ -651,9 +646,6 @@ function pageAbout(){
             </button>
           ` : ''}
         </div>
-        <p class="label-caps" style="margin-bottom:2px">${esc(p.specialty)}</p>
-        <h3 class="gold-glow" style="font-size:1.1rem;margin-bottom:4px">${esc(p.name)}</h3>
-        <p class="text-muted" style="line-height:1.4">${esc(p.bio)}</p>
       </article>`;
   }).join('');
 
@@ -667,15 +659,13 @@ function pageAbout(){
         </div>
       </section>
       
-      <!-- Secção Direção Artística convertida para tela inteira -->
       <section class="fullscreen-section" style="background:color-mix(in srgb,var(--secondary) 50%,transparent);">
         <div class="wrap" style="width: 100%; text-align: center;">
-          ${secHead('Direção Artística','Frente ao salão','Especialista dedicada a transformar seu cabelo com técnica e cuidado.')}
+          ${secHead('Direção Artística','Frente ao salão')}
           <div style="margin-top:20px">${teamHtml}</div>
         </div>
       </section>
 
-      <!-- Secção Explore convertida para tela inteira -->
       <section class="fullscreen-section">
         <div class="wrap" style="width: 100%; text-align: center;">
           ${secHead('Explore','Conheça mais','Acesse nossos procedimentos ou compre produtos diretamente.')}

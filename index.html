@@ -172,6 +172,17 @@
     }
   }
 
+  /* Seção específica de depoimentos com altura reduzida para eliminar excessos */
+  .testimonial-section {
+    min-height: auto !important;
+    padding: 60px 16px !important;
+  }
+  @media(min-width: 1024px) {
+    .testimonial-section {
+      padding: 80px 16px !important;
+    }
+  }
+
   .hero-welcome-box {
     max-width: 900px; 
     margin: 0 auto; 
@@ -197,9 +208,9 @@
   .sec{padding:40px 0}
   @media(min-width:768px){.sec{padding:70px 0}}
   
-  /* Título bem mais para cima e com margem inferior (espaço) para o retângulo */
-  .sec-head{max-width:42rem;margin:0 auto 36px;text-align:center;padding:0 12px}
-  @media(min-width:768px){.sec-head{margin:0 auto 48px}}
+  /* Título bem mais para cima e com margem inferior generosa para separar do retângulo */
+  .sec-head{max-width:42rem;margin:0 auto 50px;text-align:center;padding:0 12px}
+  @media(min-width:768px){.sec-head{margin:0 auto 64px}}
   .sec-head h2{font-size:clamp(1.6rem,3.5vw,2.8rem);letter-spacing:.05em;line-height:1.15;margin-top:0px}
   .sec-head p{margin-top:6px;color:var(--muted-foreground);line-height:1.5;font-size:0.8rem}
   @media(min-width:768px){.sec-head p{font-size:0.9rem}}
@@ -662,7 +673,7 @@ function pageHome(){
       </div>
     </section>
 
-    <section class="fullscreen-section" style="background:color-mix(in srgb,var(--secondary) 30%,transparent);">
+    <section class="fullscreen-section testimonial-section" style="background:color-mix(in srgb,var(--secondary) 30%,transparent);">
       <div class="wrap" style="width:100%;">
         ${secHead('Depoimentos','O que dizem nossas clientes')}
         <div class="testimonial-slider-container">

@@ -116,18 +116,19 @@
   @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
   .fullscreen-section {
-    min-height: calc(100vh - 85px);
+    min-height: 100vh;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 80px 16px;
+    padding: 120px 16px;
     width: 100%;
     box-sizing: border-box;
   }
   @media(min-width: 1024px) {
     .fullscreen-section {
-      min-height: calc(100vh - 105px);
-      padding: 100px 16px;
+      min-height: 100vh;
+      padding: 140px 16px;
     }
   }
 
@@ -854,4 +855,3 @@ document.getElementById('burger').addEventListener('click', toggleMobile);
 navigate();
 </script>
 </body>
-</html>

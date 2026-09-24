@@ -69,7 +69,7 @@
   .scale-hover{transition:transform .7s cubic-bezier(.22,1,.36,1)}
   .scale-hover:hover{transform:scale(1.03)}
 
-  .grid-2-buttons{display:grid;grid-template-columns:1fr;gap:16px;max-width:800px;margin:0 auto}
+  .grid-2-buttons{display:grid;grid-template-columns:1fr;gap:16px;max-width:800px;margin:0 auto; width: 100%;}
   @media(min-width:768px){.grid-2-buttons{grid-template-columns:repeat(2,1fr);gap:32px}}
   
   .big-nav-btn{min-height:100px;background:var(--secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foreground);transition:all .3s ease;text-align:center;padding:20px}
@@ -115,18 +115,18 @@
   .hero-bounce{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:10;color:rgba(255,255,255,.7);animation:bounce 2s infinite}
   @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
+  /* Ajuste estrutural para secções de tela inteira sem margens cumulativas incorretas */
   .fullscreen-section {
     min-height: calc(100vh - 85px);
-    margin-top: 85px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 40px 16px;
+    width: 100%;
   }
   @media(min-width: 1024px) {
     .fullscreen-section {
-      height: calc(100vh - 105px);
-      margin-top: 105px;
+      min-height: calc(100vh - 105px);
       padding: 0 16px;
     }
   }
@@ -429,7 +429,6 @@ const PROFESSIONALS = [
   }
 ];
 
-// Estado global para controlar o índice atual das fotos de cada profissional no carrossel
 const profPhotoIndexes = {};
 PROFESSIONALS.forEach(p => { profPhotoIndexes[p.id] = 0; });
 
@@ -444,7 +443,6 @@ function changeProfPhoto(profId, direction) {
     profPhotoIndexes[profId] = 0;
   }
   
-  // Atualizar classes active nas imagens do carrossel correspondente
   const container = document.getElementById('prof-slider-' + profId);
   if (container) {
     const imgs = container.querySelectorAll('img');
@@ -641,7 +639,7 @@ function pageAbout(){
       : '';
 
     return `
-      <article style="max-width:320px;margin:0 auto">
+      <article style="max-width:300px;margin:0 auto">
         <div class="prof-slider" id="prof-slider-${p.id}" style="margin-bottom:8px;">
           ${imagesHtml}
           ${p.photos && p.photos.length > 1 ? `
@@ -660,7 +658,7 @@ function pageAbout(){
   }).join('');
 
   return `
-    <div style="padding-top:0">
+    <div>
       <section class="fullscreen-section">
         <div style="max-width:42rem;margin:0 auto;padding:0 16px;text-align:center">
           <p class="label-caps" style="margin-bottom:12px">O Salão</p>
@@ -669,6 +667,7 @@ function pageAbout(){
         </div>
       </section>
       
+      <!-- Secção Direção Artística convertida para tela inteira -->
       <section class="fullscreen-section" style="background:color-mix(in srgb,var(--secondary) 50%,transparent);">
         <div class="wrap" style="width: 100%; text-align: center;">
           ${secHead('Direção Artística','Frente ao salão','Especialista dedicada a transformar seu cabelo com técnica e cuidado.')}
@@ -676,10 +675,11 @@ function pageAbout(){
         </div>
       </section>
 
-      <section class="sec">
-        <div class="wrap">
+      <!-- Secção Explore convertida para tela inteira -->
+      <section class="fullscreen-section">
+        <div class="wrap" style="width: 100%; text-align: center;">
           ${secHead('Explore','Conheça mais','Acesse nossos procedimentos ou compre produtos diretamente.')}
-          <div class="grid-2-buttons">
+          <div class="grid-2-buttons" style="margin-top: 24px;">
             <a href="#/procedimentos" class="big-nav-btn">Procedimentos</a>
             <a href="#/loja" class="big-nav-btn">Loja</a>
           </div>

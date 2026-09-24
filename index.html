@@ -172,7 +172,7 @@
     }
   }
 
-  /* Seção específica de depoimentos com altura reduzida para eliminar excessos */
+  /* Seção específica de depoimentos com altura reduzida */
   .testimonial-section {
     min-height: auto !important;
     padding: 60px 16px !important;
@@ -208,34 +208,46 @@
   .sec{padding:40px 0}
   @media(min-width:768px){.sec{padding:70px 0}}
   
-  /* Título bem mais para cima e com margem inferior generosa para separar do retângulo */
   .sec-head{max-width:42rem;margin:0 auto 50px;text-align:center;padding:0 12px}
   @media(min-width:768px){.sec-head{margin:0 auto 64px}}
   .sec-head h2{font-size:clamp(1.6rem,3.5vw,2.8rem);letter-spacing:.05em;line-height:1.15;margin-top:0px}
   .sec-head p{margin-top:6px;color:var(--muted-foreground);line-height:1.5;font-size:0.8rem}
   @media(min-width:768px){.sec-head p{font-size:0.9rem}}
 
-  /* Caixa do depoimento aumentada e posicionamento das setas para dentro */
   .testimonial-slider-container {
     max-width: 860px;
     margin: 0 auto;
     position: relative;
     padding: 0 10px;
   }
+  
+  /* Retângulo do depoimento com tamanho fixo (altura definida e centralização por flexbox) */
   .tst {
     border: 1px solid var(--border);
-    padding: 50px 60px;
+    padding: 30px 60px;
     background: var(--card);
     text-align: center;
     border-radius: var(--radius);
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
   }
-  @media(min-width:768px){.tst{padding:65px 80px}}
-  .tst .stars{display:flex;justify-content:center;gap:4px;margin-bottom:18px}
+  @media(min-width:768px){
+    .tst{
+      height: 310px;
+      padding: 40px 80px;
+    }
+  }
+
+  .tst .stars{display:flex;justify-content:center;gap:4px;margin-bottom:12px}
   .tst .stars svg{fill:var(--primary);color:var(--primary);filter: drop-shadow(0 0 5px rgba(245, 197, 66, 0.5));}
-  .tst p{color:var(--muted-foreground);line-height:1.7;margin-bottom:24px;font-style:italic;font-size:1.05rem}
-  @media(min-width:768px){.tst p{font-size:1.25rem}}
-  .tst .who{font-family:var(--font-heading);letter-spacing:.05em;font-size:1.15rem}
+  .tst p{color:var(--muted-foreground);line-height:1.6;margin-bottom:16px;font-style:italic;font-size:1rem}
+  @media(min-width:768px){.tst p{font-size:1.2rem}}
+  .tst .who{font-family:var(--font-heading);letter-spacing:.05em;font-size:1.1rem}
   
   .tst-arrow {
     position: absolute;

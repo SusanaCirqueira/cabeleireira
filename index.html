@@ -172,7 +172,6 @@
     }
   }
 
-  /* Seção específica de depoimentos com altura reduzida */
   .testimonial-section {
     min-height: auto !important;
     padding: 60px 16px !important;
@@ -221,15 +220,15 @@
     padding: 0 10px;
   }
   
-  /* Retângulo do depoimento com tamanho fixo (altura definida e centralização por flexbox) */
+  /* Retângulo do depoimento MAIOR e com TAMANHO FIXO */
   .tst {
     border: 1px solid var(--border);
-    padding: 30px 60px;
+    padding: 40px 70px;
     background: var(--card);
     text-align: center;
     border-radius: var(--radius);
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    height: 280px;
+    height: 340px; /* Altura fixa maior para dispositivos móveis */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -238,16 +237,16 @@
   }
   @media(min-width:768px){
     .tst{
-      height: 310px;
-      padding: 40px 80px;
+      height: 380px; /* Altura fixa bem maior para telas grandes */
+      padding: 50px 100px;
     }
   }
 
-  .tst .stars{display:flex;justify-content:center;gap:4px;margin-bottom:12px}
+  .tst .stars{display:flex;justify-content:center;gap:4px;margin-bottom:16px}
   .tst .stars svg{fill:var(--primary);color:var(--primary);filter: drop-shadow(0 0 5px rgba(245, 197, 66, 0.5));}
-  .tst p{color:var(--muted-foreground);line-height:1.6;margin-bottom:16px;font-style:italic;font-size:1rem}
-  @media(min-width:768px){.tst p{font-size:1.2rem}}
-  .tst .who{font-family:var(--font-heading);letter-spacing:.05em;font-size:1.1rem}
+  .tst p{color:var(--muted-foreground);line-height:1.6;margin-bottom:20px;font-style:italic;font-size:1.1rem}
+  @media(min-width:768px){.tst p{font-size:1.35rem}}
+  .tst .who{font-family:var(--font-heading);letter-spacing:.05em;font-size:1.2rem}
   
   .tst-arrow {
     position: absolute;
@@ -256,8 +255,8 @@
     background: var(--secondary);
     border: 1px solid var(--border);
     color: var(--primary);
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     display: flex;
     align-items: center;

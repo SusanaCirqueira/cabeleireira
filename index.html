@@ -78,13 +78,13 @@
 
   header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--secondary);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);transition:all .5s}
   
-  /* Mantém um espaçamento bem próximo da borda esquerda (padding de 12px) */
-  header.nav .nav-inner{max-width:100%;margin:0 auto;padding:0 12px 0 12px;height:85px;display:flex;align-items:center;justify-content:space-between}
-  @media(min-width:768px){header.nav .nav-inner{padding:0 24px 0 24px;}}
-  @media(min-width:1024px){header.nav .nav-inner{padding:0 32px 0 32px;height:105px}}
+  /* Logo colada quase totalmente na borda esquerda */
+  header.nav .nav-inner{max-width:100%;margin:0 auto;padding:0 4px 0 4px;height:85px;display:flex;align-items:center;justify-content:space-between}
+  @media(min-width:768px){header.nav .nav-inner{padding:0 12px 0 12px;}}
+  @media(min-width:1024px){header.nav .nav-inner{padding:0 16px 0 16px;height:105px}}
   
-  /* Container esquerdo próximo da borda e organizado */
-  .nav-left{display:flex;align-items:center;gap:8px;}
+  /* Container esquerdo bem encostado */
+  .nav-left{display:flex;align-items:center;gap:4px;}
   
   .back-btn{
     display:inline-flex;
@@ -93,7 +93,7 @@
     background:none;
     border:0;
     color:var(--primary);
-    padding:4px;
+    padding:2px;
     transition:opacity .3s;
     flex-shrink: 0;
   }
@@ -107,8 +107,8 @@
   .brand-logo{width:200px;height:auto;display:block;object-fit:contain;filter: drop-shadow(0 0 10px rgba(245, 197, 66, 0.3));}
   @media(min-width:768px){.brand-logo{width:320px}}
 
-  .nav-right{display:flex;align-items:center;gap:4px;color:var(--primary)}
-  @media(min-width:768px){.nav-right{gap:12px}}
+  .nav-right{display:flex;align-items:center;gap:4px;color:var(--primary);padding-right:4px;}
+  @media(min-width:768px){.nav-right{gap:12px;padding-right:12px}}
   
   .nav-cart-icon{display:inline-flex;align-items:center;justify-content:center;color:var(--primary);transition:color .3s;padding:8px}
   .burger{display:flex;background:none;border:0;color:var(--primary);padding:8px}

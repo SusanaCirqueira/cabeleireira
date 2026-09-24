@@ -102,8 +102,9 @@
   .mobile-menu ul li{margin-bottom:8px;font-size:.85rem}
   @keyframes fadeInDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
 
-  .hero{position:relative;height:calc(100vh - 85px);min-height:420px;margin-top:85px;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden}
-  @media(min-width:1024px){.hero{height:calc(100vh - 105px);min-height:520px;margin-top:105px}}
+  /* Ajuste Dinâmico da Altura da Tela para Blocos Principais */
+  .hero{position:relative;height:calc(100vh - 85px);min-height:400px;margin-top:85px;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden}
+  @media(min-width:1024px){.hero{height:calc(100vh - 105px);margin-top:105px}}
   
   .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter: blur(2px);transform: scale(1.05);}
   .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45))}
@@ -116,16 +117,18 @@
   @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
   .fullscreen-section {
-    min-height: calc(100vh - 85px);
+    height: calc(100vh - 85px);
+    min-height: 480px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px 16px;
+    padding: 20px 16px;
     width: 100%;
+    overflow: hidden;
   }
   @media(min-width: 1024px) {
     .fullscreen-section {
-      min-height: calc(100vh - 105px);
+      height: calc(100vh - 105px);
       padding: 0 16px;
     }
   }
@@ -136,18 +139,21 @@
     text-align: center;
   }
   .hero-welcome-box h2 {
-    margin-top: 24px;       
-    margin-bottom: 32px;    
-    font-size: clamp(1.6rem, 3.6vw, 2.8rem);
-    line-height: 1.25;
+    margin-top: 16px;       
+    margin-bottom: 20px;    
+    font-size: clamp(1.4rem, 3.2vw, 2.6rem);
+    line-height: 1.2;
   }
   .hero-welcome-box p {
-    margin-bottom: 16px;
-    line-height: 1.6;
-    font-size: 0.9rem;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    font-size: 0.85rem;
+  }
+  @media(min-width:768px){
+    .hero-welcome-box p { font-size: 0.95rem; margin-bottom: 16px; }
   }
   .hero-welcome-btn-wrap {
-    margin-top: 45px;       
+    margin-top: 25px;       
     display: flex; 
     justify-content: center; 
   }
@@ -214,11 +220,14 @@
   .prof-slider {
     position: relative;
     width: 100%;
+    max-width: 260px;
     aspect-ratio: 3/4;
     overflow: hidden;
     background: var(--secondary);
     border-radius: var(--radius);
+    margin: 0 auto;
   }
+  @media(min-width:768px){.prof-slider{max-width:300px;}}
   .prof-slider img {
     position: absolute;
     inset: 0;
@@ -608,8 +617,8 @@ function pageHome(){
       </div>
     </section>
 
-    <section class="sec">
-      <div class="wrap">
+    <section class="fullscreen-section" style="background:color-mix(in srgb,var(--secondary) 30%,transparent);">
+      <div class="wrap" style="width:100%;">
         ${secHead('Depoimentos','O que dizem nossas clientes')}
         <div class="testimonial-slider-container">
           <button class="tst-arrow tst-prev" onclick="changeTestimonial(-1)" aria-label="Anterior">
@@ -654,7 +663,7 @@ function pageAbout(){
       <section class="fullscreen-section">
         <div style="max-width:42rem;margin:0 auto;padding:0 16px;text-align:center">
           <p class="label-caps" style="margin-bottom:12px">O Salão</p>
-          <h1 class="gold-glow" style="font-size:clamp(1.8rem,4.5vw,3.6rem);line-height:1.15;margin-bottom:36px">Um santuário dedicado à saúde e beleza capilar</h1>
+          <h1 class="gold-glow" style="font-size:clamp(1.8rem,4.5vw,3.6rem);line-height:1.15;margin-bottom:24px">Um santuário dedicado à saúde e beleza capilar</h1>
           <p class="text-muted" style="line-height:1.6">O ${esc(SALON.name)} nasceu do desejo de criar um espaço onde técnica e sensibilidade se encontrassem. Aqui, cada procedimento começa pela escuta — entendemos seu estilo de vida, seu cabelo e seus desejos antes de sugerir qualquer serviço.</p>
         </div>
       </section>
@@ -662,14 +671,14 @@ function pageAbout(){
       <section class="fullscreen-section" style="background:color-mix(in srgb,var(--secondary) 50%,transparent);">
         <div class="wrap" style="width: 100%; text-align: center;">
           ${secHead('Direção Artística','Frente ao salão')}
-          <div style="margin-top:20px">${teamHtml}</div>
+          <div style="margin-top:10px">${teamHtml}</div>
         </div>
       </section>
 
       <section class="fullscreen-section">
         <div class="wrap" style="width: 100%; text-align: center;">
           ${secHead('Explore','Conheça mais','Acesse nossos procedimentos ou compre produtos diretamente.')}
-          <div class="grid-2-buttons" style="margin-top: 24px;">
+          <div class="grid-2-buttons" style="margin-top: 20px;">
             <a href="#/procedimentos" class="big-nav-btn">Procedimentos</a>
             <a href="#/loja" class="big-nav-btn">Loja</a>
           </div>

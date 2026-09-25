@@ -142,6 +142,7 @@
   .mobile-menu ul li{margin-bottom:8px;font-size:.85rem}
   @keyframes fadeInDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
 
+  /* Ajustes do Hero: Imagem um pouco maior (scale menor) e Título mais para cima */
   .hero{position:relative;height:calc(100vh - 85px);min-height:400px;margin-top:85px;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden}
   @media(min-width:1024px){.hero{height:calc(100vh - 105px);margin-top:105px}}
   
@@ -268,19 +269,17 @@
     .tst-next { right: 24px; }
   }
 
-  /* Ajustado: Imagem um pouquinho maior para cima e para baixo (proporção ajustada) */
   .prof-slider {
     position: relative;
     width: 100%;
-    max-width: 420px;
-    aspect-ratio: 3/4.2;
+    max-width: 360px;
+    aspect-ratio: 3/4;
     overflow: hidden;
     background: var(--secondary);
     border-radius: var(--radius);
     margin: 0 auto;
   }
-  @media(min-width:768px){.prof-slider{max-width:520px;}}
-  
+  @media(min-width:768px){.prof-slider{max-width:440px;}}
   .prof-slider img {
     position: absolute;
     inset: 0;
@@ -722,11 +721,10 @@ function pageAbout(){
         </div>
       </section>
       
-      <!-- Seção ajustada: título mais para cima (espaçamento reduzido) -->
-      <section style="padding: 25px 16px 50px 16px; background: color-mix(in srgb, var(--secondary) 50%, transparent);">
+      <section style="padding: 70px 16px; background: color-mix(in srgb, var(--secondary) 50%, transparent);">
         <div class="wrap" style="width: 100%; text-align: center;">
-          ${secHead('Direção Artística','Frente ao Salão')}
-          <div style="margin-top: 10px;">${teamHtml}</div>
+          ${secHead('Direção Artística','Frente ao salão')}
+          <div style="margin-top: 45px;">${teamHtml}</div>
         </div>
       </section>
 

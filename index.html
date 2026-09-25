@@ -227,7 +227,7 @@
     text-align: center;
     border-radius: var(--radius);
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    height: 390px; /* Altura aumentada para telemóvel */
+    height: 390px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -236,7 +236,7 @@
   }
   @media(min-width:768px){
     .tst{
-      height: 440px; /* Altura aumentada para ecrãs grandes */
+      height: 440px;
       padding: 50px 100px;
     }
   }
@@ -247,33 +247,25 @@
   @media(min-width:768px){.tst p{font-size:1.35rem}}
   .tst .who{font-family:var(--font-heading);letter-spacing:.05em;font-size:1.2rem}
   
-  .tst-arrow {
+  /* Seta da direita sem círculo */
+  .tst-arrow-right {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: var(--secondary);
-    border: 1px solid var(--border);
+    background: none;
+    border: none;
     color: var(--primary);
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 10;
+    padding: 10px;
   }
-  .tst-arrow:hover {
-    background: var(--primary);
-    color: var(--primary-foreground);
-    border-color: var(--primary);
-    box-shadow: 0 0 10px rgba(245, 197, 66, 0.4);
+  .tst-arrow-right:hover {
+    opacity: 0.7;
+    transform: translateY(-50%) scale(1.1);
   }
-  .tst-prev { left: 16px; }
-  .tst-next { right: 16px; }
+  .tst-next { right: 12px; }
   @media(min-width:768px){
-    .tst-prev { left: 24px; }
     .tst-next { right: 24px; }
   }
 
@@ -543,15 +535,12 @@ function changeTestimonial(direction) {
 function renderSingleTestimonial(t) {
   return `
     <article class="tst">
-      <button class="tst-arrow tst-prev" onclick="changeTestimonial(-1)" aria-label="Anterior">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
       <div class="stars">${stars(t.rating)}</div>
       <p>"${esc(t.text)}"</p>
       <p class="who">— ${esc(t.client_name)}</p>
       ${t.service?`<p class="text-muted" style="font-size:.7rem;margin-top:4px">${esc(t.service)}</p>`:''}
-      <button class="tst-arrow tst-next" onclick="changeTestimonial(1)" aria-label="Próximo">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      <button class="tst-arrow-right tst-next" onclick="changeTestimonial(1)" aria-label="Próximo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
     </article>
   `;

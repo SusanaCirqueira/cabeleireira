@@ -207,8 +207,8 @@
   .sec{padding:40px 0}
   @media(min-width:768px){.sec{padding:70px 0}}
   
-  .sec-head{max-width:42rem;margin:0 auto 45px;text-align:center;padding:0 12px}
-  @media(min-width:768px){.sec-head{margin:0 auto 60px}}
+  .sec-head{max-width:42rem;margin:0 auto 24px;text-align:center;padding:0 12px}
+  @media(min-width:768px){.sec-head{margin:0 auto 32px}}
   .sec-head h2{font-size:clamp(1.6rem,3.5vw,2.8rem);letter-spacing:.05em;line-height:1.15;margin-top:0px}
   .sec-head p{margin-top:6px;color:var(--muted-foreground);line-height:1.5;font-size:0.8rem}
   @media(min-width:768px){.sec-head p{font-size:0.9rem}}
@@ -271,14 +271,14 @@
   .prof-slider {
     position: relative;
     width: 100%;
-    max-width: 260px;
+    max-width: 360px;
     aspect-ratio: 3/4;
     overflow: hidden;
     background: var(--secondary);
     border-radius: var(--radius);
     margin: 0 auto;
   }
-  @media(min-width:768px){.prof-slider{max-width:300px;}}
+  @media(min-width:768px){.prof-slider{max-width:440px;}}
   .prof-slider img {
     position: absolute;
     inset: 0;
@@ -691,7 +691,7 @@ function pageAbout(){
       : '';
 
     return `
-      <article style="max-width:300px;margin:0 auto">
+      <article style="max-width:440px;margin:0 auto">
         <div class="prof-slider" id="prof-slider-${p.id}">
           ${imagesHtml}
           ${p.photos && p.photos.length > 1 ? `
@@ -723,7 +723,7 @@ function pageAbout(){
       <section class="fullscreen-section" style="background:color-mix(in srgb,var(--secondary) 50%,transparent);">
         <div class="wrap" style="width: 100%; text-align: center;">
           ${secHead('Direção Artística','Frente ao salão')}
-          <div style="margin-top:10px">${teamHtml}</div>
+          <div style="margin-top:32px">${teamHtml}</div>
         </div>
       </section>
 

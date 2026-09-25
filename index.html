@@ -142,13 +142,14 @@
   .mobile-menu ul li{margin-bottom:8px;font-size:.85rem}
   @keyframes fadeInDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
 
+  /* Ajustes do Hero: Imagem um pouco maior (scale menor) e Título mais para cima */
   .hero{position:relative;height:calc(100vh - 85px);min-height:400px;margin-top:85px;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden}
   @media(min-width:1024px){.hero{height:calc(100vh - 105px);margin-top:105px}}
   
-  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter: blur(2px);transform: scale(1.05);}
-  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45))}
-  .hero-content{position:relative;z-index:10;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding-top:28vh;}
-  @media(min-width:768px){.hero-content{padding-top:36vh;}}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter: blur(1.5px);transform: scale(1.01);}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.4))}
+  .hero-content{position:relative;z-index:10;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding-top:18vh;}
+  @media(min-width:768px){.hero-content{padding-top:22vh;}}
   
   .hero h1{font-size:clamp(2.80rem, 8.5vw, 6.5rem);line-height:1.1;text-transform:uppercase;padding:0 8px;}
   
@@ -720,7 +721,6 @@ function pageAbout(){
         </div>
       </section>
       
-      <!-- Bloco ajustado com altura menor (padding reduzido) -->
       <section style="padding: 70px 16px; background: color-mix(in srgb, var(--secondary) 50%, transparent);">
         <div class="wrap" style="width: 100%; text-align: center;">
           ${secHead('Direção Artística','Frente ao salão')}

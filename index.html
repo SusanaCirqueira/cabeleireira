@@ -247,7 +247,6 @@
   @media(min-width:768px){.tst p{font-size:1.35rem}}
   .tst .who{font-family:var(--font-heading);letter-spacing:.05em;font-size:1.2rem}
   
-  /* Seta da direita sem círculo */
   .tst-arrow-right {
     position: absolute;
     top: 50%;
@@ -713,7 +712,11 @@ function pageAbout(){
         <div style="max-width:52rem;margin:0 auto;padding:0 16px;text-align:center">
           <p class="label-caps" style="margin-bottom:12px">O Salão</p>
           <h1 class="gold-glow" style="font-size:clamp(2rem,4.8vw,3.8rem);line-height:1.15;margin-bottom:28px">Um santuário dedicado à saúde e beleza capilar</h1>
-          <p style="font-size:clamp(1.1rem, 2.2vw, 1.45rem);line-height:1.7;color:var(--foreground);opacity:0.95">O ${esc(SALON.name)} nasceu do desejo de criar um espaço onde técnica e sensibilidade se encontrassem. Aqui, cada procedimento começa pela escuta — entendemos seu estilo de vida, seu cabelo e seus desejos antes de sugerir qualquer serviço.</p>
+          
+          <div style="margin-top: 36px;">
+            <p class="text-muted" style="margin-bottom:16px;line-height:1.7;font-size:clamp(1rem, 2vw, 1.35rem);">Há mais de uma década, o ${esc(SALON.name)} une técnica, sensibilidade e produtos premium para revelar a melhor versão do seu cabelo. Nosso atendimento personalizado começa na escuta e termina no espelho — com resultados que respeitam a saúde capilar.</p>
+            <p class="text-muted" style="line-height:1.7;font-size:clamp(1rem, 2vw, 1.35rem);">Trabalhamos com marcas profissionais selecionadas e técnicas exclusivas, em um ambiente pensado para o seu bem-estar.</p>
+          </div>
         </div>
       </section>
       

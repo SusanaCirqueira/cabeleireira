@@ -69,17 +69,11 @@
   .scale-hover{transition:transform .7s cubic-bezier(.22,1,.36,1)}
   .scale-hover:hover{transform:scale(1.03)}
 
-  /* MODIFICAÇÃO: Centralizados perfeitamente e alinhados ao meio */
-  .grid-2-buttons{display:grid;grid-template-columns:1fr;gap:20px;max-width:550px;margin:0 auto; width: 100%; justify-items: center; align-items: center;}
-  @media(min-width: 768px) {
-    .grid-2-buttons {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
+  .grid-2-buttons{display:grid;grid-template-columns:1fr;gap:24px;max-width:650px;margin:0 auto; width: 100%;}
   
-  /* MODIFICAÇÃO: Altura reduzida (mais compacta: 100px no mobile e 90px no desktop) e perfeitamente centralizados */
-  .big-nav-btn{min-height:100px;background:var(--secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.15rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foreground);transition:all .3s ease;text-align:center;padding:16px; width: 100%;}
-  @media(min-width:768px){.big-nav-btn{font-size:1.35rem;min-height:90px}}
+  /* MODIFICAÇÃO: Botões consideravelmente maiores (altura mínima aumentada para 160px / 140px e fontes maiores) */
+  .big-nav-btn{min-height:160px;background:var(--secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.4rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foreground);transition:all .3s ease;text-align:center;padding:32px; width: 100%;}
+  @media(min-width:768px){.big-nav-btn{font-size:1.75rem;min-height:140px}}
   .big-nav-btn:hover{background:var(--primary);color:var(--primary-foreground);border-color:var(--primary);transform:translateY(-4px);box-shadow: 0 0 25px rgba(245, 197, 66, 0.45);}
 
   header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--secondary);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);transition:all .5s}
@@ -177,12 +171,6 @@
       min-height: 100vh;
       padding: 140px 16px;
     }
-  }
-
-  /* MODIFICAÇÃO: Altura menor e mais equilibrada para a seção de botões finais da página "O Salão" */
-  .compact-buttons-section {
-    min-height: auto !important;
-    padding: 70px 16px !important;
   }
 
   .testimonial-section {
@@ -741,7 +729,7 @@ function pageAbout(){
         </div>
       </section>
 
-      <section class="compact-buttons-section" style="background: var(--background);">
+      <section class="fullscreen-section">
         <div class="wrap" style="width: 100%; text-align: center;">
           ${secHead('Explore','Conheça mais','Acesse nossos procedimentos ou compre produtos diretamente.')}
           <div class="grid-2-buttons" style="margin-top: 25px;">

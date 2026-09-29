@@ -69,13 +69,12 @@
   .scale-hover{transition:transform .7s cubic-bezier(.22,1,.36,1)}
   .scale-hover:hover{transform:scale(1.03)}
 
-  /* MODIFICAÇÃO: Mantém os botões empilhados (uma coluna) em todas as telas */
-  .grid-2-buttons{display:grid;grid-template-columns:1fr;gap:20px;max-width:550px;margin:0 auto; width: 100%;}
+  .grid-2-buttons{display:grid;grid-template-columns:1fr;gap:24px;max-width:650px;margin:0 auto; width: 100%;}
   
-  /* MODIFICAÇÃO: Botões retangulares maiores (altura, padding e tamanho de fonte aumentados) */
-  .big-nav-btn{min-height:130px;background:var(--secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.15rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foreground);transition:all .3s ease;text-align:center;padding:24px; width: 100%;}
-  @media(min-width:768px){.big-nav-btn{font-size:1.4rem;min-height:110px}}
-  .big-nav-btn:hover{background:var(--primary);color:var(--primary-foreground);border-color:var(--primary);transform:translateY(-4px);box-shadow: 0 0 20px rgba(245, 197, 66, 0.4);}
+  /* MODIFICAÇÃO: Botões consideravelmente maiores (altura mínima aumentada para 160px / 140px e fontes maiores) */
+  .big-nav-btn{min-height:160px;background:var(--secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.4rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foreground);transition:all .3s ease;text-align:center;padding:32px; width: 100%;}
+  @media(min-width:768px){.big-nav-btn{font-size:1.75rem;min-height:140px}}
+  .big-nav-btn:hover{background:var(--primary);color:var(--primary-foreground);border-color:var(--primary);transform:translateY(-4px);box-shadow: 0 0 25px rgba(245, 197, 66, 0.45);}
 
   header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--secondary);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);transition:all .5s}
   

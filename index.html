@@ -173,7 +173,6 @@
     }
   }
 
-  /* Ajustado para igualar o preenchimento e espaçamento da secção principal de boas-vindas */
   .testimonial-section {
     min-height: 100vh !important;
     padding: 120px 16px !important;
@@ -687,8 +686,8 @@ function pageAbout(){
       : '';
 
     return `
-      <article style="max-width:440px;margin:0 auto">
-        <div class="prof-slider" id="prof-slider-${p.id}">
+      <article style="max-width:860px;margin:0 auto">
+        <div class="prof-slider" id="prof-slider-${p.id}" style="max-width:100%; aspect-ratio: 16/9;">
           ${imagesHtml}
           ${p.photos && p.photos.length > 1 ? `
             <button class="prof-arrow prof-next" onclick="changeProfPhoto('${p.id}', 1)" aria-label="Próximo">
@@ -716,7 +715,7 @@ function pageAbout(){
       <section style="padding: 70px 16px; background: color-mix(in srgb, var(--secondary) 50%, transparent);">
         <div class="wrap" style="width: 100%; text-align: center;">
           ${secHead('Direção Artística','Frente ao salão')}
-          <div style="margin-top: 45px;">${teamHtml}</div>
+          <div style="margin-top: 45px;" class="testimonial-slider-container">${teamHtml}</div>
         </div>
       </section>
 

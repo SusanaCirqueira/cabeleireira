@@ -69,11 +69,11 @@
   .scale-hover{transition:transform .7s cubic-bezier(.22,1,.36,1)}
   .scale-hover:hover{transform:scale(1.03)}
 
-  .grid-2-buttons{display:grid;grid-template-columns:1fr;gap:16px;max-width:800px;margin:0 auto; width: 100%;}
-  @media(min-width:768px){.grid-2-buttons{grid-template-columns:repeat(2,1fr);gap:32px}}
+  /* MODIFICAÇÃO: Mantém os botões empilhados (uma coluna) em todas as telas */
+  .grid-2-buttons{display:grid;grid-template-columns:1fr;gap:16px;max-width:500px;margin:0 auto; width: 100%;}
   
-  .big-nav-btn{min-height:100px;background:var(--secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foreground);transition:all .3s ease;text-align:center;padding:20px}
-  @media(min-width:768px){.big-nav-btn{aspect-ratio:10/11;font-size:1.25rem;min-height:unset}}
+  .big-nav-btn{min-height:100px;background:var(--secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foreground);transition:all .3s ease;text-align:center;padding:20px; width: 100%;}
+  @media(min-width:768px){.big-nav-btn{font-size:1.25rem;min-height:80px}}
   .big-nav-btn:hover{background:var(--primary);color:var(--primary-foreground);border-color:var(--primary);transform:translateY(-4px);box-shadow: 0 0 20px rgba(245, 197, 66, 0.4);}
 
   header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--secondary);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);transition:all .5s}
@@ -269,7 +269,6 @@
     .tst-next { right: 24px; }
   }
 
-  /* MODIFICAÇÃO: Altura aumentada (de 390px/440px para 440px/500px) para esticar para baixo */
   .prof-slider {
     position: relative;
     width: 100%;
@@ -301,7 +300,6 @@
     opacity: 1;
   }
 
-  /* Setas sem circulo e apenas à direita */
   .prof-arrow {
     position: absolute;
     top: 50%;

@@ -231,7 +231,7 @@
   .sec-head p{margin-top:6px;color:var(--muted-foreground);line-height:1.5;font-size:0.8rem}
   @media(min-width:768px){.sec-head p{font-size:0.9rem}}
 
-  /* Estilos das tags interativas de categoria */
+  /* Estilos das tags interativas de categoria e marca */
   .tag-badge {
     display: inline-block;
     padding: 8px 18px;
@@ -242,7 +242,6 @@
     font-size: 0.8rem;
     letter-spacing: 0.08em;
     font-family: 'Inter', sans-serif;
-    text-transform: lowercase;
     cursor: pointer;
     transition: all 0.3s ease;
     user-select: none;
@@ -506,10 +505,26 @@ const SERVICES = [
 ];
 
 const PRODUCTS = [
-  {id:"p1",name:"Shampoo Reconstrutor",brand:"JM Pro",category:"Shampoos",price:89.90,description:"Shampoo de reconstrução com queratina e óleos nobres.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/4eda256ed_generated_98681078.jpg"},
-  {id:"p2",name:"Condicionador Hidratante",brand:"JM Pro",category:"Condicionadores",price:92.90,description:"Condicionador com manteiga de karité e pantenol.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/bfebf7ba6_generated_e5594907.jpg"},
-  {id:"p3",name:"Máscara de Tratamento Intensivo",brand:"JM Pro",category:"Máscaras",price:149.90,description:"Máscara de uso semanal com alta concentração.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/e27dd4604_generated_f7bbbf87.jpg"},
-  {id:"p4",name:"Óleo Finalizador Nobre",brand:"JM Pro",category:"Óleos",price:119.90,description:"Óleo multifuncional com argan e camélia.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/938b1ef89_generated_5a4ef479.jpg"}
+  // Marca: JM Pro
+  {id:"p1",name:"Shampoo Reconstrutor",brand:"JM Pro",category:"Shampoos",price:89.90,description:"Shampoo de reconstrução com queratina e óleos nobres para cabelos fragilizados.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/4eda256ed_generated_98681078.jpg"},
+  {id:"p2",name:"Condicionador Hidratante",brand:"JM Pro",category:"Condicionadores",price:92.90,description:"Condicionador com manteiga de karité e pantenol para alinhamento e maciez.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/bfebf7ba6_generated_e5594907.jpg"},
+  {id:"p3",name:"Máscara de Tratamento Intensivo",brand:"JM Pro",category:"Máscaras",price:149.90,description:"Máscara de uso semanal com alta concentração de bioaminoácidos.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/e27dd4604_generated_f7bbbf87.jpg"},
+  {id:"p4",name:"Óleo Finalizador Nobre",brand:"JM Pro",category:"Óleos",price:119.90,description:"Óleo multifuncional com argan e camélia para selagem das pontas.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/938b1ef89_generated_5a4ef479.jpg"},
+  
+  // Marca: L'Oréal Professionnel
+  {id:"p5",name:"Shampoo Absolut Repair Molecular",brand:"L'Oréal Professionnel",category:"Shampoos",price:169.90,description:"Repara 2 anos de danos em um único uso com peptídeos e aminoácidos.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/4eda256ed_generated_98681078.jpg"},
+  {id:"p6",name:"Máscara Absolut Repair Gold Quinoa",brand:"L'Oréal Professionnel",category:"Máscaras",price:239.90,description:"Restauração instantânea sem pesar nos fios, doando brilho espelhado.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/e27dd4604_generated_f7bbbf87.jpg"},
+  {id:"p7",name:"Sérum Metal Detox",brand:"L'Oréal Professionnel",category:"Séruns",price:210.00,description:"Protege a fibra contra o acúmulo de partículas de metal durante a lavagem.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/938b1ef89_generated_5a4ef479.jpg"},
+
+  // Marca: Kérastase
+  {id:"p8",name:"Shampoo Bain Nutritive Satin",brand:"Kérastase",category:"Shampoos",price:219.00,description:"Nutrição profunda com nutrientes essenciais para cabelos secos.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/4eda256ed_generated_98681078.jpg"},
+  {id:"p9",name:"Máscara Masquintense",brand:"Kérastase",category:"Máscaras",price:329.00,description:"Tratamento ultra-concentrado de nutrição de alta durabilidade.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/e27dd4604_generated_f7bbbf87.jpg"},
+  {id:"p10",name:"Óleo Elixir Ultime L'Huile Originale",brand:"Kérastase",category:"Óleos",price:359.00,description:"Óleo icônico com combinação de óleos sagrados e controle antifrizz.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/938b1ef89_generated_5a4ef479.jpg"},
+
+  // Marca: Braé
+  {id:"p11",name:"Shampoo Essential",brand:"Braé",category:"Shampoos",price:112.00,description:"Higienização suave e hidratação diária para todos os tipos de cabelo.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/4eda256ed_generated_98681078.jpg"},
+  {id:"p12",name:"Fluid Leave-in Essential 260ml",brand:"Braé",category:"Finalizadores",price:139.90,description:"Fluido reparador multifuncional com proteção térmica e solar.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/bfebf7ba6_generated_e5594907.jpg"},
+  {id:"p13",name:"Ampola Power Dose Revival",brand:"Braé",category:"Tratamentos",price:45.00,description:"Tratamento capilar instantâneo de dose única para fios descoloridos.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/938b1ef89_generated_5a4ef479.jpg"}
 ];
 
 const PROFESSIONALS = [
@@ -809,7 +824,7 @@ function pageProcedures(){
   return `
     <div class="page">
       <div class="wrap">
-        ${secHead('Procedimentos','Nossos serviços','Selecione uma categoria abaixo para visualizar os procedimentos dispoíveis.')}
+        ${secHead('Procedimentos','Nossos serviços','Selecione uma categoria abaixo para visualizar os procedimentos disponíveis.')}
         
         <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: -12px; margin-bottom: 32px;">
           ${tagsHtml}
@@ -823,10 +838,9 @@ function pageProcedures(){
 
 function filterProcedures(categoryKey) {
   activeProcedureCategory = categoryKey;
-  // Atualiza classe active nos botões
-  const badges = document.querySelectorAll('.tag-badge');
+  const badges = document.querySelectorAll('.page .tag-badge');
   badges.forEach(b => {
-    if (b.textContent.trim().toLowerCase() === categoryKey) {
+    if (b.textContent.trim().toLowerCase() === categoryKey.toLowerCase()) {
       b.classList.add('active');
     } else {
       b.classList.remove('active');
@@ -868,34 +882,74 @@ function renderProceduresGrid(){
   `).join('');
 }
 
+let activeShopBrand = 'todas';
+
 function pageShop(){
+  // Extrai todas as marcas únicas cadastradas
+  const brandsSet = new Set(PRODUCTS.map(p => p.brand));
+  const brandsList = ['todas', ...Array.from(brandsSet)];
+
+  const brandTagsHtml = brandsList.map(brand => `
+    <button type="button" class="tag-badge brand-badge ${activeShopBrand.toLowerCase() === brand.toLowerCase() ? 'active' : ''}" onclick="filterShopByBrand('${esc(brand)}')">
+      ${esc(brand)}
+    </button>
+  `).join('');
+
   return `
     <div class="page">
       <div class="wrap">
-        ${secHead('Loja','Farmácia capilar','Produtos profissionais selecionados para manter a saúde e o brilho do seu cabelo em casa.')}
-        <div id="prodGrid"></div>
+        ${secHead('Loja','Farmácia capilar','Selecione a marca desejada abaixo para visualizar toda a sua linha de produtos.')}
+        
+        <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: -12px; margin-bottom: 32px;">
+          ${brandTagsHtml}
+        </div>
+
+        <div id="prodGrid" class="grid-prod"></div>
       </div>
     </div>
   `;
 }
+
+function filterShopByBrand(brandName){
+  activeShopBrand = brandName;
+  const badges = document.querySelectorAll('.brand-badge');
+  badges.forEach(b => {
+    if (b.textContent.trim().toLowerCase() === brandName.toLowerCase()) {
+      b.classList.add('active');
+    } else {
+      b.classList.remove('active');
+    }
+  });
+  renderProdGrid();
+}
+
 function initShop(){ renderProdGrid(); }
+
 function renderProdGrid(){
   const grid = document.getElementById('prodGrid');
   if(!grid) return;
-  const list = PRODUCTS;
-  grid.className = 'grid-prod';
-  grid.innerHTML = list.map(p=>`
+  
+  const filtered = activeShopBrand.toLowerCase() === 'todas'
+    ? PRODUCTS
+    : PRODUCTS.filter(p => p.brand.toLowerCase() === activeShopBrand.toLowerCase());
+
+  if(filtered.length === 0){
+    grid.innerHTML = `<p class="text-muted" style="grid-column: 1/-1; text-align: center; padding: 40px 0;">Nenhum produto encontrado para esta marca.</p>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(p => `
     <article class="prod">
       <div class="prod-img"><img src="${p.image}" alt="${esc(p.name)}" class="scale-hover"></div>
-      <p class="label-caps" style="margin-bottom:4px">${esc(p.category)}</p>
+      <p class="label-caps" style="margin-bottom:4px">${esc(p.category)} · ${esc(p.brand)}</p>
       <h3 class="gold-glow">${esc(p.name)}</h3>
-      <p class="brand">${esc(p.brand)}</p>
       <p class="desc">${esc(p.description)}</p>
       <div class="foot">
         <span class="price gold-glow">R$ ${p.price.toFixed(2).replace('.',',')}</span>
         <button class="add-btn" onclick='addProductToCart(${JSON.stringify(p)})'>Adicionar ao Carrinho</button>
       </div>
-    </article>`).join('');
+    </article>
+  `).join('');
 }
 
 function pageCart(){

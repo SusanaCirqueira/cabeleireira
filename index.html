@@ -1,27 +1,944 @@
-<!-- Cabeçalho da página de procedimentos -->
-<div class="procedimentos-header" style="text-align: center; margin-bottom: 2rem;">
-  <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">Procedimentos</h1>
-  <h2 style="font-size: 1.2rem; color: #555; margin-bottom: 0.25rem;">Nossos serviços</h2>
-  <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">
-    Explore nossos procedimentos por categoria. Adicione diretamente ao carrinho.
-  </p>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+<meta name="description" content="Jéssica Martins Exclusive Salon — salão especializado em cuidados capilares, coloração, cortes e tratamentos." />
+<title>Jéssica Martins Exclusive Salon</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
-  <!-- NOVO: Caracteres / Categorias adicionadas em baixo do subtítulo -->
-  <div class="categorias-tags" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 12px;">
-    <span style="background-color: #f0f0f0; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; color: #333; font-weight: 500;">
-      tratamentos
-    </span>
-    <span style="background-color: #f0f0f0; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; color: #333; font-weight: 500;">
-      cortes
-    </span>
-    <span style="background-color: #f0f0f0; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; color: #333; font-weight: 500;">
-      alisamentos
-    </span>
-    <span style="background-color: #f0f0f0; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; color: #333; font-weight: 500;">
-      loiros
-    </span>
-    <span style="background-color: #f0f0f0; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; color: #333; font-weight: 500;">
-      coloração
-    </span>
+  :root{
+    --background: hsl(25 38% 9%);
+    --foreground: hsl(36 32% 93%);
+    --card: hsl(26 35% 12%);
+    --primary: hsl(43 90% 58%);
+    --primary-foreground: hsl(25 38% 9%);
+    --secondary: hsl(28 33% 15%);
+    --muted: hsl(28 30% 19%);
+    --muted-foreground: hsl(32 14% 65%);
+    --border: hsl(26 28% 28%);
+    --destructive: hsl(0 70% 50%);
+    --radius: 0.25rem;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Playfair Display', Georgia, serif;
+  }
+  
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--background);color:var(--foreground);font-family:var(--font-body);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  @media(min-width: 768px){body{font-size:18px}}
+
+  h1,h2,h3,h4{font-family:var(--font-heading);font-weight:400;letter-spacing:.05em;text-transform:uppercase}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;height:auto;display:block}
+  button{font-family:inherit;cursor:pointer}
+  input,textarea,select{font-family:inherit}
+  ::selection{background:var(--primary);color:var(--primary-foreground)}
+
+  .gold-glow {
+    color: var(--primary);
+    text-shadow: 0 0 10px rgba(245, 197, 66, 0.35);
+  }
+
+  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 16px}
+  @media(min-width:768px){.wrap{padding:0 24px}}
+  @media(min-width:1024px){.wrap{padding:0 40px}}
+
+  .label-caps{text-transform:uppercase;letter-spacing:.15em;font-size:0.45rem !important;color:var(--muted-foreground);font-weight:500;font-family:'Inter',sans-serif;}
+  @media(min-width:768px){.label-caps{font-size:0.5rem !important}}
+  
+  .gold{color:var(--primary)}
+  .horizon-rule{height:1px;width:100%;background:var(--border)}
+  .text-muted{color:var(--muted-foreground);font-family:'Inter',sans-serif;font-size:0.8rem;}
+  .text-primary{color:var(--primary)}
+  
+  .btn-bronze{display:inline-flex;align-items:center;justify-content:center;background:var(--primary);color:var(--primary-foreground);padding:14px 20px;font-size:.8rem;text-transform:uppercase;letter-spacing:.15em;font-weight:600;transition:opacity .3s, box-shadow .3s;min-height:48px;border:0;font-family:'Inter',sans-serif;box-shadow:0 0 15px rgba(245, 197, 66, 0.3);width:100%}
+  @media(min-width:640px){.btn-bronze{width:auto;padding:14px 24px;font-size:.875rem}}
+  .btn-bronze:hover{opacity:.88;box-shadow:0 0 20px rgba(245, 197, 66, 0.5)}
+  .btn-bronze:disabled{opacity:.4;cursor:not-allowed}
+  
+  .btn-white-solid{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:#ffffff !important;color:#1a1512 !important;padding:14px 20px;font-size:.8rem;text-transform:uppercase;letter-spacing:.15em;font-weight:600;transition:opacity .3s, transform .3s;min-height:48px;border:0;font-family:'Inter',sans-serif;width:100%; color-scheme: normal !important;}
+  @media(min-width:640px){.btn-white-solid{width:auto;padding:14px 24px;font-size:.875rem}}
+  .btn-white-solid:hover{opacity:.9;transform:translateY(-2px)}
+
+  .btn-outline{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--foreground);color:var(--foreground);background:transparent;padding:14px 20px;font-size:.8rem;text-transform:uppercase;letter-spacing:.15em;font-weight:600;transition:all .3s;min-height:48px;font-family:'Inter',sans-serif;width:100%}
+  @media(min-width:640px){.btn-outline{width:auto;padding:14px 24px;font-size:.875rem}}
+  .btn-outline:hover{background:var(--foreground);color:var(--background)}
+  
+  .scale-hover{transition:transform .7s cubic-bezier(.22,1,.36,1)}
+  .scale-hover:hover{transform:scale(1.03)}
+
+  .grid-2-buttons{display:grid;grid-template-columns:1fr;gap:24px;max-width:650px;margin:0 auto; width: 100%;}
+  
+  .big-nav-btn{min-height:160px;background:var(--secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.4rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foreground);transition:all .3s ease;text-align:center;padding:32px; width: 100%;}
+  @media(min-width:768px){.big-nav-btn{font-size:1.75rem;min-height:140px}}
+  .big-nav-btn:hover{background:var(--primary);color:var(--primary-foreground);border-color:var(--primary);transform:translateY(-4px);box-shadow: 0 0 25px rgba(245, 197, 66, 0.45);}
+
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--secondary);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);transition:all .5s}
+  
+  header.nav .nav-inner{
+    max-width:100%;
+    margin:0 auto;
+    padding:0 16px;
+    height:85px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:relative;
+  }
+  @media(min-width:768px){header.nav .nav-inner{padding:0 24px;}}
+  @media(min-width:1024px){header.nav .nav-inner{padding:0 40px;height:105px}}
+  
+  .nav-left{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    position:absolute;
+    left:16px;
+  }
+  @media(min-width:768px){.nav-left{left:24px;}}
+  @media(min-width:1024px){.nav-left{left:40px;}}
+  
+  .back-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:none;
+    border:0;
+    color:var(--primary);
+    padding:2px;
+    transition:opacity .3s;
+  }
+  .back-btn:hover{opacity:0.7}
+  
+  .brand-link {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .brand-logo{width:200px;height:auto;display:block;object-fit:contain;filter: drop-shadow(0 0 10px rgba(245, 197, 66, 0.3));}
+  @media(min-width:768px){.brand-logo{width:320px}}
+
+  .nav-right{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    color:var(--primary);
+    margin-left:auto;
+  }
+  @media(min-width:768px){.nav-right{gap:12px}}
+  
+  .nav-cart-icon{display:inline-flex;align-items:center;justify-content:center;color:var(--primary);transition:color .3s;padding:8px}
+  .burger{display:flex;background:none;border:0;color:var(--primary);padding:8px}
+
+  .mobile-menu{display:none;position:fixed;top:85px;right:0;width:100%;background:var(--card);border-left:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,0.5);z-index:100;animation:fadeInDown .3s ease;max-height:calc(100vh - 85px);overflow-y:auto}
+  @media(min-width:640px){.mobile-menu{max-width:420px;top:105px;max-height:calc(100vh - 105px)}}
+  .mobile-menu.open{display:block}
+  .mobile-menu .mm-inner{padding:20px;display:flex;flex-direction:column;gap:16px}
+  .mobile-menu h3{font-size:1.15rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:4px}
+  .mobile-menu ul{list-style:none}
+  .mobile-menu ul li{margin-bottom:8px;font-size:.85rem}
+  @keyframes fadeInDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+
+  .hero{position:relative;height:calc(100vh - 85px);min-height:400px;margin-top:85px;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden}
+  @media(min-width:1024px){.hero{height:calc(100vh - 105px);margin-top:105px}}
+  
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter: blur(1.5px);transform: scale(1.01);}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.4))}
+  
+  .hero-content{position:relative;z-index:10;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding-top:32vh;}
+  @media(min-width:768px){.hero-content{padding-top:36vh;}}
+  
+  .hero h1{font-size:clamp(2.80rem, 8.5vw, 6.5rem);line-height:1.1;text-transform:uppercase;padding:0 8px;}
+  
+  .hero-bounce{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:10;color:rgba(255,255,255,.7);animation:bounce 2s infinite}
+  @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+  .fullscreen-section {
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  @media(min-width: 1024px) {
+    .fullscreen-section {
+      min-height: 100vh;
+      padding: 140px 16px;
+    }
+  }
+
+  .testimonial-section {
+    min-height: auto !important;
+    padding: 40px 16px 80px 16px !important;
+  }
+  @media(min-width: 1024px) {
+    .testimonial-section {
+      padding: 50px 16px 100px 16px !important;
+    }
+  }
+
+  .hero-welcome-box {
+    max-width: 900px; 
+    margin: 0 auto; 
+    text-align: center;
+  }
+  .hero-welcome-box h2 {
+    margin-top: 16px;       
+    margin-bottom: 24px;    
+    font-size: clamp(1.8rem, 3.8vw, 3.2rem);
+    line-height: 1.2;
+  }
+  .hero-welcome-box p {
+    margin-bottom: 16px;
+    line-height: 1.7;
+    font-size: clamp(1rem, 2vw, 1.35rem);
+  }
+  .hero-welcome-btn-wrap {
+    margin-top: 32px;       
+    display: flex; 
+    justify-content: center; 
+  }
+
+  .sec{padding:40px 0}
+  @media(min-width:768px){.sec{padding:70px 0}}
+  
+  .sec-head{max-width:42rem;margin:0 auto 24px;text-align:center;padding:0 12px}
+  @media(min-width:768px){.sec-head{margin:0 auto 32px}}
+  .sec-head h2{font-size:clamp(1.6rem,3.5vw,2.8rem);letter-spacing:.05em;line-height:1.15;margin-top:0px}
+  .sec-head p{margin-top:6px;color:var(--muted-foreground);line-height:1.5;font-size:0.8rem}
+  @media(min-width:768px){.sec-head p{font-size:0.9rem}}
+
+  /* Estilos das tags de categoria */
+  .tag-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--foreground);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    font-family: 'Inter', sans-serif;
+    text-transform: lowercase;
+    transition: all 0.3s ease;
+  }
+  .tag-badge:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  .testimonial-slider-container {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 10px;
+  }
+  
+  .tst {
+    border: 1px solid var(--border);
+    padding: 40px 70px;
+    background: var(--card);
+    text-align: center;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    height: 390px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  @media(min-width:768px){
+    .tst{
+      height: 440px;
+      padding: 50px 100px;
+    }
+  }
+
+  .tst .stars{display:flex;justify-content:center;gap:4px;margin-bottom:16px}
+  .tst .stars svg{fill:var(--primary);color:var(--primary);filter: drop-shadow(0 0 5px rgba(245, 197, 66, 0.5));}
+  .tst p{color:var(--muted-foreground);line-height:1.6;margin-bottom:20px;font-style:italic;font-size:1.1rem}
+  @media(min-width:768px){.tst p{font-size:1.35rem}}
+  .tst .who{font-family:var(--font-heading);letter-spacing:.05em;font-size:1.2rem}
+  
+  .tst-arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+    padding: 10px;
+  }
+  .tst-arrow-right:hover {
+    opacity: 0.7;
+    transform: translateY(-50%) scale(1.1);
+  }
+  .tst-next { right: 12px; }
+  @media(min-width:768px){
+    .tst-next { right: 24px; }
+  }
+
+  .prof-slider {
+    position: relative;
+    width: 100%;
+    max-width: 860px;
+    height: 440px;
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+  @media(min-width:768px){
+    .prof-slider{
+      max-width: 860px;
+      height: 500px;
+    }
+  }
+  .prof-slider img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  .prof-slider img.active {
+    opacity: 1;
+  }
+
+  .prof-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+    padding: 10px;
+  }
+  .prof-arrow:hover {
+    opacity: 0.7;
+    transform: translateY(-50%) scale(1.1);
+  }
+  .prof-next { right: 12px; }
+  @media(min-width:768px){
+    .prof-next { right: 24px; }
+  }
+
+  .overflow-hidden{overflow:hidden}
+  .obj-cover{width:100%;height:100%;object-fit:cover}
+
+  .acc-item{border-bottom:1px solid var(--border)}
+  .acc-head{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 0;background:none;border:0;text-align:left;color:var(--foreground)}
+  @media(min-width:768px){.acc-head{padding:28px 0}}
+  .acc-head .acc-num{font-size:1.1rem;color:var(--primary);font-family:var(--font-heading);width:24px;text-shadow: 0 0 8px rgba(245, 197, 66, 0.4);}
+  @media(min-width:768px){.acc-head .acc-num{font-size:1.5rem;width:32px}}
+  .acc-head h3{font-size:clamp(1.2rem,2.8vw,2rem)}
+  .acc-head .acc-count{font-size:.75rem;color:var(--muted-foreground)}
+  
+  .acc-body{padding-bottom:20px;display:none;flex-direction:column;gap:20px}
+  .acc-body.open{display:flex}
+  
+  .svc-detail{display:grid;gap:16px;align-items:start;border-top:1px solid var(--border);padding-top:20px}
+  @media(min-width:768px){.svc-detail{grid-template-columns:1fr 1fr;gap:32px;padding-top:32px}}
+  
+  .svc-detail .svc-imgbox{aspect-ratio:4/3;overflow:hidden}
+  .svc-detail .svc-imgbox img{width:100%;height:100%;object-fit:cover}
+  .svc-detail h4{font-size:1.3rem;margin-bottom:8px}
+  @media(min-width:768px){.svc-detail h4{font-size:1.6rem;margin-bottom:16px}}
+  .svc-detail .meta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px;font-size:.85rem;align-items:center}
+  .svc-detail .meta .price{font-family:var(--font-heading);font-size:1.2rem}
+
+  .prod{display:flex;flex-direction:column;background:color-mix(in srgb,var(--secondary) 30%,transparent);border:1px solid var(--border);padding:12px}
+  @media(min-width:768px){.prod{background:transparent;border:0;padding:0}}
+  .prod .prod-img{background:var(--secondary);aspect-ratio:4/5;overflow:hidden;margin-bottom:12px}
+  .prod .prod-img img{width:100%;height:100%;object-fit:cover}
+  .prod h3{font-size:1.15rem;line-height:1.3;margin-bottom:4px}
+  .prod .brand{font-size:.7rem;color:var(--muted-foreground);margin-bottom:6px;font-family:'Inter',sans-serif;}
+  .prod .desc{font-size:.8rem;color:var(--muted-foreground);margin-bottom:10px;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-family:'Inter',sans-serif;}
+  .prod .foot{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .prod .price{font-family:var(--font-heading);font-size:1.15rem}
+  .prod .add-btn{display:inline-flex;align-items:center;gap:4px;font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:var(--primary);background:none;border:0;min-height:36px;transition:color .3s;font-family:'Inter',sans-serif;font-weight:600;text-shadow: 0 0 6px rgba(245, 197, 66, 0.3);}
+  .prod .add-btn:hover{color:var(--foreground)}
+
+  .cart-grid{display:grid;grid-template-columns:1fr;gap:24px}
+  @media(min-width:1024px){.cart-grid{grid-template-columns:2fr 1fr;gap:48px}}
+  .cart-section h2{font-size:1.3rem;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+  @media(min-width:768px){.cart-section h2{font-size:1.6rem;margin-bottom:24px;padding-bottom:16px}}
+  
+  .cart-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--border);margin-bottom:16px}
+  @media(min-width:480px){.cart-row{flex-wrap:nowrap;gap:16px;padding-bottom:20px;margin-bottom:20px}}
+  
+  .cart-row .ci-img{width:60px;height:72px;background:var(--secondary);overflow:hidden;flex-shrink:0}
+  @media(min-width:480px){.cart-row .ci-img{width:80px;height:96px}}
+  .cart-row .ci-img img{width:100%;height:100%;object-fit:cover}
+  
+  .qty{display:flex;align-items:center;gap:6px;margin-top:6px}
+  @media(min-width:768px){.qty{gap:12px;margin-top:12px}}
+  .qty button{width:30px;height:30px;border:1px solid var(--border);background:transparent;color:var(--foreground);display:flex;align-items:center;justify-content:center}
+  @media(min-width:768px){.qty button{width:36px;height:36px}}
+  
+  .ci-right{display:flex;flex-direction:row;justify-content:space-between;width:100%;align-items:center;margin-top:2px}
+  @media(min-width:480px){.ci-right{flex-direction:column;align-items:flex-end;width:auto;margin-top:0;gap:8px}}
+  
+  .ci-right .price{font-family:var(--font-heading);font-size:1.15rem}
+  .ci-remove{color:var(--muted-foreground);background:none;border:0;transition:color .3s;font-family:'Inter',sans-serif;font-size:.75rem;}
+  .ci-remove:hover{color:var(--destructive)}
+  
+  .summary{background:color-mix(in srgb,var(--secondary) 50%,transparent);border:1px solid var(--border);padding:16px;position:static}
+  @media(min-width:1024px){.summary{padding:32px;position:sticky;top:112px}}
+  
+  .summary .total-row{display:flex;justify-content:space-between;align-items:center;margin:16px 0 20px}
+  @media(min-width:768px){.summary .total-row{margin:24px 0 32px}}
+  .summary .total-row .t{font-family:var(--font-heading);font-size:1.3rem}
+  @media(min-width:768px){.summary .total-row .t{font-size:1.6rem}}
+  .summary .btn-full{width:100%;margin-bottom:12px}
+  
+  .empty-cart{padding:60px 0 40px;text-align:center}
+  @media(min-width:768px){.empty-cart{padding:160px 0 128px}}
+  .empty-cart .ec-inner{max-width:28rem;margin:0 auto;padding:0 16px}
+
+  footer{background:color-mix(in srgb,var(--secondary) 60%,transparent);border-top:1px solid var(--border);margin-top:0}
+  .foot-bottom{text-align:center;padding:16px;font-size:.7rem;color:var(--muted-foreground);letter-spacing:.05em;font-family:'Inter',sans-serif;}
+
+  .page{padding-top:105px;padding-bottom:48px}
+  @media(min-width:768px){.page{padding-top:145px;padding-bottom:96px}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="navbar">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <button class="back-btn" id="backBtn" onclick="goBack()" aria-label="Voltar" style="display: none;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </button>
+      <a href="#/" class="brand-link">
+        <img src="JM..png" alt="Jéssica Martins Logo" class="brand-logo">
+      </a>
+    </div>
+    <div class="nav-right">
+      <a href="#/carrinho" class="nav-cart-icon" id="navCartIcon" data-route="/carrinho" aria-label="Carrinho" style="display: none;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      </a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+    </div>
   </div>
-</div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mm-inner">
+      <div>
+        <h3>JÉSSICA MARTINS</h3>
+        <p class="text-muted" style="line-height:1.5;margin-top:6px">Exclusive Salon. Cuidado capilar artesanal com produtos premium e atendimento personalizado.</p>
+      </div>
+      <div class="horizon-rule"></div>
+      <div>
+        <p class="label-caps" style="margin-bottom:6px">Contato</p>
+        <ul class="text-muted">
+          <li>Rua Oscar Freire, 1200 — Jardins, São Paulo — SP</li>
+          <li style="margin-top:4px">+55 (11) 99999-9999</li>
+        </ul>
+      </div>
+      <div class="horizon-rule"></div>
+      <div>
+        <p class="label-caps" style="margin-bottom:6px">Horário</p>
+        <p class="text-muted">Terça a Sábado, 9h às 19h · Domingo e Segunda: fechado</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer id="footer"></footer>
+
+<script>
+const SALON = {
+  name: "Jéssica Martins Exclusive Salon",
+  whatsappNumber: "5511999999999",
+  phone: "+55 (11) 99999-9999",
+  email: "contato@jessicamartins.com.br",
+  address: "Rua Oscar Freire, 1200 — Jardins, São Paulo — SP",
+  hours: "Terça a Sábado, 9h às 19h · Domingo e Segunda: fechado"
+};
+
+const HERO_IMG = "im.png";
+const MACRO_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/f7c83c19d_generated_b0888844.jpg";
+const TRANSFORM_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/c44d11f14_generated_2ffc9168.jpg";
+
+const SERVICES = [
+  {id:"s1",name:"Coloração Premium",category:"Coloração",description:"Coloração completa com produtos premium de longa duração. Inclui diagnóstico capilar, proteção da fibra e finalização.",duration:"3h",price:"R$ 380",image_before:MACRO_IMG,image_after:TRANSFORM_IMG},
+  {id:"s2",name:"Balayage / Mechas Livres",category:"Coloração",description:"Técnica de descoloração à mão livre que cria transições naturais e iluminadas.",duration:"4h",price:"R$ 520",image_before:TRANSFORM_IMG,image_after:MACRO_IMG},
+  {id:"s3",name:"Corte Feminino Modelagem",category:"Corte",description:"Corte personalizado com modelagem sob medida para o seu formato de rosto.",duration:"1h",price:"R$ 180"}
+];
+
+const PRODUCTS = [
+  {id:"p1",name:"Shampoo Reconstrutor",brand:"JM Pro",category:"Shampoos",price:89.90,description:"Shampoo de reconstrução com queratina e óleos nobres.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/4eda256ed_generated_98681078.jpg"},
+  {id:"p2",name:"Condicionador Hidratante",brand:"JM Pro",category:"Condicionadores",price:92.90,description:"Condicionador com manteiga de karité e pantenol.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/bfebf7ba6_generated_e5594907.jpg"},
+  {id:"p3",name:"Máscara de Tratamento Intensivo",brand:"JM Pro",category:"Máscaras",price:149.90,description:"Máscara de uso semanal com alta concentração.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/e27dd4604_generated_f7bbbf87.jpg"},
+  {id:"p4",name:"Óleo Finalizador Nobre",brand:"JM Pro",category:"Óleos",price:119.90,description:"Óleo multifuncional com argan e camélia.",image:"https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/938b1ef89_generated_5a4ef479.jpg"}
+];
+
+const PROFESSIONALS = [
+  {
+    id: "pr1",
+    name: "Jéssica Martins",
+    photos: [
+      "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/999c837f0_generated_388d2ea3.jpg",
+      TRANSFORM_IMG,
+      MACRO_IMG
+    ]
+  }
+];
+
+const profPhotoIndexes = {};
+PROFESSIONALS.forEach(p => { profPhotoIndexes[p.id] = 0; });
+
+function changeProfPhoto(profId, direction) {
+  const prof = PROFESSIONALS.find(p => p.id === profId);
+  if (!prof || !prof.photos || prof.photos.length === 0) return;
+  
+  profPhotoIndexes[profId] += direction;
+  if (profPhotoIndexes[profId] < 0) {
+    profPhotoIndexes[profId] = prof.photos.length - 1;
+  } else if (profPhotoIndexes[profId] >= prof.photos.length) {
+    profPhotoIndexes[profId] = 0;
+  }
+  
+  const container = document.getElementById('prof-slider-' + profId);
+  if (container) {
+    const imgs = container.querySelectorAll('img');
+    imgs.forEach((img, idx) => {
+      if (idx === profPhotoIndexes[profId]) {
+        img.classList.add('active');
+      } else {
+        img.classList.remove('active');
+      }
+    });
+  }
+}
+
+const TESTIMONIALS = [
+  {id:"t1",client_name:"............",text:"Ameiii o tratamento ficou muito macio e brilhoso!",rating:5,service:"tratamento"},
+  {id:"t2",client_name:"............",text:"Resultado impecavel com um loiro dos sonhos.",rating:5,service:"loiro"},
+  {id:"t3",client_name:"............",text:"Super liso sem nenhuma ondulação, arrasaram muitooo.",rating:5,service:"progressiva"}
+];
+
+let currentTestimonialIndex = 0;
+function changeTestimonial(direction) {
+  currentTestimonialIndex += direction;
+  if (currentTestimonialIndex < 0) {
+    currentTestimonialIndex = TESTIMONIALS.length - 1;
+  } else if (currentTestimonialIndex >= TESTIMONIALS.length) {
+    currentTestimonialIndex = 0;
+  }
+  const container = document.getElementById('testimonialCardContainer');
+  if(container) {
+    container.innerHTML = renderSingleTestimonial(TESTIMONIALS[currentTestimonialIndex]);
+  }
+}
+
+function renderSingleTestimonial(t) {
+  return `
+    <article class="tst">
+      <div class="stars">${stars(t.rating)}</div>
+      <p>"${esc(t.text)}"</p>
+      <p class="who">— ${esc(t.client_name)}</p>
+      ${t.service?`<p class="text-muted" style="font-size:.7rem;margin-top:4px">${esc(t.service)}</p>`:''}
+      <button class="tst-arrow-right tst-next" onclick="changeTestimonial(1)" aria-label="Próximo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </article>
+  `;
+}
+
+const STORAGE_KEY = "jm_cart_v1";
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e){ cart = []; }
+function saveCart(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); }
+function cartTotal(){ return cart.filter(i=>i.type==='product').reduce((s,i)=>s+i.price*i.quantity,0); }
+
+function addServiceToCartDirect(serviceId){
+  const service = SERVICES.find(s => s.id === serviceId);
+  if(!service) return;
+  cart.push({
+    cartId: 'svc_'+Date.now()+'_'+Math.random().toString(36).slice(2,7),
+    type:'service', id:service.id, name:service.name, price:service.price,
+    professional: '', date: '', time: '', notes: ''
+  });
+  saveCart();
+  toast('Procedimento adicionado ao carrinho!');
+}
+
+function addProductToCart(product){
+  const ex = cart.find(i=>i.type==='product'&&i.id===product.id);
+  if(ex){ ex.quantity++; } else {
+    cart.push({cartId:'prd_'+Date.now()+'_'+Math.random().toString(36).slice(2,7),type:'product',id:product.id,name:product.name,brand:product.brand,price:product.price,image:product.image,quantity:1});
+  }
+  saveCart(); toast('Adicionado ao carrinho');
+}
+function updateProductQty(cartId, qty){
+  const it = cart.find(i=>i.cartId===cartId); if(it){ it.quantity = Math.max(1, qty); saveCart(); if(currentRoute==='/carrinho') render(); }
+}
+function removeCartItem(cartId){ cart = cart.filter(i=>i.cartId!==cartId); saveCart(); if(currentRoute==='/carrinho') render(); }
+function clearCartAll(){ cart = []; saveCart(); if(currentRoute==='/carrinho') render(); }
+
+let toastTimer;
+function toast(msg){
+  let t = document.getElementById('toast');
+  if(!t){ t = document.createElement('div'); t.id='toast'; t.style.cssText='position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--primary);color:var(--primary-foreground);padding:10px 20px;font-size:.8rem;font-weight:600;opacity:0;transition:.3s;z-index:200;font-family:Inter,sans-serif;box-shadow:0 0 15px rgba(245, 197, 66, 0.4);'; document.body.appendChild(t); }
+  t.textContent = msg; t.style.opacity='1'; t.style.transform='translateX(-50%) translateY(0)';
+  clearTimeout(toastTimer); toastTimer = setTimeout(()=>{ t.style.opacity='0'; t.style.transform='translateX(-50%) translateY(20px)'; }, 2200);
+}
+
+let currentRoute = '/';
+function getRoute(){ return location.hash.replace(/^#/,'') || '/'; }
+function navigate(){ 
+  currentRoute = getRoute(); 
+  render(); 
+  window.scrollTo(0,0); 
+  closeMobile(); 
+}
+
+function render(){
+  updateNavElements();
+  const app = document.getElementById('app');
+  const footer = document.getElementById('footer');
+  if(currentRoute === '/'){ app.innerHTML = pageHome(); footer.innerHTML = pageFooter(); }
+  else if(currentRoute === '/salao'){ app.innerHTML = pageAbout(); footer.innerHTML = pageFooter(); }
+  else if(currentRoute === '/procedimentos'){ app.innerHTML = pageProcedures(); footer.innerHTML = pageFooter(); }
+  else if(currentRoute === '/loja'){ app.innerHTML = pageShop(); footer.innerHTML = pageFooter(); }
+  else if(currentRoute === '/carrinho'){ app.innerHTML = pageCart(); footer.innerHTML = pageFooter(); }
+  else { app.innerHTML = pageHome(); footer.innerHTML = pageFooter(); }
+  if(currentRoute === '/procedimentos') initProcedures();
+  if(currentRoute === '/loja') initShop();
+  if(currentRoute === '/carrinho') initCart();
+}
+
+function updateNavElements(){
+  const cartIcon = document.getElementById('navCartIcon');
+  const backBtn = document.getElementById('backBtn');
+
+  if(cartIcon){
+    if(currentRoute === '/procedimentos' || currentRoute === '/loja' || currentRoute === '/carrinho'){
+      cartIcon.style.display = 'inline-flex';
+    } else {
+      cartIcon.style.display = 'none';
+    }
+  }
+
+  if(backBtn){
+    if(currentRoute !== '/'){
+      backBtn.style.display = 'inline-flex';
+    } else {
+      backBtn.style.display = 'none';
+    }
+  }
+}
+
+function goBack(){
+  window.history.back();
+}
+
+function toggleMobile(){ document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMobile(){ document.getElementById('mobileMenu').classList.remove('open'); }
+
+function secHead(label, title, subtitle){
+  return `<div class="sec-head"><p class="label-caps">${esc(label)}</p><h2 class="gold-glow">${esc(title)}</h2>${subtitle?`<p>${esc(subtitle)}</p>`:''}</div>`;
+}
+
+function pageHome(){
+  return `
+    <section class="hero">
+      <img class="hero-img" src="${HERO_IMG}" alt="Interior do salão">
+      <div class="hero-overlay"></div>
+      <div class="hero-content wrap">
+        <h1 class="gold-glow">A ARTE DE<br>CUIDAR DO<br>CABELO</h1>
+      </div>
+      <div class="hero-bounce">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </section>
+
+    <section class="fullscreen-section">
+      <div class="wrap">
+        <div class="hero-welcome-box">
+          <p class="label-caps">BEM-VINDO AO ${esc(SALON.name).toUpperCase()}</p>
+          <h2 class="gold-glow">Onde cada fio é tratado com cuidados profissionais</h2>
+          <p class="text-muted">O ${esc(SALON.name)} une técnica, sensibilidade e produtos premium para revelar a melhor versão do seu cabelo. Nosso atendimento personalizado começa na escuta e termina no espelho — com resultados que respeitam a saúde capilar.</p>
+          <p class="text-muted">Trabalhamos com marcas profissionais selecionadas e técnicas exclusivas, em um ambiente pensado para o seu bem-estar.</p>
+          
+          <div class="hero-welcome-btn-wrap">
+            <a href="#/salao" class="btn-white-solid">
+              Conheça o salão 
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fullscreen-section testimonial-section" style="background:color-mix(in srgb,var(--secondary) 30%,transparent);">
+      <div class="wrap" style="width:100%;">
+        ${secHead('Depoimentos','O que dizem nossas clientes')}
+        <div class="testimonial-slider-container">
+          <div id="testimonialCardContainer">
+            ${renderSingleTestimonial(TESTIMONIALS[currentTestimonialIndex])}
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function pageAbout(){
+  const teamHtml = PROFESSIONALS.map(p => {
+    const imagesHtml = p.photos && p.photos.length > 0 
+      ? p.photos.map((photo, index) => `<img src="${photo}" alt="Foto" class="${index === 0 ? 'active' : ''}">`).join('')
+      : '';
+
+    return `
+      <article style="max-width:860px;margin:0 auto">
+        <div class="prof-slider" id="prof-slider-${p.id}">
+          ${imagesHtml}
+          ${p.photos && p.photos.length > 1 ? `
+            <button class="prof-arrow prof-next" onclick="changeProfPhoto('${p.id}', 1)" aria-label="Próximo">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          ` : ''}
+        </div>
+      </article>`;
+  }).join('');
+
+  return `
+    <div>
+      <section class="fullscreen-section">
+        <div style="max-width:52rem;margin:0 auto;padding:0 16px;text-align:center">
+          <p class="label-caps" style="margin-bottom:12px">O Salão</p>
+          <h1 class="gold-glow" style="font-size:clamp(2rem,4.8vw,3.8rem);line-height:1.15;margin-bottom:28px">Conheça Nosso Espaço, Equipe e os nossos Procedimentos</h1>
+          
+          <div style="margin-top: 36px;">
+            <p class="text-muted" style="margin-bottom:16px;line-height:1.7;font-size:clamp(1rem, 2vw, 1.35rem);">Nosso espaço foi projetado para oferecer mais do que um atendimento: entregamos uma experiência completa de saúde e beleza para seus fios. Cada procedimento é realizado a partir de um diagnóstico personalizado, garantindo que o seu cabelo receba exatamente o tratamento, corte ou coloração de que precisa.
+Contamos com uma equipe de profissionais altamente capacitados e em constante atualização com as melhores técnicas do mercado.</p>
+          </div>
+        </div>
+      </section>
+      
+      <section style="padding: 70px 16px; background: color-mix(in srgb, var(--secondary) 50%, transparent);">
+        <div class="wrap" style="width: 100%; text-align: center;">
+          ${secHead('Direção Artística','Frente ao salão')}
+          <div style="margin-top: 45px;">${teamHtml}</div>
+        </div>
+      </section>
+
+      <section class="fullscreen-section">
+        <div class="wrap" style="width: 100%; text-align: center;">
+          ${secHead('Explore','Conheça mais','Acesse nossos procedimentos ou compre produtos diretamente.')}
+          <div class="grid-2-buttons" style="margin-top: 25px;">
+            <a href="#/procedimentos" class="big-nav-btn">Procedimentos</a>
+            <a href="#/loja" class="big-nav-btn">Loja</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  `;
+}
+
+let openCategory = null;
+function pageProcedures(){
+  const cats = [...new Set(SERVICES.map(s=>s.category))];
+  if(!openCategory && cats.length) openCategory = cats[0];
+  const accHtml = cats.map((cat,idx)=>{
+    const catServices = SERVICES.filter(s=>s.category===cat);
+    const isOpen = openCategory===cat;
+    const body = catServices.map(s=>{
+      const img = `<div class="svc-imgbox"><img src="${s.image_after||MACRO_IMG}" alt="${esc(s.name)}" class="obj-cover scale-hover"></div>`;
+      return `<article class="svc-detail">
+        ${img}
+        <div>
+          <p class="label-caps" style="margin-bottom:6px">${esc(s.category)}</p>
+          <h4 class="gold-glow" style="margin-bottom:10px">${esc(s.name)}</h4>
+          <p class="text-muted" style="line-height:1.5;margin-bottom:14px">${esc(s.description)}</p>
+          <div class="meta">
+            ${s.duration?`<span class="text-muted" style="display:flex;align-items:center;gap:4px">${esc(s.duration)}</span>`:''}
+            <span class="price gold-glow">${esc(s.price)}</span>
+          </div>
+          <button class="btn-bronze" onclick="addServiceToCartDirect('${s.id}')">Adicionar ao Carrinho</button>
+        </div>
+      </article>`;
+    }).join('');
+    return `<div class="acc-item">
+      <button class="acc-head" onclick="toggleCategory('${cat}')">
+        <span style="display:flex;align-items:center;gap:10px">
+          <span class="acc-num">${String(idx+1).padStart(2,'0')}</span>
+          <h3 class="gold-glow">${esc(cat)}</h3>
+        </span>
+        <span class="acc-count">${catServices.length} serviços</span>
+      </button>
+      <div class="acc-body ${isOpen?'open':''}" id="acc-${esc(cat)}">${body}</div>
+    </div>`;
+  }).join('');
+
+  return `
+    <div class="page">
+      <div class="wrap">
+        ${secHead('Procedimentos','Nossos serviços','Explore nossos procedimentos por categoria. Adicione diretamente ao carrinho.')}
+        
+        <!-- Categorias inseridas em baixo do título e subtítulo -->
+        <div style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: -12px; margin-bottom: 32px;">
+          <span class="tag-badge">tratamentos</span>
+          <span class="tag-badge">cortes</span>
+          <span class="tag-badge">alisamentos</span>
+          <span class="tag-badge">loiros</span>
+          <span class="tag-badge">coloração</span>
+        </div>
+
+        <div>${accHtml}</div>
+      </div>
+    </div>
+  `;
+}
+function initProcedures(){}
+function toggleCategory(cat){ openCategory = (openCategory===cat?null:cat); render(); }
+
+function pageShop(){
+  return `
+    <div class="page">
+      <div class="wrap">
+        ${secHead('Loja','Farmácia capilar','Produtos profissionais selecionados para manter a saúde e o brilho do seu cabelo em casa.')}
+        <div id="prodGrid"></div>
+      </div>
+    </div>
+  `;
+}
+let shopCategory = 'Todos';
+function initShop(){ renderProdGrid(); }
+function renderProdGrid(){
+  const grid = document.getElementById('prodGrid');
+  if(!grid) return;
+  const list = PRODUCTS;
+  grid.className = 'grid-prod';
+  grid.innerHTML = list.map(p=>`
+    <article class="prod">
+      <div class="prod-img"><img src="${p.image}" alt="${esc(p.name)}" class="scale-hover"></div>
+      <p class="label-caps" style="margin-bottom:4px">${esc(p.category)}</p>
+      <h3 class="gold-glow">${esc(p.name)}</h3>
+      <p class="brand">${esc(p.brand)}</p>
+      <p class="desc">${esc(p.description)}</p>
+      <div class="foot">
+        <span class="price gold-glow">R$ ${p.price.toFixed(2).replace('.',',')}</span>
+        <button class="add-btn" onclick='addProductToCart(${JSON.stringify(p)})'>Adicionar</button>
+      </div>
+    </article>`).join('');
+}
+
+function pageCart(){
+  if(!cart.length){
+    return `<div class="empty-cart">
+      <div class="ec-inner">
+        <h1 class="gold-glow" style="font-size:1.6rem;margin-bottom:12px">Seu carrinho está vazio</h1>
+        <p class="text-muted" style="margin-bottom:20px">Adicione procedimentos e produtos para montar seu pedido.</p>
+        <div class="btn-row" style="justify-content:center;display:flex;flex-direction:column;gap:12px">
+          <a href="#/procedimentos" class="btn-bronze">Adicionar Procedimento</a>
+          <a href="#/loja" class="btn-outline">Ver Loja</a>
+        </div>
+      </div>
+    </div>`;
+  }
+  const services = cart.filter(i=>i.type==='service');
+  const products = cart.filter(i=>i.type==='product');
+  const total = cartTotal();
+
+  const svcRows = services.map(s=>`
+    <div class="cart-row">
+      <div style="flex:1">
+        <h3 class="gold-glow" style="font-size:1.1rem;margin-bottom:4px">${esc(s.name)}</h3>
+      </div>
+      <div class="ci-right">
+        <span class="price gold-glow">${esc(s.price)}</span>
+        <button class="ci-remove" onclick="removeCartItem('${s.cartId}')">Remover</button>
+      </div>
+    </div>`).join('');
+
+  const prodRows = products.map(p=>`
+    <div class="cart-row">
+      <div class="ci-img">${p.image?`<img src="${p.image}" alt="${esc(p.name)}">`:''}</div>
+      <div style="flex:1">
+        <h3 class="gold-glow" style="font-size:1.1rem">${esc(p.name)}</h3>
+        <p class="text-muted" style="margin-bottom:6px">${esc(p.brand)}</p>
+        <div class="qty">
+          <button onclick="updateProductQty('${p.cartId}',${p.quantity-1})">-</button>
+          <span style="width:24px;text-align:center" class="gold-glow">${p.quantity}</span>
+          <button onclick="updateProductQty('${p.cartId}',${p.quantity+1})">+</button>
+        </div>
+      </div>
+      <div class="ci-right">
+        <span class="price gold-glow">R$ ${(p.price*p.quantity).toFixed(2).replace('.',',')}</span>
+        <button class="ci-remove" onclick="removeCartItem('${p.cartId}')">Remover</button>
+      </div>
+    </div>`).join('');
+
+  return `
+    <div class="page">
+      <div class="wrap">
+        <p class="label-caps" style="margin-bottom:8px">Carrinho</p>
+        <h1 class="gold-glow" style="font-size:clamp(1.8rem,4.5vw,3.2rem);margin-bottom:24px">Seu pedido</h1>
+        <div class="cart-grid">
+          <div>
+            ${services.length?`<div class="cart-section" style="margin-bottom:24px"><h2 class="gold-glow">O Ritual · Procedimentos</h2><div>${svcRows}</div></div>`:''}
+            ${products.length?`<div class="class-section"><h2 class="gold-glow">As Essenciais · Produtos</h2><div>${prodRows}</div></div>`:''}
+          </div>
+          <div>
+            <div class="summary">
+              <h2 class="gold-glow" style="font-size:1.2rem;margin-bottom:16px">Resumo</h2>
+              <div class="total-row"><span class="label-caps">Total estimado</span><span class="t gold-glow">R$ ${total.toFixed(2).replace('.',',')}</span></div>
+              <button class="btn-bronze btn-full" onclick="checkoutWhatsApp()">Finalizar via WhatsApp</button>
+              <button class="text-muted" style="background:none;border:0;text-decoration:underline;width:100%;text-align:center;margin-top:10px;cursor:pointer;" onclick="clearCartAll()">Esvaziar carrinho</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+function checkoutWhatsApp(){
+  const msg = encodeURIComponent("Olá! Gostaria de confirmar meu agendamento/pedido no Jéssica Martins Exclusive Salon.");
+  window.open(`https://wa.me/${SALON.whatsappNumber}?text=${msg}`,'_blank');
+}
+
+function pageFooter(){
+  const year = new Date().getFullYear();
+  return `
+    <footer>
+      <div class="wrap">
+        <p class="foot-bottom">© ${year} ${esc(SALON.name)}. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+  `;
+}
+
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function stars(n){ return Array.from({length:n||5}).map(()=>'★').join(''); }
+
+window.addEventListener('hashchange', navigate);
+document.getElementById('burger').addEventListener('click', toggleMobile);
+navigate();
+</script>
+</body>
+</html>

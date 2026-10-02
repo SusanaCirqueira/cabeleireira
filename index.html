@@ -87,18 +87,7 @@
   .scale-hover{transition:transform .7s cubic-bezier(.22,1,.36,1)}
   .scale-hover:hover{transform:scale(1.03)}
 
-  /* Desloca a grade dos botões um pouquinho mais para a esquerda */
-  .grid-2-buttons{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:24px;
-    max-width:650px;
-    margin:0 auto 0 10%; 
-    width: 100%;
-  }
-  @media(max-width:767px){
-    .grid-2-buttons{ margin:0 auto 0 0; }
-  }
+  .grid-2-buttons{display:grid;grid-template-columns:1fr;gap:24px;max-width:650px;margin:0 auto; width: 100%;}
   
   .big-nav-btn{min-height:160px;background:var(--secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.4rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foreground);transition:all .3s ease;text-align:center;padding:32px; width: 100%;}
   @media(min-width:768px){.big-nav-btn{font-size:1.75rem;min-height:140px}}
@@ -896,6 +885,7 @@ function renderProceduresGrid(){
 let activeShopBrand = 'todas';
 
 function pageShop(){
+  // Extrai todas as marcas únicas cadastradas
   const brandsSet = new Set(PRODUCTS.map(p => p.brand));
   const brandsList = ['todas', ...Array.from(brandsSet)];
 
@@ -1031,7 +1021,6 @@ function pageCart(){
     </div>
   `;
 }
-
 function checkoutWhatsApp(){
   const msg = encodeURIComponent("Olá! Gostaria de confirmar meu agendamento/pedido no Jéssica Martins Exclusive Salon.");
   window.open(`https://wa.me/${SALON.whatsappNumber}?text=${msg}`,'_blank');

@@ -342,27 +342,6 @@
   .overflow-hidden{overflow:hidden}
   .obj-cover{width:100%;height:100%;object-fit:cover}
 
-  .acc-item{border-bottom:1px solid var(--border)}
-  .acc-head{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 0;background:none;border:0;text-align:left;color:var(--foreground)}
-  @media(min-width:768px){.acc-head{padding:28px 0}}
-  .acc-head .acc-num{font-size:1.1rem;color:var(--primary);font-family:var(--font-heading);width:24px;text-shadow: 0 0 8px rgba(245, 197, 66, 0.4);}
-  @media(min-width:768px){.acc-head .acc-num{font-size:1.5rem;width:32px}}
-  .acc-head h3{font-size:clamp(1.2rem,2.8vw,2rem)}
-  .acc-head .acc-count{font-size:.75rem;color:var(--muted-foreground)}
-  
-  .acc-body{padding-bottom:20px;display:none;flex-direction:column;gap:20px}
-  .acc-body.open{display:flex}
-  
-  .svc-detail{display:grid;gap:16px;align-items:start;border-top:1px solid var(--border);padding-top:20px}
-  @media(min-width:768px){.svc-detail{grid-template-columns:1fr 1fr;gap:32px;padding-top:32px}}
-  
-  .svc-detail .svc-imgbox{aspect-ratio:4/3;overflow:hidden}
-  .svc-detail .svc-imgbox img{width:100%;height:100%;object-fit:cover}
-  .svc-detail h4{font-size:1.3rem;margin-bottom:8px}
-  @media(min-width:768px){.svc-detail h4{font-size:1.6rem;margin-bottom:16px}}
-  .svc-detail .meta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px;font-size:.85rem;align-items:center}
-  .svc-detail .meta .price{font-family:var(--font-heading);font-size:1.2rem}
-
   .prod{display:flex;flex-direction:column;background:color-mix(in srgb,var(--secondary) 30%,transparent);border:1px solid var(--border);padding:12px}
   @media(min-width:768px){.prod{background:transparent;border:0;padding:0}}
   .prod .prod-img{background:var(--secondary);aspect-ratio:4/5;overflow:hidden;margin-bottom:12px}
@@ -760,47 +739,12 @@ Contamos com uma equipe de profissionais altamente capacitados e em constante at
   `;
 }
 
-let openCategory = null;
 function pageProcedures(){
-  const cats = [...new Set(SERVICES.map(s=>s.category))];
-  if(!openCategory && cats.length) openCategory = cats[0];
-  const accHtml = cats.map((cat,idx)=>{
-    const catServices = SERVICES.filter(s=>s.category===cat);
-    const isOpen = openCategory===cat;
-    const body = catServices.map(s=>{
-      const img = `<div class="svc-imgbox"><img src="${s.image_after||MACRO_IMG}" alt="${esc(s.name)}" class="obj-cover scale-hover"></div>`;
-      return `<article class="svc-detail">
-        ${img}
-        <div>
-          <p class="label-caps" style="margin-bottom:6px">${esc(s.category)}</p>
-          <h4 class="gold-glow" style="margin-bottom:10px">${esc(s.name)}</h4>
-          <p class="text-muted" style="line-height:1.5;margin-bottom:14px">${esc(s.description)}</p>
-          <div class="meta">
-            ${s.duration?`<span class="text-muted" style="display:flex;align-items:center;gap:4px">${esc(s.duration)}</span>`:''}
-            <span class="price gold-glow">${esc(s.price)}</span>
-          </div>
-          <button class="btn-bronze" onclick="addServiceToCartDirect('${s.id}')">Adicionar ao Carrinho</button>
-        </div>
-      </article>`;
-    }).join('');
-    return `<div class="acc-item">
-      <button class="acc-head" onclick="toggleCategory('${cat}')">
-        <span style="display:flex;align-items:center;gap:10px">
-          <span class="acc-num">${String(idx+1).padStart(2,'0')}</span>
-          <h3 class="gold-glow">${esc(cat)}</h3>
-        </span>
-        <span class="acc-count">${catServices.length} serviços</span>
-      </button>
-      <div class="acc-body ${isOpen?'open':''}" id="acc-${esc(cat)}">${body}</div>
-    </div>`;
-  }).join('');
-
   return `
     <div class="page">
       <div class="wrap">
-        ${secHead('Procedimentos','Nossos serviços','Explore nossos procedimentos por categoria. Adicione diretamente ao carrinho.')}
+        ${secHead('Procedimentos','Nossos serviços','Explore nossos procedimentos por categoria.')}
         
-        <!-- Categorias inseridas em baixo do título e subtítulo -->
         <div style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: -12px; margin-bottom: 32px;">
           <span class="tag-badge">tratamentos</span>
           <span class="tag-badge">cortes</span>
@@ -808,14 +752,11 @@ function pageProcedures(){
           <span class="tag-badge">loiros</span>
           <span class="tag-badge">coloração</span>
         </div>
-
-        <div>${accHtml}</div>
       </div>
     </div>
   `;
 }
 function initProcedures(){}
-function toggleCategory(cat){ openCategory = (openCategory===cat?null:cat); render(); }
 
 function pageShop(){
   return `

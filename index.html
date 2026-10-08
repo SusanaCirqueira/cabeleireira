@@ -848,7 +848,7 @@ function pageProcedures(){
   return `
     <div class="page">
       <div class="wrap">
-        ${secHead('Procedimentos','Nossos serviços')}
+        ${secHead('Procedimentos','Nossos serviços','Selecione uma categoria abaixo para visualizar os procedimentos disponíveis.')}
         
         <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: -12px; margin-bottom: 32px;">
           ${tagsHtml}
@@ -895,7 +895,8 @@ function renderProceduresGrid(){
       <div class="prod-img">
         <img src="${s.image || MACRO_IMG}" alt="${esc(s.name)}" class="scale-hover">
       </div>
-      <h3 class="gold-glow" style="margin-top:6px">${esc(s.name)}</h3>
+      <p class="label-caps" style="margin-bottom:4px">${esc(s.category)} · ${esc(s.duration)}</p>
+      <h3 class="gold-glow">${esc(s.name)}</h3>
       <p class="desc" style="margin-top:6px">${esc(s.description)}</p>
       <div class="foot">
         <span class="price gold-glow">${esc(s.price)}</span>

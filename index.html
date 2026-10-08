@@ -87,35 +87,22 @@
   .scale-hover{transition:transform .7s cubic-bezier(.22,1,.36,1)}
   .scale-hover:hover{transform:scale(1.03)}
 
-  /* Botões menores e mais compactos */
+  /* Desloca a grade dos botões um pouquinho mais para a esquerda */
   .grid-2-buttons{
     display:grid;
     grid-template-columns:1fr;
-    gap:16px;
-    max-width:450px;
-    margin:0 auto; 
+    gap:24px;
+    max-width:650px;
+    margin:0 auto 0 10%; 
     width: 100%;
+  }
+  @media(max-width:767px){
+    .grid-2-buttons{ margin:0 auto 0 0; }
   }
   
-  .big-nav-btn{
-    min-height:90px;
-    background:var(--secondary);
-    border:1px solid var(--border);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:var(--font-heading);
-    font-size:1.1rem;
-    letter-spacing:.2em;
-    text-transform:uppercase;
-    color:var(--foreground);
-    transition:all .3s ease;
-    text-align:center;
-    padding:18px 24px; 
-    width: 100%;
-  }
-  @media(min-width:768px){.big-nav-btn{font-size:1.25rem;min-height:100px}}
-  .big-nav-btn:hover{background:var(--primary);color:var(--primary-foreground);border-color:var(--primary);transform:translateY(-3px);box-shadow: 0 0 20px rgba(245, 197, 66, 0.45);}
+  .big-nav-btn{min-height:160px;background:var(--secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.4rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foreground);transition:all .3s ease;text-align:center;padding:32px; width: 100%;}
+  @media(min-width:768px){.big-nav-btn{font-size:1.75rem;min-height:140px}}
+  .big-nav-btn:hover{background:var(--primary);color:var(--primary-foreground);border-color:var(--primary);transform:translateY(-4px);box-shadow: 0 0 25px rgba(245, 197, 66, 0.45);}
 
   header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--secondary);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);transition:all .5s}
   

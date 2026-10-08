@@ -479,21 +479,21 @@
   <div class="mobile-menu" id="mobileMenu">
     <div class="mm-inner">
       <div>
-        <h3>JÉSSICA MARTINS-Exclusive Salon</h3>
-        <p class="text-muted" style="line-height:1.5;margin-top:6px">Cuidado capilar artesanal com produtos premium e atendimento personalizado.</p>
+        <h3>JÉSSICA MARTINS</h3>
+        <p class="text-muted" style="line-height:1.5;margin-top:6px">Exclusive Salon. Cuidado capilar artesanal com produtos premium e atendimento personalizado.</p>
       </div>
       <div class="horizon-rule"></div>
       <div>
         <p class="label-caps" style="margin-bottom:6px">Contato</p>
         <ul class="text-muted">
-          <li>Avenida Arapongas, 849 - Centro Arapongas - PR</li>
-          <li style="margin-top:4px">+55 (43) 99388428</li>
+          <li>Rua Oscar Freire, 1200 — Jardins, São Paulo — SP</li>
+          <li style="margin-top:4px">+55 (11) 99999-9999</li>
         </ul>
       </div>
       <div class="horizon-rule"></div>
       <div>
         <p class="label-caps" style="margin-bottom:6px">Horário</p>
-        <p class="text-muted">Terça a Sábado, 8,30h às 19h · Domingo e Segunda: fechado</p>
+        <p class="text-muted">Terça a Sábado, 9h às 19h · Domingo e Segunda: fechado</p>
       </div>
     </div>
   </div>
@@ -816,7 +816,7 @@ Contamos com uma equipe de profissionais altamente capacitados e em constante at
 
       <section class="fullscreen-section">
         <div class="wrap" style="width: 100%; text-align: center;">
-          ${secHead('Explore','Conheça mais','Acesse nossos procedimentos ou compre produtos diretamente.')}
+          ${secHead('Explore','Conheça mais')}
           <div class="grid-2-buttons" style="margin-top: 25px;">
             <a href="#/procedimentos" class="big-nav-btn">Procedimentos</a>
             <a href="#/loja" class="big-nav-btn">Loja</a>
@@ -920,7 +920,7 @@ function pageShop(){
   return `
     <div class="page">
       <div class="wrap">
-        ${secHead('Loja','Farmácia capilar','Selecione a marca desejada abaixo para visualizar toda a sua linha de produtos.')}
+        ${secHead('Loja','Farmácia capilar')}
         
         <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: -12px; margin-bottom: 32px;">
           ${brandTagsHtml}
@@ -1016,7 +1016,7 @@ function pageCart(){
       </div>
       <div class="ci-right">
         <span class="price gold-glow">R$ ${(p.price*p.quantity).toFixed(2).replace('.',',')}</span>
-        <button class="ci-remove" onclick="removeCartItem('${p.cartId}')">Remover</button>
+        <button class="ci-remove" onclick="removeCartItem('${s.cartId}')">Remover</button>
       </div>
     </div>`).join('');
 

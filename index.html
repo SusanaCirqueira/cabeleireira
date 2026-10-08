@@ -963,9 +963,8 @@ function renderProdGrid(){
   grid.innerHTML = filtered.map(p => `
     <article class="prod">
       <div class="prod-img"><img src="${p.image}" alt="${esc(p.name)}" class="scale-hover"></div>
-      <p class="label-caps" style="margin-bottom:4px">${esc(p.category)} · ${esc(p.brand)}</p>
-      <h3 class="gold-glow">${esc(p.name)}</h3>
-      <p class="desc">${esc(p.description)}</p>
+      <h3 class="gold-glow" style="margin-top:6px">${esc(p.name)}</h3>
+      <p class="desc" style="margin-top:6px">${esc(p.description)}</p>
       <div class="foot">
         <span class="price gold-glow">R$ ${p.price.toFixed(2).replace('.',',')}</span>
         <button class="add-btn" onclick='addProductToCart(${JSON.stringify(p)})'>Adicionar ao Carrinho</button>
@@ -1016,7 +1015,7 @@ function pageCart(){
       </div>
       <div class="ci-right">
         <span class="price gold-glow">R$ ${(p.price*p.quantity).toFixed(2).replace('.',',')}</span>
-        <button class="ci-remove" onclick="removeCartItem('${s.cartId}')">Remover</button>
+        <button class="ci-remove" onclick="removeCartItem('${p.cartId}')">Remover</button>
       </div>
     </div>`).join('');
 

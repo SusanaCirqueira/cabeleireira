@@ -407,7 +407,7 @@
   .prod .desc{font-size:.8rem;color:var(--muted-foreground);margin-bottom:12px;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-family:'Inter',sans-serif;}
   .prod .foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto}
   .prod .price{font-family:var(--font-heading);font-size:1.2rem}
-  .prod .add-btn{display:inline-flex;align-items:center;justify-content:center;padding:8px 16px;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--primary-foreground);background:var(--primary);border:0;transition:all .3s;font-family:'Inter',sans-serif;font-weight:600;box-shadow: 0 0 10px rgba(245, 197, 66, 0.3);}
+  .prod .add-btn{display:inline-flex;align-items:center;justify-content:center;padding:5px 10px;font-size:.65rem;text-transform:uppercase;letter-spacing:.05em;color:var(--primary-foreground);background:var(--primary);border:0;transition:all .3s;font-family:'Inter',sans-serif;font-weight:600;box-shadow: 0 0 10px rgba(245, 197, 66, 0.3);border-radius:var(--radius);}
   .prod .add-btn:hover{opacity:0.9;box-shadow: 0 0 15px rgba(245, 197, 66, 0.5);}
 
   .cart-grid{display:grid;grid-template-columns:1fr;gap:24px}
@@ -1015,7 +1015,7 @@ function pageCart(){
       </div>
       <div class="ci-right">
         <span class="price gold-glow">R$${(p.price*p.quantity).toFixed(2).replace('.',',')}</span>
-        <button class="ci-remove" onclick="removeCartItem('${s.cartId || p.cartId}')">Remover</button>
+        <button class="ci-remove" onclick="removeCartItem('${p.cartId}')">Remover</button>
       </div>
     </div>`).join('');
 

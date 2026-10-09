@@ -518,14 +518,14 @@ const MACRO_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b71761
 const TRANSFORM_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/c44d11f14_generated_2ffc9168.jpg";
 
 const SERVICES = [
-  {id:"s1", name:"Coloração Premium", category:"coloração", description:"Coloração completa com produtos premium de alta fixação e brilho intenso. Inclui diagnóstico e ritual de proteção.", duration:"3h", price:"R\$ 380,00", image:MACRO_IMG},
-  {id:"s2", name:"Balayage / Mechas Livres", category:"loiros", description:"Técnica artesanal à mão livre para iluminação natural e transições suaves sem marcas.", duration:"4h", price:"R\$ 520,00", image:TRANSFORM_IMG},
-  {id:"s3", name:"Corte Feminino Modelagem", category:"cortes", description:"Corte personalizado com visagismo e modelagem sob medida para destacar o formato do rosto.", duration:"1h", price:"R\$ 180,00", image:TRANSFORM_IMG},
-  {id:"s4", name:"Corte Bob & Chanel Visagista", category:"cortes", description:"Corte curto estilizado com linhas precisas e acabamento leve adaptado à textura do cabelo.", duration:"1h 15min", price:"R\$ 210,00", image:MACRO_IMG},
-  {id:"s5", name:"Tratamento de Reconstrução Capilar", category:"tratamentos", description:"Tratamento profundo com aminoácidos e queratina pura para restaurar fios danificados.", duration:"1h 30min", price:"R\$ 260,00", image:MACRO_IMG},
-  {id:"s6", name:"Nutrição Intensiva & Brilho", category:"tratamentos", description:"Repositor de lipídios e óleos essenciais para cabelos ressecados, devolvendo maciez e sedosidade.", duration:"1h", price:"R\$ 220,00", image:TRANSFORM_IMG},
-  {id:"s7", name:"Alisamento Orgânico Sem Formaldeído", category:"alisamentos", description:"Realinhamento térmico suave com ativos orgânicos que doam brilho espelhado e redução de volume.", duration:"3h 30min", price:"R\$ 480,00", image:TRANSFORM_IMG},
-  {id:"s8", name:"Loiro Global Platinado", category:"loiros", description:"Descoloração global uniforme com acompanhamento de protetor da fibra de última geração.", duration:"4h 30min", price:"R\$ 650,00", image:MACRO_IMG}
+  {id:"s1", name:"Coloração Premium", category:"coloração", description:"Coloração completa com produtos premium de alta fixação e brilho intenso. Inclui diagnóstico e ritual de proteção.", duration:"3h", price:"R\$380,00", image:MACRO_IMG},
+  {id:"s2", name:"Balayage / Mechas Livres", category:"loiros", description:"Técnica artesanal à mão livre para iluminação natural e transições suaves sem marcas.", duration:"4h", price:"R\$520,00", image:TRANSFORM_IMG},
+  {id:"s3", name:"Corte Feminino Modelagem", category:"cortes", description:"Corte personalizado com visagismo e modelagem sob medida para destacar o formato do rosto.", duration:"1h", price:"R\$180,00", image:TRANSFORM_IMG},
+  {id:"s4", name:"Corte Bob & Chanel Visagista", category:"cortes", description:"Corte curto estilizado com linhas precisas e acabamento leve adaptado à textura do cabelo.", duration:"1h 15min", price:"R\$210,00", image:MACRO_IMG},
+  {id:"s5", name:"Tratamento de Reconstrução Capilar", category:"tratamentos", description:"Tratamento profundo com aminoácidos e queratina pura para restaurar fios danificados.", duration:"1h 30min", price:"R\$260,00", image:MACRO_IMG},
+  {id:"s6", name:"Nutrição Intensiva & Brilho", category:"tratamentos", description:"Repositor de lipídios e óleos essenciais para cabelos ressecados, devolvendo maciez e sedosidade.", duration:"1h", price:"R\$220,00", image:TRANSFORM_IMG},
+  {id:"s7", name:"Alisamento Orgânico Sem Formaldeído", category:"alisamentos", description:"Realinhamento térmico suave com ativos orgânicos que doam brilho espelhado e redução de volume.", duration:"3h 30min", price:"R\$480,00", image:TRANSFORM_IMG},
+  {id:"s8", name:"Loiro Global Platinado", category:"loiros", description:"Descoloração global uniforme com acompanhamento de protetor da fibra de última geração.", duration:"4h 30min", price:"R\$650,00", image:MACRO_IMG}
 ];
 
 const PRODUCTS = [
@@ -966,7 +966,7 @@ function renderProdGrid(){
       <h3 class="gold-glow" style="margin-top:6px">${esc(p.name)}</h3>
       <p class="desc" style="margin-top:6px">${esc(p.description)}</p>
       <div class="foot">
-        <span class="price gold-glow">R$ ${p.price.toFixed(2).replace('.',',')}</span>
+        <span class="price gold-glow">R$${p.price.toFixed(2).replace('.',',')}</span>
         <button class="add-btn" onclick='addProductToCart(${JSON.stringify(p)})'>Adicionar ao Carrinho</button>
       </div>
     </article>
@@ -1014,8 +1014,8 @@ function pageCart(){
         </div>
       </div>
       <div class="ci-right">
-        <span class="price gold-glow">R$ ${(p.price*p.quantity).toFixed(2).replace('.',',')}</span>
-        <button class="ci-remove" onclick="removeCartItem('${p.cartId}')">Remover</button>
+        <span class="price gold-glow">R$${(p.price*p.quantity).toFixed(2).replace('.',',')}</span>
+        <button class="ci-remove" onclick="removeCartItem('${s.cartId || p.cartId}')">Remover</button>
       </div>
     </div>`).join('');
 
@@ -1032,7 +1032,7 @@ function pageCart(){
           <div>
             <div class="summary">
               <h2 class="gold-glow" style="font-size:1.2rem;margin-bottom:16px">Resumo</h2>
-              <div class="total-row"><span class="label-caps">Total estimado</span><span class="t gold-glow">R$ ${total.toFixed(2).replace('.',',')}</span></div>
+              <div class="total-row"><span class="label-caps">Total estimado</span><span class="t gold-glow">R$${total.toFixed(2).replace('.',',')}</span></div>
               <button class="btn-bronze btn-full" onclick="checkoutWhatsApp()">Finalizar via WhatsApp</button>
               <button class="text-muted" style="background:none;border:0;text-decoration:underline;width:100%;text-align:center;margin-top:10px;cursor:pointer;" onclick="clearCartAll()">Esvaziar carrinho</button>
             </div>

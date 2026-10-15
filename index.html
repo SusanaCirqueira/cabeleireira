@@ -742,7 +742,11 @@ function renderSingleTestimonial(t) {
 
 const STORAGE_KEY = "jm_cart_v1";
 let cart = [];
-try { cart = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e){ cart = []; }
+try { 
+  cart = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; 
+} catch(e){ 
+  cart = []; 
+}
 function saveCart(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); }
 
 function parsePrice(p) {

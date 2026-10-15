@@ -9,16 +9,17 @@
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
   :root{
-    --background: hsl(25 38% 9%);
-    --foreground: hsl(36 32% 93%);
-    --card: hsl(26 35% 12%);
-    --primary: hsl(43 90% 58%);
-    --primary-foreground: hsl(25 38% 9%);
-    --secondary: hsl(28 33% 15%);
-    --muted: hsl(28 30% 19%);
-    --muted-foreground: hsl(32 14% 65%);
-    --border: hsl(26 28% 28%);
-    --destructive: hsl(0 70% 50%);
+    /* Cor de fundo padronizada com o tom da imagem de referência */
+    --background: hsl(20, 25%, 11%);
+    --foreground: hsl(36, 32%, 93%);
+    --card: hsl(20, 22%, 14%);
+    --primary: hsl(43, 90%, 58%);
+    --primary-foreground: hsl(20, 25%, 11%);
+    --secondary: hsl(20, 22%, 15%);
+    --muted: hsl(20, 18%, 20%);
+    --muted-foreground: hsl(32, 14%, 65%);
+    --border: hsl(20, 15%, 26%);
+    --destructive: hsl(0, 70%, 50%);
     --radius: 0.25rem;
     --font-heading: 'Playfair Display', Georgia, serif;
     --font-body: 'Playfair Display', Georgia, serif;
@@ -837,7 +838,7 @@ function render(){
   }
   else if(currentRoute === '/carrinho'){ 
     app.innerHTML = pageCart(); 
-    footer.innerHTML = ''; // Remove o rodapé na página do carrinho
+    footer.innerHTML = ''; 
     footer.style.display = 'none';
   }
   else { 

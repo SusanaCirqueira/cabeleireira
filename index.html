@@ -406,7 +406,6 @@
   .prod .add-btn{display:inline-flex;align-items:center;justify-content:center;padding:8px 14px;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--primary-foreground);background:var(--primary);border:0;transition:all .3s;font-family:'Inter',sans-serif;font-weight:600;box-shadow: 0 0 10px rgba(245, 197, 66, 0.3);border-radius:var(--radius);}
   .prod .add-btn:hover{opacity:0.9;box-shadow: 0 0 15px rgba(245, 197, 66, 0.5);}
 
-  /* Estilização centralizada do carrinho atualizada */
   .cart-container {
     max-width: 800px;
     margin: 0 auto;
@@ -515,7 +514,6 @@
     font-size: 1.25rem;
   }
 
-  /* Botão de lixeira personalizado */
   .ci-remove-btn {
     background: transparent;
     border: 1px solid var(--border);
@@ -845,7 +843,7 @@ function toggleMobile(){ document.getElementById('mobileMenu').classList.toggle(
 function closeMobile(){ document.getElementById('mobileMenu').classList.remove('open'); }
 
 function secHead(label, title, subtitle){
-  return `<div class="sec-head"><p class="label-caps">${esc(label)}</p><h2 class="gold-glow">${esc(title)}</h2>${subtitle?`<p>\${esc(subtitle)}</p>`:''}</div>`;
+  return '<div class="sec-head"><p class="label-caps">' + esc(label) + '</p><h2 class="gold-glow">' + esc(title) + '</h2>' + (subtitle ? '<p>' + esc(subtitle) + '</p>' : '') + '</div>';
 }
 
 function pageHome(){
@@ -1104,43 +1102,49 @@ function pageCart(){
       </div>
     </div>`;
   }
-  const services = cart.filter(i=>i.type==='service');
-  const products = cart.filter(i=>i.type==='product');
+  const services = cart.filter(i => i.type === 'service');
+  const products = cart.filter(i => i.type === 'product');
   const total = cartTotal();
 
-  const trashIconSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>`;
+  const trashIconSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>';
 
-  const svcRows = services.map(s=>`
-    <div class="cart-row">
-      <div class="ci-img">${s.image?`<img src="${s.image}" alt="${esc(s.name)}">`:''}</div>
-      <div class="cart-row-content">
-        <h3 class="gold-glow" style="font-size:1.1rem;margin-bottom:2px">${esc(s.name)}</h3>
-        <p class="desc">${esc(s.description || 'Procedimento exclusivo do salão')}</p>
-      </div>
-      <div class="ci-right">
-        <span class="price gold-glow">${esc(s.price)}</span>
-        <button class="ci-remove-btn" onclick="removeCartItem('${s.cartId}')" aria-label="Remover">${trashIconSvg}</button>
-      </div>
-    </div>`).join('');
-
-  const prodRows = products.map(p=>`
-    <div class="cart-row">
-      <div class="ci-img">${p.image?`<img src="${p.image}" alt="${esc(p.name)}">`:''}</div>
-      <div class="cart-row-content">
-        <h3 class="gold-glow" style="font-size:1.1rem;margin-bottom:2px">${esc(p.name)}</h3>
-        <p class="text-muted" style="margin-bottom:2px">${esc(p.brand || '')}</p>
-        <p class="desc">${esc(p.description || '')}</p>
-        <div class="qty">
-          <button onclick="updateProductQty('${p.cartId}',${p.quantity-1})">-</button>
-          <span style="width:24px;text-align:center" class="gold-glow">${p.quantity}</span>
-          <button onclick="updateProductQty('${p.cartId}',${p.quantity+1})">+</button>
+  let svcRows = '';
+  services.forEach(s => {
+    svcRows += `
+      <div class="cart-row">
+        <div class="ci-img"><img src="${s.image || MACRO_IMG}" alt="${esc(s.name)}"></div>
+        <div class="cart-row-content">
+          <h3 class="gold-glow" style="font-size:1.1rem;margin-bottom:2px">${esc(s.name)}</h3>
+          <p class="desc">${esc(s.description || 'Procedimento exclusivo do salão')}</p>
         </div>
-      </div>
-      <div class="ci-right">
-        <span class="price gold-glow">R$ ${(p.price*p.quantity).toFixed(2).replace('.',',')}</span>
-        <button class="ci-remove-btn" onclick="removeCartItem('${p.cartId}')" aria-label="Remover">${trashIconSvg}</button>
-      </div>
-    </div>`).join('');
+        <div class="ci-right">
+          <span class="price gold-glow">${esc(s.price)}</span>
+          <button class="ci-remove-btn" onclick="removeCartItem('${s.cartId}')" aria-label="Remover">${trashIconSvg}</button>
+        </div>
+      </div>`;
+  });
+
+  let prodRows = '';
+  products.forEach(p => {
+    prodRows += `
+      <div class="cart-row">
+        <div class="ci-img"><img src="${p.image || MACRO_IMG}" alt="${esc(p.name)}"></div>
+        <div class="cart-row-content">
+          <h3 class="gold-glow" style="font-size:1.1rem;margin-bottom:2px">${esc(p.name)}</h3>
+          <p class="text-muted" style="margin-bottom:2px">${esc(p.brand || '')}</p>
+          <p class="desc">${esc(p.description || '')}</p>
+          <div class="qty">
+            <button onclick="updateProductQty('${p.cartId}', ${p.quantity - 1})">-</button>
+            <span style="width:24px;text-align:center" class="gold-glow">${p.quantity}</span>
+            <button onclick="updateProductQty('${p.cartId}', ${p.quantity + 1})">+</button>
+          </div>
+        </div>
+        <div class="ci-right">
+          <span class="price gold-glow">R$ ${(p.price * p.quantity).toFixed(2).replace('.', ',')}</span>
+          <button class="ci-remove-btn" onclick="removeCartItem('${p.cartId}')" aria-label="Remover">${trashIconSvg}</button>
+        </div>
+      </div>`;
+  });
 
   return `
     <div class="page">
@@ -1152,13 +1156,13 @@ function pageCart(){
           </div>
 
           <div>
-            ${services.length?`<div class="cart-section" style="margin-bottom:24px"><h2 class="gold-glow">O Ritual · Procedimentos</h2><div>\${svcRows}</div></div>`:''}
-            ${products.length?`<div class="cart-section"><h2 class="gold-glow">As Essenciais · Produtos</h2><div>\${prodRows}</div></div>`:''}
+            ${services.length ? '<div class="cart-section" style="margin-bottom:24px"><h2 class="gold-glow">O Ritual · Procedimentos</h2><div>' + svcRows + '</div></div>' : ''}
+            ${products.length ? '<div class="cart-section"><h2 class="gold-glow">As Essenciais · Produtos</h2><div>' + prodRows + '</div></div>' : ''}
           </div>
 
           <div class="summary">
             <h2 class="gold-glow" style="font-size:1.2rem;margin-bottom:12px">Resumo do Pedido</h2>
-            <div class="total-row"><span class="label-caps">Total estimado</span><span class="t gold-glow">R$ ${total.toFixed(2).replace('.',',')}</span></div>
+            <div class="total-row"><span class="label-caps">Total estimado</span><span class="t gold-glow">R$ ${total.toFixed(2).replace('.', ',')}</span></div>
             <button class="btn-bronze btn-full" onclick="checkoutWhatsApp()">Finalizar via WhatsApp</button>
             <button class="text-muted" style="background:none;border:0;text-decoration:underline;width:100%;text-align:center;margin-top:12px;cursor:pointer;" onclick="clearCartAll()">Esvaziar carrinho</button>
           </div>

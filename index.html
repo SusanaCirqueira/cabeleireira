@@ -11,10 +11,10 @@
   :root{
     --background: hsl(25 38% 9%);
     --foreground: hsl(36 32% 93%);
-    --card: hsl(25 38% 9%);
+    --card: hsl(26 35% 12%);
     --primary: hsl(43 90% 58%);
     --primary-foreground: hsl(25 38% 9%);
-    --secondary: hsl(25 38% 9%);
+    --secondary: hsl(28 33% 15%);
     --muted: hsl(28 30% 19%);
     --muted-foreground: hsl(32 14% 65%);
     --border: hsl(26 28% 28%);
@@ -97,7 +97,7 @@
   
   .big-nav-btn{
     min-height:90px;
-    background:var(--background);
+    background:var(--secondary);
     border:1px solid var(--border);
     display:flex;
     align-items:center;
@@ -115,7 +115,7 @@
   @media(min-width:768px){.big-nav-btn{font-size:1.25rem;min-height:100px}}
   .big-nav-btn:hover{background:var(--primary);color:var(--primary-foreground);border-color:var(--primary);transform:translateY(-3px);box-shadow: 0 0 20px rgba(245, 197, 66, 0.45);}
 
-  header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--background);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);transition:all .5s}
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--secondary);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);transition:all .5s}
   
   header.nav .nav-inner{
     max-width:100%;
@@ -172,7 +172,7 @@
   .nav-cart-icon{display:inline-flex;align-items:center;justify-content:center;color:var(--primary);transition:color .3s;padding:8px}
   .burger{display:flex;background:none;border:0;color:var(--primary);padding:8px}
 
-  .mobile-menu{display:none;position:fixed;top:85px;right:0;width:100%;background:var(--background);border-left:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,0.5);z-index:100;animation:fadeInDown .3s ease;max-height:calc(100vh - 85px);overflow-y:auto}
+  .mobile-menu{display:none;position:fixed;top:85px;right:0;width:100%;background:var(--secondary);border-left:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,0.5);z-index:100;animation:fadeInDown .3s ease;max-height:calc(100vh - 85px);overflow-y:auto}
   @media(min-width:640px){.mobile-menu{max-width:420px;top:105px;max-height:calc(100vh - 105px)}}
   .mobile-menu.open{display:block}
   .mobile-menu .mm-inner{padding:20px;display:flex;flex-direction:column;gap:16px}
@@ -556,7 +556,7 @@
   @media(min-width:768px){.empty-cart{padding:160px 0 128px}}
   .empty-cart .ec-inner{max-width:28rem;margin:0 auto;padding:0 16px}
 
-  footer{background:var(--background);border-top:1px solid var(--border);margin-top:auto;}
+  footer{background:var(--secondary);border-top:1px solid var(--border);margin-top:auto;}
   .foot-bottom{text-align:center;padding:20px;font-size:.75rem;color:var(--muted-foreground);letter-spacing:.05em;font-family:'Inter',sans-serif;}
 
   .page{padding-top:130px;padding-bottom:60px}
@@ -1234,4 +1234,3 @@ document.getElementById('burger').addEventListener('click', toggleMobile);
 navigate();
 </script>
 </body>
-</html>

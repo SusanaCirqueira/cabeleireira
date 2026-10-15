@@ -94,6 +94,12 @@
     margin:0 auto; 
     width: 100%;
   }
+  @media(min-width:640px){
+    .grid-2-buttons{
+      grid-template-columns:repeat(2, 1fr);
+      max-width:850px;
+    }
+  }
   
   .big-nav-btn{
     min-height:90px;
@@ -837,6 +843,16 @@ function render(){
     footer.innerHTML = pageFooter(); 
     footer.style.display = 'block';
   }
+  else if(currentRoute === '/combos'){ 
+    app.innerHTML = pageCombos(); 
+    footer.innerHTML = pageFooter(); 
+    footer.style.display = 'block';
+  }
+  else if(currentRoute === '/cursos'){ 
+    app.innerHTML = pageCourses(); 
+    footer.innerHTML = pageFooter(); 
+    footer.style.display = 'block';
+  }
   else if(currentRoute === '/carrinho'){ 
     app.innerHTML = pageCart(); 
     footer.innerHTML = ''; // Remove o rodapé na página do carrinho
@@ -975,9 +991,73 @@ Contamos com uma equipe de profissionais altamente capacitados e em constante at
           <div class="grid-2-buttons" style="margin-top: 25px;">
             <a href="#/procedimentos" class="big-nav-btn">Procedimentos</a>
             <a href="#/loja" class="big-nav-btn">Loja</a>
+            <a href="#/combos" class="big-nav-btn">Combos</a>
+            <a href="#/cursos" class="big-nav-btn">Cursos</a>
           </div>
         </div>
       </section>
+    </div>
+  `;
+}
+
+function pageCombos(){
+  return `
+    <div class="page">
+      <div class="wrap">
+        ${secHead('Combos','Pacotes Especiais')}
+        <p class="text-muted" style="text-align:center; max-width:600px; margin:0 auto 32px;">Aproveite nossos pacotes combinados de tratamentos e procedimentos com condições especiais para cuidar da sua beleza por completo.</p>
+        <div class="grid-prod">
+          <article class="prod">
+            <div class="prod-img"><img src="${MACRO_IMG}" alt="Combo Luxo"></div>
+            <h3 class="gold-glow" style="margin-top:6px">Combo Luxo Capilar</h3>
+            <p class="desc" style="margin-top:6px">Inclui Coloração Premium + Tratamento de Reconstrução Capilar com atendimento VIP.</p>
+            <div class="foot">
+              <span class="price gold-glow">R$ 580,00</span>
+              <button class="add-btn" onclick="checkoutWhatsApp()">Agendar Combo</button>
+            </div>
+          </article>
+          <article class="prod">
+            <div class="prod-img"><img src="${TRANSFORM_IMG}" alt="Combo Renovação"></div>
+            <h3 class="gold-glow" style="margin-top:6px">Combo Renovação Total</h3>
+            <p class="desc" style="margin-top:6px">Inclui Corte Feminino Modelagem + Nutrição Intensiva & Brilho.</p>
+            <div class="foot">
+              <span class="price gold-glow">R$ 350,00</span>
+              <button class="add-btn" onclick="checkoutWhatsApp()">Agendar Combo</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function pageCourses(){
+  return `
+    <div class="page">
+      <div class="wrap">
+        ${secHead('Cursos','Capacitação e Aperfeiçoamento')}
+        <p class="text-muted" style="text-align:center; max-width:600px; margin:0 auto 32px;">Aprenda técnicas avançadas de colorimetria, cortes e tratamentos capilares diretamente com a nossa equipe especializada.</p>
+        <div class="grid-prod">
+          <article class="prod">
+            <div class="prod-img"><img src="${TRANSFORM_IMG}" alt="Curso de Mechas"></div>
+            <h3 class="gold-glow" style="margin-top:6px">Curso Avançado de Mechas & Balayage</h3>
+            <p class="desc" style="margin-top:6px">Domine técnicas modernas de iluminação, transições suaves e loiros saudáveis na prática.</p>
+            <div class="foot">
+              <span class="price gold-glow">R$ 1.200,00</span>
+              <button class="add-btn" onclick="checkoutWhatsApp()">Inscrever-se</button>
+            </div>
+          </article>
+          <article class="prod">
+            <div class="prod-img"><img src="${MACRO_IMG}" alt="Curso de Visagismo"></div>
+            <h3 class="gold-glow" style="margin-top:6px">Curso de Visagismo & Cortes</h3>
+            <p class="desc" style="margin-top:6px">Aprenda a analisar formatos de rosto e aplicar cortes personalizados com precisão.</p>
+            <div class="foot">
+              <span class="price gold-glow">R$ 950,00</span>
+              <button class="add-btn" onclick="checkoutWhatsApp()">Inscrever-se</button>
+            </div>
+          </article>
+        </div>
+      </div>
     </div>
   `;
 }

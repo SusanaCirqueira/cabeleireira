@@ -398,8 +398,10 @@
     opacity: 0.7;
     transform: translateY(-50%) scale(1.1);
   }
+  .prof-prev { left: 12px; }
   .prof-next { right: 12px; }
   @media(min-width:768px){
+    .prof-prev { left: 24px; }
     .prof-next { right: 24px; }
   }
 
@@ -673,12 +675,16 @@ const PROFESSIONALS = [
     photos: [
       "jm.png",
       TRANSFORM_IMG,
-      MACRO_IMG
+      MACRO_IMG,
+      "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/bfebf7ba6_generated_e5594907.jpg",
+      "https://media.base44.com/images/public/6aa06df8dd8d2522b71761f6/4eda256ed_generated_98681078.jpg"
     ]
   }
 ];
 
 const profPhotoIndexes = {};
+let autoSlideInterval = null;
+
 PROFESSIONALS.forEach(p => { profPhotoIndexes[p.id] = 0; });
 
 function changeProfPhoto(profId, direction) {
@@ -692,6 +698,10 @@ function changeProfPhoto(profId, direction) {
     profPhotoIndexes[profId] = 0;
   }
   
+  updateProfPhotoDisplay(profId);
+}
+
+function updateProfPhotoDisplay(profId) {
   const container = document.getElementById('prof-slider-' + profId);
   if (container) {
     const imgs = container.querySelectorAll('img');
@@ -703,6 +713,17 @@ function changeProfPhoto(profId, direction) {
       }
     });
   }
+}
+
+function initAboutCarousel() {
+  if (autoSlideInterval) clearInterval(autoSlideInterval);
+  autoSlideInterval = setInterval(() => {
+    if (currentRoute === '/salao') {
+      PROFESSIONALS.forEach(p => {
+        changeProfPhoto(p.id, 1);
+      });
+    }
+  }, 5000);
 }
 
 const TESTIMONIALS = [
@@ -836,6 +857,7 @@ function render(){
     app.innerHTML = pageAbout(); 
     footer.innerHTML = pageFooter(); 
     footer.style.display = 'block';
+    initAboutCarousel();
   }
   else if(currentRoute === '/procedimentos'){ 
     app.innerHTML = pageProcedures(); 
@@ -960,6 +982,9 @@ function pageAbout(){
         <div class="prof-slider" id="prof-slider-${p.id}">
           ${imagesHtml}
           ${p.photos && p.photos.length > 1 ? `
+            <button class="prof-arrow prof-prev" onclick="changeProfPhoto('\${p.id}', -1)" aria-label="Anterior">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
             <button class="prof-arrow prof-next" onclick="changeProfPhoto('\${p.id}', 1)" aria-label="Próximo">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
             </button>

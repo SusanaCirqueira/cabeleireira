@@ -634,13 +634,17 @@ const TRANSFORM_IMG = "https://media.base44.com/images/public/6aa06df8dd8d2522b7
 
 const SERVICES = [
   {id:"s1", name:"Coloração Premium", category:"coloração", description:"Coloração completa com produtos premium de alta fixação e brilho intenso. Inclui diagnóstico e ritual de proteção.", duration:"3h", price:"R\$ 380,00", image:MACRO_IMG},
-  {id:"s2", name:"Balayage / Mechas Livres", category:"loiros", description:"Técnica artesanal à mão livre para iluminação natural e transições suaves sem marcas.", duration:"4h", price:"R\$ 520,00", image:TRANSFORM_IMG},
+  {id:"s2", name:"Balayage / Mechas Livres", category:"loiro", description:"Técnica artesanal à mão livre para iluminação natural e transições suaves sem marcas.", duration:"4h", price:"R\$ 520,00", image:TRANSFORM_IMG},
   {id:"s3", name:"Corte Feminino Modelagem", category:"cortes", description:"Corte personalizado com visagismo e modelagem sob medida para destacar o formato do rosto.", duration:"1h", price:"R\$ 180,00", image:TRANSFORM_IMG},
   {id:"s4", name:"Corte Bob & Chanel Visagista", category:"cortes", description:"Corte curto estilizado com linhas precisas e acabamento leve adaptado à textura do cabelo.", duration:"1h 15min", price:"R\$ 210,00", image:MACRO_IMG},
   {id:"s5", name:"Tratamento de Reconstrução Capilar", category:"tratamentos", description:"Tratamento profundo com aminoácidos e queratina pura para restaurar fios danificados.", duration:"1h 30min", price:"R\$ 260,00", image:MACRO_IMG},
   {id:"s6", name:"Nutrição Intensiva & Brilho", category:"tratamentos", description:"Repositor de lipídios e óleos essenciais para cabelos ressecados, devolvendo maciez e sedosidade.", duration:"1h", price:"R\$ 220,00", image:TRANSFORM_IMG},
-  {id:"s7", name:"Alisamento Orgânico Sem Formaldeído", category:"alisamentos", description:"Realinhamento térmico suave com ativos orgânicos que doam brilho espelhado e redução de volume.", duration:"3h 30min", price:"R\$ 480,00", image:TRANSFORM_IMG},
-  {id:"s8", name:"Loiro Global Platinado", category:"loiros", description:"Descoloração global uniforme com acompanhamento de protetor da fibra de última geração.", duration:"4h 30min", price:"R\$ 650,00", image:MACRO_IMG}
+  {id:"s7", name:"Alisamento Orgânico Sem Formaldeído", category:"alisamento orgânico", description:"Realinhamento térmico suave com ativos orgânicos que doam brilho espelhado e redução de volume.", duration:"3h 30min", price:"R\$ 480,00", image:TRANSFORM_IMG},
+  {id:"s8", name:"Escova & Penteado Sofisticado", category:"penteados", description:"Modelagem e penteados exclusivos para festas e eventos com fixação duradoura.", duration:"1h 30min", price:"R\$ 250,00", image:TRANSFORM_IMG},
+  {id:"s9", name:"Escova Progressiva Espelhada", category:"progressiva", description:"Tratamento de alinhamento com efeito liso intenso e ação antifrizz de longa duração.", duration:"3h", price:"R\$ 450,00", image:TRANSFORM_IMG},
+  {id:"s10", name:"Coloração Ruivo Iluminado", category:"ruivo", description:"Tonalização e coloração em tons acobreados com brilho tridimensional e proteção capilar.", duration:"3h", price:"R\$ 420,00", image:MACRO_IMG},
+  {id:"s11", name:"Definição e Tratamento Hair Curve", category:"hair curve", description:"Técnica e ritual focado na definição, curvas e valorização de cabelos ondulados e cacheados.", duration:"2h", price:"R\$ 290,00", image:MACRO_IMG},
+  {id:"s12", name:"Loiro Global Platinado", category:"loiro", description:"Descoloração global uniforme com acompanhamento de protetor da fibra de última geração.", duration:"4h 30min", price:"R\$ 650,00", image:MACRO_IMG}
 ];
 
 const PRODUCTS = [
@@ -855,7 +859,7 @@ function render(){
   }
   else if(currentRoute === '/carrinho'){ 
     app.innerHTML = pageCart(); 
-    footer.innerHTML = ''; // Remove o rodapé na página do carrinho
+    footer.innerHTML = ''; 
     footer.style.display = 'none';
   }
   else { 
@@ -1067,11 +1071,15 @@ let activeProcedureCategory = 'todos';
 function pageProcedures(){
   const categories = [
     { key: 'todos', label: 'todos' },
-    { key: 'tratamentos', label: 'tratamentos' },
     { key: 'cortes', label: 'cortes' },
-    { key: 'alisamentos', label: 'alisamentos' },
-    { key: 'loiros', label: 'loiros' },
-    { key: 'coloração', label: 'coloração' }
+    { key: 'penteados', label: 'penteados' },
+    { key: 'tratamentos', label: 'tratamentos' },
+    { key: 'alisamento orgânico', label: 'alisamento orgânico' },
+    { key: 'progressiva', label: 'progressiva' },
+    { key: 'coloração', label: 'coloração' },
+    { key: 'loiro', label: 'loiro' },
+    { key: 'ruivo', label: 'ruivo' },
+    { key: 'hair curve', label: 'hair curve' }
   ];
 
   const tagsHtml = categories.map(cat => `

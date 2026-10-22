@@ -1162,21 +1162,14 @@ function renderProceduresGrid(){
   `).join('');
 }
 
-let activeShopCategory = 'todos';
+let activeShopBrand = 'todas';
 
 function pageShop(){
-  const categories = [
-    { key: 'todos', label: 'todos' },
-    { key: 'finalização', label: 'finalização' },
-    { key: 'séruns', label: 'séruns' },
-    { key: 'óleos', label: 'óleos' },
-    { key: 'tratamentos', label: 'tratamentos' },
-    { key: 'leave-in', label: 'leave-in' }
-  ];
+  const brandsList = ['todas', 'Pratik pro', 'La riccy', 'Mazzon', 'Beauty mix'];
 
-  const tagsHtml = categories.map(cat => `
-    <button type="button" class="tag-badge shop-cat-badge ${activeShopCategory.toLowerCase() === cat.key.toLowerCase() ? 'active' : ''}" onclick="filterShopByCategory('${esc(cat.key)}')">
-      ${esc(cat.label)}
+  const brandTagsHtml = brandsList.map(brand => `
+    <button type="button" class="tag-badge brand-badge ${activeShopBrand.toLowerCase() === brand.toLowerCase() ? 'active' : ''}" onclick="filterShopByBrand('${esc(brand)}')">
+      ${esc(brand)}
     </button>
   `).join('');
 
@@ -1186,7 +1179,11 @@ function pageShop(){
         ${secHead('Loja','Farmácia capilar')}
         
         <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: -12px; margin-bottom: 32px;">
-          ${tagsHtml}
+          ${brandTagsHtml}
+        </div>
+
+        <div style="margin-bottom: 24px;">
+          <h3 id="categoryTitle" class="gold-glow" style="font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">Finalização</h3>
         </div>
 
         <div id="prodGrid" class="grid-prod"></div>
@@ -1195,11 +1192,11 @@ function pageShop(){
   `;
 }
 
-function filterShopByCategory(categoryKey) {
-  activeShopCategory = categoryKey;
-  const badges = document.querySelectorAll('.shop-cat-badge');
+function filterShopByBrand(brandName){
+  activeShopBrand = brandName;
+  const badges = document.querySelectorAll('.brand-badge');
   badges.forEach(b => {
-    if (b.textContent.trim().toLowerCase() === categoryKey.toLowerCase()) {
+    if (b.textContent.trim().toLowerCase() === brandName.toLowerCase()) {
       b.classList.add('active');
     } else {
       b.classList.remove('active');
@@ -1212,14 +1209,19 @@ function initShop(){ renderProdGrid(); }
 
 function renderProdGrid(){
   const grid = document.getElementById('prodGrid');
+  const titleEl = document.getElementById('categoryTitle');
   if(!grid) return;
   
-  const filtered = activeShopCategory.toLowerCase() === 'todos'
+  const filtered = activeShopBrand.toLowerCase() === 'todas'
     ? PRODUCTS
-    : PRODUCTS.filter(p => p.category.toLowerCase() === activeShopCategory.toLowerCase());
+    : PRODUCTS.filter(p => p.brand.toLowerCase() === activeShopBrand.toLowerCase());
+
+  if(titleEl){
+    titleEl.textContent = activeShopBrand.toLowerCase() === 'todas' ? 'Finalização' : activeShopBrand;
+  }
 
   if(filtered.length === 0){
-    grid.innerHTML = `<p class="text-muted" style="grid-column: 1/-1; text-align: center; padding: 40px 0;">Nenhum produto encontrado para esta categoria.</p>`;
+    grid.innerHTML = `<p class="text-muted" style="grid-column: 1/-1; text-align: center; padding: 40px 0;">Nenhum produto encontrado para esta marca.</p>`;
     return;
   }
 

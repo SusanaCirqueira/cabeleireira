@@ -650,8 +650,7 @@ const SERVICES = [
 ];
 
 const PRODUCTS = [
-  // Produtos da marca Mazzon (com imagens a1.png, a2.png, a3.png, a4.png, a5.png)
-  {id:"p3",name:"Defrizante em Spray Mazzon",brand:"Mazzon",category:"Finalizadores",price:119.90,description:"Defrizante em spray multi-benefícios termo ativado para escovar e pranchar sem frizz.",image:"a1.png"},
+  {id:"p3",name:"Defrizante em Spray Mazzon",brand:"Mazzon",category:"Finalização",price:119.90,description:"Defrizante em spray multi-benefícios termo ativado para escovar e pranchar sem frizz.",image:"a1.png"},
   {id:"p4",name:"Sérum Capilar Nutri Oro",brand:"Mazzon",category:"Séruns",price:129.90,description:"Sérum capilar com óleos da Amazônia para toque leve, sedoso e nutrição intensa.",image:"a2.png"},
   {id:"p5",name:"Oil Treatment Argan",brand:"Mazzon",category:"Óleos",price:139.90,description:"Tratamento com Argan e Abyssinian para cabelos multiprocessados, ressecados e quebradiços.",image:"a3.png"},
   {id:"p6",name:"BB Cream Mazzon Nature",brand:"Mazzon",category:"Tratamentos",price:109.90,description:"BB cream sem enxágue com 10 benefícios, filtro solar e extratos vegetais.",image:"a4.png"},
@@ -1163,14 +1162,21 @@ function renderProceduresGrid(){
   `).join('');
 }
 
-let activeShopBrand = 'todas';
+let activeShopCategory = 'todos';
 
 function pageShop(){
-  const brandsList = ['todas', 'Pratik pro', 'La riccy', 'Mazzon', 'Beauty mix'];
+  const categories = [
+    { key: 'todos', label: 'todos' },
+    { key: 'finalização', label: 'finalização' },
+    { key: 'séruns', label: 'séruns' },
+    { key: 'óleos', label: 'óleos' },
+    { key: 'tratamentos', label: 'tratamentos' },
+    { key: 'leave-in', label: 'leave-in' }
+  ];
 
-  const brandTagsHtml = brandsList.map(brand => `
-    <button type="button" class="tag-badge brand-badge ${activeShopBrand.toLowerCase() === brand.toLowerCase() ? 'active' : ''}" onclick="filterShopByBrand('${esc(brand)}')">
-      ${esc(brand)}
+  const tagsHtml = categories.map(cat => `
+    <button type="button" class="tag-badge shop-cat-badge ${activeShopCategory.toLowerCase() === cat.key.toLowerCase() ? 'active' : ''}" onclick="filterShopByCategory('${esc(cat.key)}')">
+      ${esc(cat.label)}
     </button>
   `).join('');
 
@@ -1180,7 +1186,7 @@ function pageShop(){
         ${secHead('Loja','Farmácia capilar')}
         
         <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: -12px; margin-bottom: 32px;">
-          ${brandTagsHtml}
+          ${tagsHtml}
         </div>
 
         <div id="prodGrid" class="grid-prod"></div>
@@ -1189,11 +1195,11 @@ function pageShop(){
   `;
 }
 
-function filterShopByBrand(brandName){
-  activeShopBrand = brandName;
-  const badges = document.querySelectorAll('.brand-badge');
+function filterShopByCategory(categoryKey) {
+  activeShopCategory = categoryKey;
+  const badges = document.querySelectorAll('.shop-cat-badge');
   badges.forEach(b => {
-    if (b.textContent.trim().toLowerCase() === brandName.toLowerCase()) {
+    if (b.textContent.trim().toLowerCase() === categoryKey.toLowerCase()) {
       b.classList.add('active');
     } else {
       b.classList.remove('active');
@@ -1208,12 +1214,12 @@ function renderProdGrid(){
   const grid = document.getElementById('prodGrid');
   if(!grid) return;
   
-  const filtered = activeShopBrand.toLowerCase() === 'todas'
+  const filtered = activeShopCategory.toLowerCase() === 'todos'
     ? PRODUCTS
-    : PRODUCTS.filter(p => p.brand.toLowerCase() === activeShopBrand.toLowerCase());
+    : PRODUCTS.filter(p => p.category.toLowerCase() === activeShopCategory.toLowerCase());
 
   if(filtered.length === 0){
-    grid.innerHTML = `<p class="text-muted" style="grid-column: 1/-1; text-align: center; padding: 40px 0;">Nenhum produto encontrado para esta marca.</p>`;
+    grid.innerHTML = `<p class="text-muted" style="grid-column: 1/-1; text-align: center; padding: 40px 0;">Nenhum produto encontrado para esta categoria.</p>`;
     return;
   }
 

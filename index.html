@@ -1182,17 +1182,19 @@ function pageShop(){
           ${brandTagsHtml}
         </div>
 
-        <div style="margin-bottom: 24px;">
-          <h3 id="categoryTitle" class="gold-glow" style="font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">Finalização</h3>
+        <div id="mazzonSectionsContainer" style="display: none;">
+          <div style="margin-bottom: 24px;">
+            <h3 class="gold-glow" style="font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">Finalização</h3>
+          </div>
+          <div id="mazzonFinalizacaoGrid" class="grid-prod" style="margin-bottom: 48px;"></div>
+
+          <div style="margin-bottom: 24px;">
+            <h3 class="gold-glow" style="font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">Pós Química</h3>
+          </div>
+          <div id="mazzonPosGrid" class="grid-prod"></div>
         </div>
 
-        <div id="prodGrid" class="grid-prod" style="margin-bottom: 48px;"></div>
-
-        <div style="margin-bottom: 24px;">
-          <h3 class="gold-glow" style="font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">Pós Química</h3>
-        </div>
-
-        <div id="posQuimicaGrid" class="grid-prod"></div>
+        <div id="prodGrid" class="grid-prod"></div>
       </div>
     </div>
   `;
@@ -1215,41 +1217,81 @@ function initShop(){ renderProdGrid(); }
 
 function renderProdGrid(){
   const grid = document.getElementById('prodGrid');
-  const posGrid = document.getElementById('posQuimicaGrid');
-  const titleEl = document.getElementById('categoryTitle');
-  if(!grid || !posGrid) return;
+  const mazzonContainer = document.getElementById('mazzonSectionsContainer');
+  const mazzonFinalizacaoGrid = document.getElementById('mazzonFinalizacaoGrid');
+  const mazzonPosGrid = document.getElementById('mazzonPosGrid');
   
-  const filtered = activeShopBrand.toLowerCase() === 'todas'
-    ? PRODUCTS
-    : PRODUCTS.filter(p => p.brand.toLowerCase() === activeShopBrand.toLowerCase());
+  if(!grid || !mazzonContainer) return;
+  
+  const isMazzon = activeShopBrand.toLowerCase() === 'mazzon';
+  const isTodas = activeShopBrand.toLowerCase() === 'todas';
 
-  const regularProducts = filtered.filter(p => p.id !== 'p8');
-  const posQuimicaProducts = filtered.filter(p => p.id === 'p8');
+  if (isMazzon || isTodas) {
+    mazzonContainer.style.display = 'block';
+    grid.style.display = 'none';
 
-  if(titleEl){
-    titleEl.textContent = activeShopBrand.toLowerCase() === 'todas' ? 'Finalização' : `Finalização — ${activeShopBrand}`;
-  }
+    const mazzonProducts = PRODUCTS.filter(p => p.brand.toLowerCase() === 'mazzon');
+    const finalizacaoProducts = mazzonProducts.filter(p => p.id !== 'p8');
+    const posProducts = mazzonProducts.filter(p => p.id === 'p8');
 
-  if(regularProducts.length === 0){
-    grid.innerHTML = `<p class="text-muted" style="grid-column: 1/-1; text-align: center; padding: 20px 0;">Nenhum produto encontrado nesta seção.</p>`;
+    if(mazzonFinalizacaoGrid){
+      mazzonFinalizacaoGrid.innerHTML = finalizacaoProducts.map(p => `
+        <article class="prod">
+          <div class="prod-img"><img src="${p.image}" alt="${esc(p.name)}" class="scale-hover"></div>
+          <h3 class="gold-glow" style="margin-top:6px">${esc(p.name)}</h3>
+          <p class="desc" style="margin-top:6px">${esc(p.description)}</p>
+          <div class="foot">
+            <span class="price gold-glow">R$ ${p.price.toFixed(2).replace('.',',')}</span>
+            <button class="add-btn" onclick='addProductToCart(${JSON.stringify(p)})'>Adicionar ao Carrinho</button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    if(mazzonPosGrid){
+      mazzonPosGrid.innerHTML = posProducts.map(p => `
+        <article class="prod">
+          <div class="prod-img"><img src="${p.image}" alt="${esc(p.name)}" class="scale-hover"></div>
+          <h3 class="gold-glow" style="margin-top:6px">${esc(p.name)}</h3>
+          <p class="desc" style="margin-top:6px">${esc(p.description)}</p>
+          <div class="foot">
+            <span class="price gold-glow">R$ ${p.price.toFixed(2).replace('.',',')}</span>
+            <button class="add-btn" onclick='addProductToCart(${JSON.stringify(p)})'>Adicionar ao Carrinho</button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    if (isTodas) {
+      // Se "todas" estiver selecionado, podemos mostrar também as outras marcas abaixo do bloco Mazzon ou misturadas
+      mazzonContainer.style.display = 'none';
+      grid.style.display = 'grid';
+      const filtered = PRODUCTS;
+      grid.innerHTML = filtered.map(p => `
+        <article class="prod">
+          <div class="prod-img"><img src="${p.image}" alt="${esc(p.name)}" class="scale-hover"></div>
+          <h3 class="gold-glow" style="margin-top:6px">${esc(p.name)}</h3>
+          <p class="desc" style="margin-top:6px">${esc(p.description)}</p>
+          <div class="foot">
+            <span class="price gold-glow">R$ ${p.price.toFixed(2).replace('.',',')}</span>
+            <button class="add-btn" onclick='addProductToCart(${JSON.stringify(p)})'>Adicionar ao Carrinho</button>
+          </div>
+        </article>
+      `).join('');
+    }
+
   } else {
-    grid.innerHTML = regularProducts.map(p => `
-      <article class="prod">
-        <div class="prod-img"><img src="${p.image}" alt="${esc(p.name)}" class="scale-hover"></div>
-        <h3 class="gold-glow" style="margin-top:6px">${esc(p.name)}</h3>
-        <p class="desc" style="margin-top:6px">${esc(p.description)}</p>
-        <div class="foot">
-          <span class="price gold-glow">R$ ${p.price.toFixed(2).replace('.',',')}</span>
-          <button class="add-btn" onclick='addProductToCart(${JSON.stringify(p)})'>Adicionar ao Carrinho</button>
-        </div>
-      </article>
-    `).join('');
-  }
+    mazzonContainer.style.display = 'none';
+    grid.style.display = 'grid';
 
-  if(posQuimicaProducts.length === 0){
-    posGrid.innerHTML = `<p class="text-muted" style="grid-column: 1/-1; text-align: center; padding: 20px 0;">Nenhum produto encontrado nesta seção.</p>`;
-  } else {
-    posGrid.innerHTML = posQuimicaProducts.map(p => `
+    const filtered = PRODUCTS.filter(p => p.brand.toLowerCase() === activeShopBrand.toLowerCase());
+
+    if(filtered.length === 0){
+      grid.innerHTML = `<p class="text-muted" style="grid-column: 1/-1; text-align: center; padding: 40px 0;">Nenhum produto encontrado para esta marca.</p>`;
+      return;
+    }
+
+    grid.innerHTML = filtered.map(p => `
       <article class="prod">
         <div class="prod-img"><img src="${p.image}" alt="${esc(p.name)}" class="scale-hover"></div>
         <h3 class="gold-glow" style="margin-top:6px">${esc(p.name)}</h3>

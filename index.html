@@ -665,7 +665,10 @@ const PRODUCTS = [
   {id:"p16",name:"Leave-in Argan Reconstrução Intensiva",brand:"Mazzon",category:"Argan Reconstrução Intensiva",price:119.90,description:"Leave-in para cabelos multiprocessados, ressecados e quebradiços com aminoácidos de queratina, argan e abyssinian.",image:"a13.png"},
   {id:"p17",name:"Recondicionador Argan Reconstrução Intensiva",brand:"Mazzon",category:"Argan Reconstrução Intensiva",price:129.90,description:"Recondicionador de reconstrução intensiva com aminoácidos de queratina, argan e abyssinian.",image:"a14.png"},
   {id:"p18",name:"Shampoo Argan Reconstrução Intensiva",brand:"Mazzon",category:"Argan Reconstrução Intensiva",price:109.90,description:"Shampoo para cabelos multiprocessados, ressecados e quebradiços com aminoácidos de queratina, argan e abyssinian.",image:"a15.png"},
-  {id:"p19",name:"Máscara Argan Reconstrução Intensiva",brand:"Mazzon",category:"Argan Reconstrução Intensiva",price:149.90,description:"Máscara de reconstrução intensiva para cabelos danificados com aminoácidos de queratina, argan e abyssinian.",image:"a16.png"}
+  {id:"p19",name:"Máscara Argan Reconstrução Intensiva",brand:"Mazzon",category:"Argan Reconstrução Intensiva",price:149.90,description:"Máscara de reconstrução intensiva para cabelos danificados com aminoácidos de queratina, argan e abyssinian.",image:"a16.png"},
+  {id:"p20",name:"Máscara Recondicionadora Cachos Mazzon",brand:"Mazzon",category:"Cachos Mazzon",price:139.90,description:"Máscara recondicionadora para cachos definidos, hidratados profundamente e nutridos em todas as curvaturas.",image:"a17.png"},
+  {id:"p21",name:"Shampoo Cachos Mazzon",brand:"Mazzon",category:"Cachos Mazzon",price:109.90,description:"Shampoo sem sal para limpeza suave e nutrição para cachos e ondas de todas as curvaturas.",image:"a18.png"},
+  {id:"p22",name:"Ativador e Modelador de Cachos Mazzon",brand:"Mazzon",category:"Cachos Mazzon",price:119.90,description:"Ativador e modelador para cachos exclusivos e nutridos em todas as curvaturas.",image:"a19.png"}
 ];
 
 const PROFESSIONALS = [
@@ -1212,7 +1215,12 @@ function pageShop(){
           <div style="margin-bottom: 24px;">
             <h3 class="gold-glow" style="font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">Argan Reconstrução Intensiva</h3>
           </div>
-          <div id="mazzonArganGrid" class="grid-prod"></div>
+          <div id="mazzonArganGrid" class="grid-prod" style="margin-bottom: 48px;"></div>
+
+          <div style="margin-bottom: 24px;">
+            <h3 class="gold-glow" style="font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">Cachos Mazzon</h3>
+          </div>
+          <div id="mazzonCachosGrid" class="grid-prod"></div>
         </div>
 
         <div id="prodGrid" class="grid-prod"></div>
@@ -1243,6 +1251,7 @@ function renderProdGrid(){
   const mazzonPosGrid = document.getElementById('mazzonPosGrid');
   const mazzonNutricaoGrid = document.getElementById('mazzonNutricaoGrid');
   const mazzonArganGrid = document.getElementById('mazzonArganGrid');
+  const mazzonCachosGrid = document.getElementById('mazzonCachosGrid');
   
   if(!grid || !mazzonContainer) return;
   
@@ -1254,10 +1263,11 @@ function renderProdGrid(){
     grid.style.display = 'none';
 
     const mazzonProducts = PRODUCTS.filter(p => p.brand.toLowerCase() === 'mazzon');
-    const finalizacaoProducts = mazzonProducts.filter(p => p.category.toLowerCase() !== 'pós química' && p.category.toLowerCase() !== 'nutrição intensiva' && p.category.toLowerCase() !== 'argan reconstrução intensiva');
+    const finalizacaoProducts = mazzonProducts.filter(p => p.category.toLowerCase() !== 'pós química' && p.category.toLowerCase() !== 'nutrição intensiva' && p.category.toLowerCase() !== 'argan reconstrução intensiva' && p.category.toLowerCase() !== 'cachos mazzon');
     const posProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'pós química');
     const nutricaoProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'nutrição intensiva');
     const arganProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'argan reconstrução intensiva');
+    const cachosProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'cachos mazzon');
 
     if(mazzonFinalizacaoGrid){
       mazzonFinalizacaoGrid.innerHTML = finalizacaoProducts.map(p => `
@@ -1303,6 +1313,20 @@ function renderProdGrid(){
 
     if(mazzonArganGrid){
       mazzonArganGrid.innerHTML = arganProducts.map(p => `
+        <article class="prod">
+          <div class="prod-img"><img src="${p.image}" alt="${esc(p.name)}" class="scale-hover"></div>
+          <h3 class="gold-glow" style="margin-top:6px">${esc(p.name)}</h3>
+          <p class="desc" style="margin-top:6px">${esc(p.description)}</p>
+          <div class="foot">
+            <span class="price gold-glow">R$ ${p.price.toFixed(2).replace('.',',')}</span>
+            <button class="add-btn" onclick='addProductToCart(${JSON.stringify(p)})'>Adicionar ao Carrinho</button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    if(mazzonCachosGrid){
+      mazzonCachosGrid.innerHTML = cachosProducts.map(p => `
         <article class="prod">
           <div class="prod-img"><img src="${p.image}" alt="${esc(p.name)}" class="scale-hover"></div>
           <h3 class="gold-glow" style="margin-top:6px">${esc(p.name)}</h3>

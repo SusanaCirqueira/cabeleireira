@@ -680,7 +680,9 @@ const PRODUCTS = [
   {id:"p30",name:"Leave-in SOS Regenerador",brand:"Mazzon",category:"SOS Regenerador Anti Emborrachamento",price:119.90,description:"Proteção e selamento das cutículas, diminui a elasticidade, proteção térmica e solar com brilho luminoso.",image:"a27.png"},
   {id:"p31",name:"Emulsão SOS Regenerador",brand:"Mazzon",category:"SOS Regenerador Anti Emborrachamento",price:149.90,description:"Reconstrução e restauração da fibra capilar para cabelos danificados e processados quimicamente.",image:"a28.png"},
   {id:"p32",name:"Magic Ultra Liss Blond Escova Orgânica",brand:"Mazzon",category:"Magic Ultra Liss",price:189.90,description:"Efeito liso progressivo, mais maciez, brilho e nutrição para cabelos loiros ou com mechas. Complexo de aminoácidos, pantenol e argan.",image:"a29.png"},
-  {id:"p33",name:"Magic Ultra Liss Escova Orgânica",brand:"Mazzon",category:"Magic Ultra Liss",price:189.90,description:"Efeito liso progressivo, reduz o volume e nutrição para todos os tipos de cabelo. Cabelos mais lisos, fortes e saudáveis por muito mais tempo.",image:"a30.png"}
+  {id:"p33",name:"Magic Ultra Liss Escova Orgânica",brand:"Mazzon",category:"Magic Ultra Liss",price:189.90,description:"Efeito liso progressivo, reduz o volume e nutrição para todos os tipos de cabelo. Cabelos mais lisos, fortes e saudáveis por muito mais tempo.",image:"a30.png"},
+  {id:"p34",name:"Shampoo Detox Purificante Uso Diário",brand:"Mazzon",category:"Detox e Purificante",price:109.90,description:"Shampoo detox sem sal para todos os tipos de cabelo com extratos de hortelã e alecrim para limpeza purificante.",image:"a31.png"},
+  {id:"p35",name:"Condicionador Detox Purificante",brand:"Mazzon",category:"Detox e Purificante",price:119.90,description:"Condicionador detox sem sal para todos os tipos de cabelo com extratos de hortelã e alecrim para refrescância e leveza.",image:"a32.png"}
 ];
 
 const PROFESSIONALS = [
@@ -1247,7 +1249,12 @@ function pageShop(){
           <div style="margin-bottom: 24px;">
             <h3 class="gold-glow" style="font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">Magic Ultra Liss</h3>
           </div>
-          <div id="mazzonMagicGrid" class="grid-prod"></div>
+          <div id="mazzonMagicGrid" class="grid-prod" style="margin-bottom: 48px;"></div>
+
+          <div style="margin-bottom: 24px;">
+            <h3 class="gold-glow" style="font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">Detox e Purificante</h3>
+          </div>
+          <div id="mazzonDetoxGrid" class="grid-prod"></div>
         </div>
 
         <div id="prodGrid" class="grid-prod"></div>
@@ -1282,6 +1289,7 @@ function renderProdGrid(){
   const mazzonRestoreBlondGrid = document.getElementById('mazzonRestoreBlondGrid');
   const mazzonSosGrid = document.getElementById('mazzonSosGrid');
   const mazzonMagicGrid = document.getElementById('mazzonMagicGrid');
+  const mazzonDetoxGrid = document.getElementById('mazzonDetoxGrid');
   
   if(!grid || !mazzonContainer) return;
   
@@ -1293,7 +1301,7 @@ function renderProdGrid(){
     grid.style.display = 'none';
 
     const mazzonProducts = PRODUCTS.filter(p => p.brand.toLowerCase() === 'mazzon');
-    const finalizacaoProducts = mazzonProducts.filter(p => p.category.toLowerCase() !== 'pós química' && p.category.toLowerCase() !== 'nutrição intensiva' && p.category.toLowerCase() !== 'argan reconstrução intensiva' && p.category.toLowerCase() !== 'cachos mazzon' && p.category.toLowerCase() !== 'restore blond' && p.category.toLowerCase() !== 'sos regenerador anti emborrachamento' && p.category.toLowerCase() !== 'magic ultra liss');
+    const finalizacaoProducts = mazzonProducts.filter(p => p.category.toLowerCase() !== 'pós química' && p.category.toLowerCase() !== 'nutrição intensiva' && p.category.toLowerCase() !== 'argan reconstrução intensiva' && p.category.toLowerCase() !== 'cachos mazzon' && p.category.toLowerCase() !== 'restore blond' && p.category.toLowerCase() !== 'sos regenerador anti emborrachamento' && p.category.toLowerCase() !== 'magic ultra liss' && p.category.toLowerCase() !== 'detox e purificante');
     const posProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'pós química');
     const nutricaoProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'nutrição intensiva');
     const arganProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'argan reconstrução intensiva');
@@ -1301,6 +1309,7 @@ function renderProdGrid(){
     const restoreBlondProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'restore blond');
     const sosProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'sos regenerador anti emborrachamento');
     const magicProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'magic ultra liss');
+    const detoxProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'detox e purificante');
 
     if(mazzonFinalizacaoGrid){
       mazzonFinalizacaoGrid.innerHTML = finalizacaoProducts.map(p => `
@@ -1402,6 +1411,20 @@ function renderProdGrid(){
 
     if(mazzonMagicGrid){
       mazzonMagicGrid.innerHTML = magicProducts.map(p => `
+        <article class="prod">
+          <div class="prod-img"><img src="${p.image}" alt="${esc(p.name)}" class="scale-hover"></div>
+          <h3 class="gold-glow" style="margin-top:6px">${esc(p.name)}</h3>
+          <p class="desc" style="margin-top:6px">${esc(p.description)}</p>
+          <div class="foot">
+            <span class="price gold-glow">R$ ${p.price.toFixed(2).replace('.',',')}</span>
+            <button class="add-btn" onclick='addProductToCart(${JSON.stringify(p)})'>Adicionar ao Carrinho</button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    if(mazzonDetoxGrid){
+      mazzonDetoxGrid.innerHTML = detoxProducts.map(p => `
         <article class="prod">
           <div class="prod-img"><img src="${p.image}" alt="${esc(p.name)}" class="scale-hover"></div>
           <h3 class="gold-glow" style="margin-top:6px">${esc(p.name)}</h3>

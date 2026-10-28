@@ -672,7 +672,13 @@ const PRODUCTS = [
   {id:"p22",name:"Ativador e Modelador de Cachos Mazzon",brand:"Mazzon",category:"Cachos Mazzon",price:119.90,description:"Ativador e modelador para cachos exclusivos e nutridos em todas as curvaturas.",image:"a19.png"},
   {id:"p23",name:"Leave on Emulsion Blond Restore Blond",brand:"Mazzon",category:"Restore Blond",price:119.90,description:"Leave-on emulsion para cabelos loiros e grisalhos. Matiza, protege os fios e contém filtro solar.",image:"a20.png"},
   {id:"p24",name:"Máscara Recondicionadora Restore Blond",brand:"Mazzon",category:"Restore Blond",price:149.90,description:"Máscara recondicionadora para matização e proteção dos fios loiros e grisalhos com filtro solar.",image:"a21.png"},
-  {id:"p25",name:"Shampoo Restore Blond",brand:"Mazzon",category:"Restore Blond",price:109.90,description:"Shampoo sem sal para cabelos loiros e grisalhos. Limpeza suave, matização e reparo dos tons amarelados.",image:"a22.png"}
+  {id:"p25",name:"Shampoo Restore Blond",brand:"Mazzon",category:"Restore Blond",price:109.90,description:"Shampoo sem sal para cabelos loiros e grisalhos. Limpeza suave, matização e reparo dos tons amarelados.",image:"a22.png"},
+  {id:"p26",name:"Neutralizante 5 em 1 SOS Regenerador",brand:"Mazzon",category:"SOS Regenerador Anti Emborrachamento",price:149.90,description:"Neutralização do pH, remove cloro residual e metais, reparação dos danos capilares e hidratação intensiva.",image:"a23.png"},
+  {id:"p27",name:"Shampoo SOS Regenerador",brand:"Mazzon",category:"SOS Regenerador Anti Emborrachamento",price:109.90,description:"Shampoo low poo / sem sal com limpeza suave e ativos celulares para cabelos multiprocessados, danificados e quebradiços.",image:"a24.png"},
+  {id:"p28",name:"Queratina SOS Regenerador",brand:"Mazzon",category:"SOS Regenerador Anti Emborrachamento",price:139.90,description:"Repara, fortalece e reconstrói os fios com ativos celulares para cabelos danificados, fragilizados e sensibilizados.",image:"a25.png"},
+  {id:"p29",name:"Fluido Regenerador Instantâneo SOS",brand:"Mazzon",category:"SOS Regenerador Anti Emborrachamento",price:129.90,description:"Restauração e reconstrução antiemborrachamento instantânea para cabelos sensibilizados, elásticos e enfraquecidos.",image:"a26.png"},
+  {id:"p30",name:"Leave-in SOS Regenerador",brand:"Mazzon",category:"SOS Regenerador Anti Emborrachamento",price:119.90,description:"Proteção e selamento das cutículas, diminui a elasticidade, proteção térmica e solar com brilho luminoso.",image:"a27.png"},
+  {id:"p31",name:"Emulsão SOS Regenerador",brand:"Mazzon",category:"SOS Regenerador Anti Emborrachamento",price:149.90,description:"Reconstrução e restauração da fibra capilar para cabelos danificados e processados quimicamente.",image:"a28.png"}
 ];
 
 const PROFESSIONALS = [
@@ -1229,7 +1235,12 @@ function pageShop(){
           <div style="margin-bottom: 24px;">
             <h3 class="gold-glow" style="font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">Restore Blond</h3>
           </div>
-          <div id="mazzonRestoreBlondGrid" class="grid-prod"></div>
+          <div id="mazzonRestoreBlondGrid" class="grid-prod" style="margin-bottom: 48px;"></div>
+
+          <div style="margin-bottom: 24px;">
+            <h3 class="gold-glow" style="font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">OS Regenerador Anti Emborrachamento</h3>
+          </div>
+          <div id="mazzonSosGrid" class="grid-prod"></div>
         </div>
 
         <div id="prodGrid" class="grid-prod"></div>
@@ -1262,6 +1273,7 @@ function renderProdGrid(){
   const mazzonArganGrid = document.getElementById('mazzonArganGrid');
   const mazzonCachosGrid = document.getElementById('mazzonCachosGrid');
   const mazzonRestoreBlondGrid = document.getElementById('mazzonRestoreBlondGrid');
+  const mazzonSosGrid = document.getElementById('mazzonSosGrid');
   
   if(!grid || !mazzonContainer) return;
   
@@ -1273,12 +1285,13 @@ function renderProdGrid(){
     grid.style.display = 'none';
 
     const mazzonProducts = PRODUCTS.filter(p => p.brand.toLowerCase() === 'mazzon');
-    const finalizacaoProducts = mazzonProducts.filter(p => p.category.toLowerCase() !== 'pós química' && p.category.toLowerCase() !== 'nutrição intensiva' && p.category.toLowerCase() !== 'argan reconstrução intensiva' && p.category.toLowerCase() !== 'cachos mazzon' && p.category.toLowerCase() !== 'restore blond');
+    const finalizacaoProducts = mazzonProducts.filter(p => p.category.toLowerCase() !== 'pós química' && p.category.toLowerCase() !== 'nutrição intensiva' && p.category.toLowerCase() !== 'argan reconstrução intensiva' && p.category.toLowerCase() !== 'cachos mazzon' && p.category.toLowerCase() !== 'restore blond' && p.category.toLowerCase() !== 'sos regenerador anti emborrachamento');
     const posProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'pós química');
     const nutricaoProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'nutrição intensiva');
     const arganProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'argan reconstrução intensiva');
     const cachosProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'cachos mazzon');
     const restoreBlondProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'restore blond');
+    const sosProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'sos regenerador anti emborrachamento');
 
     if(mazzonFinalizacaoGrid){
       mazzonFinalizacaoGrid.innerHTML = finalizacaoProducts.map(p => `
@@ -1352,6 +1365,20 @@ function renderProdGrid(){
 
     if(mazzonRestoreBlondGrid){
       mazzonRestoreBlondGrid.innerHTML = restoreBlondProducts.map(p => `
+        <article class="prod">
+          <div class="prod-img"><img src="${p.image}" alt="${esc(p.name)}" class="scale-hover"></div>
+          <h3 class="gold-glow" style="margin-top:6px">${esc(p.name)}</h3>
+          <p class="desc" style="margin-top:6px">${esc(p.description)}</p>
+          <div class="foot">
+            <span class="price gold-glow">R$ ${p.price.toFixed(2).replace('.',',')}</span>
+            <button class="add-btn" onclick='addProductToCart(${JSON.stringify(p)})'>Adicionar ao Carrinho</button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    if(mazzonSosGrid){
+      mazzonSosGrid.innerHTML = sosProducts.map(p => `
         <article class="prod">
           <div class="prod-img"><img src="${p.image}" alt="${esc(p.name)}" class="scale-hover"></div>
           <h3 class="gold-glow" style="margin-top:6px">${esc(p.name)}</h3>

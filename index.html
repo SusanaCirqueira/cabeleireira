@@ -682,7 +682,17 @@ const PRODUCTS = [
   {id:"p32",name:"Magic Ultra Liss Blond Escova Orgânica",brand:"Mazzon",category:"Magic Ultra Liss",price:189.90,description:"Efeito liso progressivo, mais maciez, brilho e nutrição para cabelos loiros ou com mechas. Complexo de aminoácidos, pantenol e argan.",image:"a29.png"},
   {id:"p33",name:"Magic Ultra Liss Escova Orgânica",brand:"Mazzon",category:"Magic Ultra Liss",price:189.90,description:"Efeito liso progressivo, reduz o volume e nutrição para todos os tipos de cabelo. Cabelos mais lisos, fortes e saudáveis por muito mais tempo.",image:"a30.png"},
   {id:"p34",name:"Shampoo Detox Purificante Uso Diário",brand:"Mazzon",category:"Detox e Purificante",price:109.90,description:"Shampoo detox sem sal para todos os tipos de cabelo com extratos de hortelã e alecrim para limpeza purificante.",image:"a31.png"},
-  {id:"p35",name:"Condicionador Detox Purificante",brand:"Mazzon",category:"Detox e Purificante",price:119.90,description:"Condicionador detox sem sal para todos os tipos de cabelo com extratos de hortelã e alecrim para refrescância e leveza.",image:"a32.png"}
+  {id:"p35",name:"Condicionador Detox Purificante",brand:"Mazzon",category:"Detox e Purificante",price:119.90,description:"Condicionador detox sem sal para todos os tipos de cabelo com extratos de hortelã e alecrim para refrescância e leveza.",image:"a32.png"},
+  {id:"p36",name:"Hidratário de Gerânio SPA Sintonia",brand:"Mazzon",category:"Sintonia SPA Hair And Skin",price:119.90,description:"Hidratário de gerânio para todos os tipos de cabelo. Reparação e brilho intenso profissional.",image:"a33.png"},
+  {id:"p37",name:"Hidrolato de Lavanda SPA Sintonia",brand:"Mazzon",category:"Sintonia SPA Hair And Skin",price:119.90,description:"Hidrolato de lavanda para todos os tipos de cabelo. Calmante, relaxante e hidratante.",image:"a34.png"},
+  {id:"p38",name:"Hidrolato de Melaleuca SPA Sintonia",brand:"Mazzon",category:"Sintonia SPA Hair And Skin",price:119.90,description:"Hidrolato de melaleuca para todos os tipos de cabelo. Regeneração e desinflamação.",image:"a35.png"},
+  {id:"p39",name:"Extrato de Aloe Vera SPA Sintonia",brand:"Mazzon",category:"Sintonia SPA Hair And Skin",price:99.90,description:"Extrato de aloe vera para todos os tipos de cabelo. Hidratação e nutrição profunda.",image:"a36.png"},
+  {id:"p40",name:"Extrato de Café Verde SPA Sintonia",brand:"Mazzon",category:"Sintonia SPA Hair And Skin",price:99.90,description:"Extrato de café verde para todos os tipos de cabelo. Crescimento e fortalecimento capilar.",image:"a37.png"},
+  {id:"p41",name:"Extrato de Amla SPA Sintonia",brand:"Mazzon",category:"Sintonia SPA Hair And Skin",price:99.90,description:"Extrato de amla para todos os tipos de cabelo. Hidratação e fortalecimento.",image:"a38.png"},
+  {id:"p42",name:"Hidrolato de Alecrim SPA Sintonia",brand:"Mazzon",category:"Sintonia SPA Hair And Skin",price:119.90,description:"Hidrolato de alecrim para todos os tipos de cabelo. Ação antioxidante e estímulo ao crescimento.",image:"a39.png"},
+  {id:"p43",name:"Máscara Multifuncional SPA Sintonia",brand:"Mazzon",category:"Sintonia SPA Hair And Skin",price:149.90,description:"Máscara multifuncional com condicionantes 100% vegetais para todos os tipos de cabelo.",image:"a40.png"},
+  {id:"p44",name:"Shampoo Suave SPA Sintonia",brand:"Mazzon",category:"Sintonia SPA Hair And Skin",price:109.90,description:"Shampoo suave profissional para limpeza delicada em todos os tipos de cabelo.",image:"a41.png"},
+  {id:"p45",name:"Extrato de Hortelã SPA Sintonia",brand:"Mazzon",category:"Sintonia SPA Hair And Skin",price:99.90,description:"Extrato de hortelã para todos os tipos de cabelo. Hidratação e crescimento revigorante.",image:"a42.png"}
 ];
 
 const PROFESSIONALS = [
@@ -1254,7 +1264,12 @@ function pageShop(){
           <div style="margin-bottom: 24px;">
             <h3 class="gold-glow" style="font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">Detox e Purificante</h3>
           </div>
-          <div id="mazzonDetoxGrid" class="grid-prod"></div>
+          <div id="mazzonDetoxGrid" class="grid-prod" style="margin-bottom: 48px;"></div>
+
+          <div style="margin-bottom: 24px;">
+            <h3 class="gold-glow" style="font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase;">Sintonia SPA Hair And Skin</h3>
+          </div>
+          <div id="mazzonSintoniaGrid" class="grid-prod"></div>
         </div>
 
         <div id="prodGrid" class="grid-prod"></div>
@@ -1290,6 +1305,7 @@ function renderProdGrid(){
   const mazzonSosGrid = document.getElementById('mazzonSosGrid');
   const mazzonMagicGrid = document.getElementById('mazzonMagicGrid');
   const mazzonDetoxGrid = document.getElementById('mazzonDetoxGrid');
+  const mazzonSintoniaGrid = document.getElementById('mazzonSintoniaGrid');
   
   if(!grid || !mazzonContainer) return;
   
@@ -1301,7 +1317,7 @@ function renderProdGrid(){
     grid.style.display = 'none';
 
     const mazzonProducts = PRODUCTS.filter(p => p.brand.toLowerCase() === 'mazzon');
-    const finalizacaoProducts = mazzonProducts.filter(p => p.category.toLowerCase() !== 'pós química' && p.category.toLowerCase() !== 'nutrição intensiva' && p.category.toLowerCase() !== 'argan reconstrução intensiva' && p.category.toLowerCase() !== 'cachos mazzon' && p.category.toLowerCase() !== 'restore blond' && p.category.toLowerCase() !== 'sos regenerador anti emborrachamento' && p.category.toLowerCase() !== 'magic ultra liss' && p.category.toLowerCase() !== 'detox e purificante');
+    const finalizacaoProducts = mazzonProducts.filter(p => p.category.toLowerCase() !== 'pós química' && p.category.toLowerCase() !== 'nutrição intensiva' && p.category.toLowerCase() !== 'argan reconstrução intensiva' && p.category.toLowerCase() !== 'cachos mazzon' && p.category.toLowerCase() !== 'restore blond' && p.category.toLowerCase() !== 'sos regenerador anti emborrachamento' && p.category.toLowerCase() !== 'magic ultra liss' && p.category.toLowerCase() !== 'detox e purificante' && p.category.toLowerCase() !== 'sintonia spa hair and skin');
     const posProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'pós química');
     const nutricaoProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'nutrição intensiva');
     const arganProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'argan reconstrução intensiva');
@@ -1310,6 +1326,7 @@ function renderProdGrid(){
     const sosProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'sos regenerador anti emborrachamento');
     const magicProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'magic ultra liss');
     const detoxProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'detox e purificante');
+    const sintoniaProducts = mazzonProducts.filter(p => p.category.toLowerCase() === 'sintonia spa hair and skin');
 
     if(mazzonFinalizacaoGrid){
       mazzonFinalizacaoGrid.innerHTML = finalizacaoProducts.map(p => `
@@ -1425,6 +1442,20 @@ function renderProdGrid(){
 
     if(mazzonDetoxGrid){
       mazzonDetoxGrid.innerHTML = detoxProducts.map(p => `
+        <article class="prod">
+          <div class="prod-img"><img src="${p.image}" alt="${esc(p.name)}" class="scale-hover"></div>
+          <h3 class="gold-glow" style="margin-top:6px">${esc(p.name)}</h3>
+          <p class="desc" style="margin-top:6px">${esc(p.description)}</p>
+          <div class="foot">
+            <span class="price gold-glow">R$ ${p.price.toFixed(2).replace('.',',')}</span>
+            <button class="add-btn" onclick='addProductToCart(${JSON.stringify(p)})'>Adicionar ao Carrinho</button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    if(mazzonSintoniaGrid){
+      mazzonSintoniaGrid.innerHTML = sintoniaProducts.map(p => `
         <article class="prod">
           <div class="prod-img"><img src="${p.image}" alt="${esc(p.name)}" class="scale-hover"></div>
           <h3 class="gold-glow" style="margin-top:6px">${esc(p.name)}</h3>
